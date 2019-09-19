@@ -15,6 +15,9 @@ import { SigninComponent } from './signin/signin.component';
 import { UserPageComponent } from './user-page/user-page.component';
 import { UserComponent } from './user/user.component';
 import { RegisterComponent } from './register/register.component';
+import { HomeNavbarComponent } from './home-navbar/home-navbar.component';
+import { SignupNavbarComponent } from './signup-navbar/signup-navbar.component';
+import { SigninNavbarComponent } from './signin-navbar/signin-navbar.component';
 
 
 
@@ -30,7 +33,10 @@ import { RegisterComponent } from './register/register.component';
     SigninComponent,
     UserPageComponent,
     UserComponent,
-    RegisterComponent
+    RegisterComponent,
+    HomeNavbarComponent,
+    SignupNavbarComponent,
+    SigninNavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -41,15 +47,33 @@ import { RegisterComponent } from './register/register.component';
       // order matters, put all specific before the wild cards
       {path: 'welcome', component: WelcomeComponent,
         children : [
+          {path: '', outlet: 'hNav', component: HomeNavbarComponent},
           { path: '', component: BirdCardsComponent },
           {path: 'Birds', component: BirdCardsComponent},
           {path: 'Rodents', component: RodentCardsComponent},
           {path: 'Reptiles', component: ReptileCardsComponent}
         ]
     },
-      {path: 'signin', component: SigninComponent},
-      {path: 'signup', component: SignupComponent},
-      {path: 'register', component: RegisterComponent},
+      {path: 'user', component: UserComponent,
+      children : [
+        {path: '', outlet: 'siNav', component: SigninNavbarComponent},
+      ]
+    },
+      {path: 'signin', component: SigninComponent,
+      children : [
+        {path: '', outlet: 'siNav', component: SigninNavbarComponent},
+      ]
+    },
+      {path: 'signup', component: SignupComponent,
+      children : [
+        {path: '', outlet: 'suNav', component: SignupNavbarComponent},
+      ]
+    },
+      {path: 'register', component: RegisterComponent,
+      children : [
+        {path: '', outlet: 'suNav', component: SignupNavbarComponent},
+      ]
+    },
       {path: '', redirectTo: 'welcome', pathMatch: 'full'},
       {path: '**', redirectTo: 'welcome', pathMatch: 'full'}
      ])

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-signup',
@@ -8,9 +9,11 @@ import { Router } from '@angular/router';
 })
 export class SignupComponent implements OnInit {
 
-  private email: string;
-  private password: string;
-  private passwordC: string;
+  initSignUp = new FormGroup({
+  email: new FormControl(''),
+  password: new FormControl(''),
+  passwordC: new FormControl('')
+  });
 
   constructor(private router: Router) { }
 
@@ -18,13 +21,12 @@ export class SignupComponent implements OnInit {
   }
 
   signup(): void {
-    if (this.password === this.passwordC) {
-      console.log(this.email + ' ' + this.password +  ' ' + this.passwordC);
+    if (this.initSignUp.value.password === this.initSignUp.value.passwordC) {
+      console.log(this.initSignUp.value);
       console.log('in success');
       this.router.navigate(['/register']);
      } else {
        alert('Passwords Do Not Match');
      }
   }
-
 }
