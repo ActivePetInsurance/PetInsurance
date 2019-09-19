@@ -47,6 +47,7 @@ import { RegisterComponent } from './register/register.component';
           {path: 'Reptiles', component: ReptileCardsComponent}
         ]
     },
+      {path: 'user', component: UserComponent},
       {path: 'signin', component: SigninComponent},
       {path: 'signup', component: SignupComponent},
       {path: 'register', component: RegisterComponent},
