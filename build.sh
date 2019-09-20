@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-
-ng build
-ng serve
-ng test
-ng e2e
+cd Pet-insurance-Angular/
+npm install
+npm run build
+gsutil cp -r dist gs://www.alexandernkingsburyprojects.com/Pet-insurance-Angular
