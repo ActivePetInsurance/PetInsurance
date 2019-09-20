@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 cd Pet-insurance-Angular/
 echo "here1"
+npm audit fix
 npm install
 echo "here2"
 npm run build
