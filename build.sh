@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 cd Pet-insurance-Angular/
 echo "here1"
-npm install 
+#npm install 
 echo "i really hate everything"
 sudo apt-get install -y nodejs
 echo "here2"
