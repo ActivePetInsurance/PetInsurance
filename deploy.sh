@@ -2,7 +2,7 @@
 #!/bin/sh
 
 # Install kubernetes and set config
-sudo gem install google-cloud-sdk
+sudo apt-get install google-cloud-sdk
 
 source $HOME/google-cloud-sdk/path.bash.inc
 
