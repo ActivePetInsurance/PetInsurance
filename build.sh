@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 cd Pet-insurance-Angular/
 echo "here1"
-npm install npm
-echo "i hate everything"
-curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+npm install 
+echo "i really hate everything"
+sudo apt-get install -y nodejs
 echo "here2"
 npm run build
 echo "here3"
