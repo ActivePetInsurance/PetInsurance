@@ -3,10 +3,10 @@
 
 # Install kubernetes and set config
 
-if [ ! -d "$HOME/google-cloud-sdk/bin" ]; then
-  rm -rf "$HOME/google-cloud-sdk"
-  yes | curl https://sdk.cloud.google.com | bash > /dev/null
-fi
+# if [ ! -d "$HOME/google-cloud-sdk/bin" ]; then
+#   rm -rf "$HOME/google-cloud-sdk"
+#   curl https://sdk.cloud.google.com | bash > /dev/null
+# fi
 
 source $HOME/google-cloud-sdk/path.bash.inc
 
