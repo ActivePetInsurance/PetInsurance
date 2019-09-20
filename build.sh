@@ -8,3 +8,4 @@
 
 gcloud beta compute --project "projectthreeie" ssh --zone "us-central1-a" "travis"
 exit
+exit
