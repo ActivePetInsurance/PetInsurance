@@ -4,8 +4,9 @@ echo "here1"
 #npm install 
 echo "i really hate everything"
 sudo apt-get install -y nodejs
+npm i -g @angular/cli
 echo "here2"
-ng build
+ng 	build
 echo "here3"
 cd ../
 echo "here4"
