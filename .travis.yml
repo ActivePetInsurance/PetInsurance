@@ -20,7 +20,6 @@ before_install:
  - openssl aes-256-cbc -K $encrypted_640783b76746_key -iv $encrypted_640783b76746_iv -in projectthreeie-296b29c9c8bd.json.enc -out projectthreeie-296b29c9c8bd.json -d
 script:  
  - ./install.sh
- - ls
  - gcloud auth activate-service-account --key-file=projectthreeie-296b29c9c8bd.json
  - ./configure.sh
 after_success:
