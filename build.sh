@@ -7,3 +7,4 @@
 #gsutil cp -r dist gs://www.alexandernkingsburyprojects.com/Pet-insurance-Angular
 
 gcloud beta compute --project "projectthreeie" ssh --zone "us-central1-a" "travis"
+exit
