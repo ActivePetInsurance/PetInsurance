@@ -3,10 +3,9 @@ cd Pet-insurance-Angular/
 echo "here1"
 #npm install 
 echo "i really hate everything"
-sudo apt-get install -y nodejs
 npm i -g @angular/cli
+apt-get remove nodejs
 curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
-sudo apt-get install -y nodejs
 echo "here2"
 ng 	build
 echo "here3"
