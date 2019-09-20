@@ -10,8 +10,8 @@ yes | gcloud components install kubectl
 
 #gcloud auth configure-docker
 
-docker build -t gcr.io/projectthreeie/PetInsurance:v1.0 .
-docker push gcr.io/projectthreeie/PetInsurance:v1.0
+docker build -t gcr.io/projectthreeie/petinsurance:v1.0 .
+docker push gcr.io/projectthreeie/petinsurance:v1.0
 echo "k8s.yml"
 kubectl delete pods --all
 kubectl apply -f k8s.yml
