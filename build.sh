@@ -5,7 +5,7 @@ echo "here1"
 echo "i really hate everything"
 sudo apt-get install -y nodejs
 echo "here2"
-npm run build
+ng build
 echo "here3"
 cd ../
 echo "here4"
