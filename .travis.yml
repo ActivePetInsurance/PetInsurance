@@ -16,7 +16,7 @@ addons:
    packages:
      - oracle-java8-installer
 before_install:
-# - chmod +x mvnw
+ - chmod +x mvnw
  - chmod +x ./build.sh
  - chmod +x ./install.sh
  - chmod +x ./configure.sh
@@ -29,3 +29,8 @@ script:
 after_success:
  - ./build.sh
  - ./deploy.sh
+
+ # language: node_js
+ # sudo: true
+ # node_js: 
+ # - 12.10.0
