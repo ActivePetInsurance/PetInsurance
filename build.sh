@@ -6,6 +6,8 @@
 #rm -r node_modules
 #gsutil cp -r dist gs://www.alexandernkingsburyprojects.com/Pet-insurance-Angular
 
+mvn build
+
 ls
 cd Pet-insurance-Angular/
 ls
@@ -16,8 +18,6 @@ ls
 cd ../
 ls
 rm -r node_modules
-ls
-ls
 ls
 gsutil cp -r dist gs://www.alexandernkingsburyprojects.com/Pet-insurance-Angular
 ls
