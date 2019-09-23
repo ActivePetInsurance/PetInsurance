@@ -6,7 +6,9 @@
 #rm -r node_modules
 #gsutil cp -r dist gs://www.alexandernkingsburyprojects.com/Pet-insurance-Angular
 
+cd RevaturePetInsurance/
 mvn build
+cd ../
 
 ls
 cd Pet-insurance-Angular/
