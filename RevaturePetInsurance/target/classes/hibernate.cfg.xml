@@ -1,0 +1,40 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+        
+ <hibernate-configuration>
+ 	<session-factory>
+ 	
+ 	<!-- Connection setting -->
+ 	<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+ 	
+ 	<!-- SQL dialect -->
+ 	<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+ 	
+ 	<!-- Misc options -->
+ 	
+ 	<property name="connection.pool_size">1</property>
+ 	<property name="hibernate.hbm2ddl.auto">create</property>
+ 	
+ 	<mapping class ="com.model.CreditCard"></mapping>
+ 	<mapping class="com.model.InsurancePlan"></mapping>
+ 	<mapping class="com.model.Owner"></mapping>
+ 	<mapping class="com.model.Pet"></mapping>
+ 	<mapping class="com.model.PetSex"></mapping>
+ 	<mapping class="com.model.PetSize"></mapping>
+ 	<mapping class="com.model.PetType"></mapping>
+ 	<mapping class="com.model.Policy"></mapping>
+ 	<mapping class="com.model.Routing"></mapping>
+ 	<mapping class="com.model.Veterinarian"></mapping>
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	</session-factory>
+ 
+ </hibernate-configuration>   
+        
+        
+        
+     
