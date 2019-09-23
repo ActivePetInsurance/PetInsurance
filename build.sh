@@ -11,4 +11,5 @@ npm install
 npm run build
 cd ../
 rm -r node_modules
+ls
 gsutil cp -r dist gs://www.alexandernkingsburyprojects.com/Pet-insurance-Angular
