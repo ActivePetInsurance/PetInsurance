@@ -7,7 +7,7 @@
 #gsutil cp -r dist gs://www.alexandernkingsburyprojects.com/Pet-insurance-Angular
 
 cd RevaturePetInsurance/
-mvn build -X
+mvn package
 cd ../
 
 ls
@@ -16,7 +16,5 @@ ls
 npm install
 ls
 npm run build
-ls
-rm -r node_modules
 ls
 gsutil cp -r dist gs://www.alexandernkingsburyprojects.com/Pet-insurance-Angular
