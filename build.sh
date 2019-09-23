@@ -7,7 +7,7 @@
 #gsutil cp -r dist gs://www.alexandernkingsburyprojects.com/Pet-insurance-Angular
 
 cd RevaturePetInsurance/
-mvn build
+mvn build -X
 cd ../
 
 ls
