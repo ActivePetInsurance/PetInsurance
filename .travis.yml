@@ -16,7 +16,7 @@ addons:
    packages:
      - oracle-java8-installer
 before_install:
-# - chmod +x mvnw
+ - chmod +x mvnw
  - chmod +x ./build.sh
  - chmod +x ./install.sh
  - chmod +x ./configure.sh
