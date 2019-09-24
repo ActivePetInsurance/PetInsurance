@@ -1,1 +1,31 @@
-<p>user-info works!</p>
+<div class="container" *ngFor="let user of userInfo">
+    <!-- <form *ngIf = 'showForm' id="myform" [formGroup]="initSignUp" (ngSubmit)="infoChange()"> -->
+    <div class="container">
+        <div class="row" id="basicUserInfo">
+            <div class="col-sm">
+                <p><b>Email:</b></p> {{user.email}} <!-- <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+          formControlName="email" placeholder="Enter Email"> -->
+            </div>
+            <div class="col-sm">
+                <p><b>Birthday:</b></p> {{user.bDate}}
+            </div>
+            <div class="col-sm">
+                <p><b>Phone Number:</b></p> {{user.phoneNum}}
+            </div>
+        </div>
+        <div class="row" id="userAddInfo">
+            <div class="col-sm">
+                <p><b>Address:</b></p> {{user.add1 + ' ' + user.add2}}
+            </div>
+            <div class="col-sm">
+                <p><b>City:</b></p> {{user.city}}
+            </div>
+            <div class="col-sm">
+                <p><b>Zip Code:</b></p> {{user.zip}}
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <div>
+    <form *ngIf = 'showForm' id="myform" [formGroup]="initSignUp" (ngSubmit)="infoChange()">
+</div> -->

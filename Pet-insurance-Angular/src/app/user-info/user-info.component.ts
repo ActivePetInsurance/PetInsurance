@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UserInfo } from '../UserInfo.1';
+import { UserServiceService } from '../user-service.service';
 
 @Component({
   selector: 'app-user-info',
@@ -7,7 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserInfoComponent implements OnInit {
 
-  constructor() { }
+   userInfo: UserInfo[] = [];
+   showForm = false;
+
+  constructor(private sessionUser: UserServiceService) {
+    this.userInfo = sessionUser.getUserInfo();
+    console.log(this.userInfo);
+  }
+
+  toggle() {
+    this.showForm = !this.showForm;
+  }
 
   ngOnInit() {
   }

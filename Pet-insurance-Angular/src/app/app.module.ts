@@ -20,6 +20,7 @@ import { SigninNavbarComponent } from './signin-navbar/signin-navbar.component';
 import { UserInfoComponent } from './user-info/user-info.component';
 import { UserPetsComponent } from './user-pets/user-pets.component';
 import { UserPlansComponent } from './user-plans/user-plans.component';
+import { UserServiceService } from './user-service.service';
 
 
 
@@ -86,7 +87,7 @@ import { UserPlansComponent } from './user-plans/user-plans.component';
       {path: '**', redirectTo: 'welcome', pathMatch: 'full'}
      ])
   ],
-  providers: [InsurancePackagesService],
+  providers: [InsurancePackagesService, UserServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
