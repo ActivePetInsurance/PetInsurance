@@ -17,34 +17,24 @@ public class Pet {
 
 	@Column(name = "pet_name")
 	private String name;
-
+	@Column(name = "date_of_birth")
 	private String dob;
-
+	@Column(name="weight")
 	private double weight;
 
 	private double height;
 
 	private int age;
 
-	/*
-	 * private int ownerId;
-	 * 
-	 * private OwnerModel owner;
-	 * 
-	 */
-	/*
-	 * private int sizeId;
-	 * 
-	 * private PetSizeModel size;
-	 * 
-	 * private int sexId;
-	 * 
-	 * private PetSexModel sex;
-	 * 
-	 * private int typeId;
-	 * 
-	 * private PetTypeModel type;
-	 */
+	
+	private int ownerId;
+	private Owner owner;
+	private int sizeId;
+	private PetSize size;
+	private int sexId;
+	private PetSex sex;
+	private int typeId;
+	private PetType type;
 
 	public int getPetId() {
 		return petId;
