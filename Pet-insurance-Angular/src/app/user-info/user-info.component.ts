@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserInfo } from '../UserInfo.1';
 import { UserServiceService } from '../user-service.service';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-user-info',
@@ -9,6 +10,14 @@ import { UserServiceService } from '../user-service.service';
 })
 export class UserInfoComponent implements OnInit {
 
+  infoChange = new FormGroup({
+    emailC: new FormControl(''),
+    add1C: new FormControl(''),
+    add2C: new FormControl(''),
+    cityC: new FormControl(''),
+    zipC: new FormControl(''),
+    phoneNumC: new FormControl('')
+    });
    userInfo: UserInfo[] = [];
    showForm = false;
 
@@ -19,6 +28,11 @@ export class UserInfoComponent implements OnInit {
 
   toggle() {
     this.showForm = !this.showForm;
+  }
+
+  info_Change() {
+    console.log(this.infoChange.value);
+    this.toggle();
   }
 
   ngOnInit() {

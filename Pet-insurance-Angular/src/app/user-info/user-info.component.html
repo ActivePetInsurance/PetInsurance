@@ -3,7 +3,8 @@
     <div class="container">
         <div class="row" id="basicUserInfo">
             <div class="col-sm">
-                <p><b>Email:</b></p> {{user.email}} <!-- <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                <p><b>Email:</b></p> {{user.email}}
+                <!-- <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
           formControlName="email" placeholder="Enter Email"> -->
             </div>
             <div class="col-sm">
@@ -24,8 +25,71 @@
                 <p><b>Zip Code:</b></p> {{user.zip}}
             </div>
         </div>
+        <div class="container" id = "toggleFormBtnCont">
+            <div class="row">
+                <div class="col-sm">
+
+                </div>
+                <div class="col-sm">
+                    <button class='btn btn-primary' (click)='toggle()'>
+                        Edit User Info
+                    </button>
+                </div>
+                <div class="col-sm">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <form class="form-inline" *ngIf='showForm' id="myform" [formGroup]="infoChange" (ngSubmit)="info_Change()">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="exampleInputEmail1" style="color: black" name="emailC" ngControlDefault required>Change
+                        Email</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        formControlName="emailC" [(ngModel)]='user.email' placeholder="Enter Email" />
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="phoneNumC" style="color: black" name="phoneNumC" required>Change Phone Number</label>
+                    <input type="text" class="form-control" id="phoneNumC" [(ngModel)]='user.phoneNum'
+                        formControlName="phoneNumC" placeholder="(XXX-XXX-XXXX)">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputAddress">Address</label>
+                    <input type="text" class="form-control" id="inputAddress" formControlName="add1C"
+                        [(ngModel)]='user.add1' placeholder="1234 Main St">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputAddress2">Address 2</label>
+                    <input type="text" class="form-control" id="inputAddress2" formControlName="add2C"
+                        [(ngModel)]='user.add2' placeholder="Apartment, studio, or floor">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputCity">City</label>
+                    <input type="text" class="form-control" formControlName="cityC" [(ngModel)]='user.city'
+                        id="inputCity">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputZip">Zip</label>
+                    <input type="text" class="form-control" formControlName="zipC" [(ngModel)]='user.zip' id="inputZip">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <button class="btn btn-outline-success" id="submitbutton" type="submit">Submit</button>
+                </div>
+            </div>
+        </form>
     </div>
 </div>
-<!-- <div>
-    <form *ngIf = 'showForm' id="myform" [formGroup]="initSignUp" (ngSubmit)="infoChange()">
-</div> -->
