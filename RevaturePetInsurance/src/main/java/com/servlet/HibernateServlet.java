@@ -22,7 +22,7 @@ public class HibernateServlet extends HttpServlet{
 	
 	
 	public HibernateServlet() {
-		insertInitialValues();
+		//insertInitialValues();
 		InsertPetSize.InsertInitialPetSize();
 		InsertPetType.InsertInitialPetType();
 		InsertPetSex.InserInitialPetSex();
@@ -42,11 +42,7 @@ public class HibernateServlet extends HttpServlet{
 		
 	}
 	
-	private static void insertInitialValues() {
-		Pet momocat = new Pet(2, "momo");
-		pd.insert(momocat);
-		
-	}
+	
 	
 
 }

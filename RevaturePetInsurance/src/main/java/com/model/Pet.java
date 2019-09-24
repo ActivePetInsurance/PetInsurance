@@ -1,11 +1,14 @@
 package com.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Pet {
@@ -17,23 +20,33 @@ public class Pet {
 
 	@Column(name = "pet_name")
 	private String name;
+	
 	@Column(name = "date_of_birth")
 	private String dob;
+	
 	@Column(name="weight")
 	private double weight;
-
-	private double height;
-
-	private int age;
-
 	
-	private int ownerId;
+	@Column(name = "height")
+	private double height;
+	
+	@Column(name = "age")
+	private int age;
+	
+	@ManyToOne(cascade=CascadeType.ALL, fetch =FetchType.EAGER)
+	@JoinColumn(name = "owner_fk")
 	private Owner owner;
-	private int sizeId;
+	
+	@ManyToOne(cascade=CascadeType.ALL, fetch =FetchType.EAGER)
+	@JoinColumn(name="size_fk")
 	private PetSize size;
-	private int sexId;
+	
+	@ManyToOne(cascade=CascadeType.ALL, fetch =FetchType.EAGER)
+	@JoinColumn(name="sex_fk")
 	private PetSex sex;
-	private int typeId;
+	
+	@ManyToOne(cascade=CascadeType.ALL, fetch =FetchType.EAGER)
+	@JoinColumn(name="type_fk")
 	private PetType type;
 
 	public int getPetId() {
@@ -84,62 +97,63 @@ public class Pet {
 		this.age = age;
 	}
 
-	/*
-	 * public int getOwnerId() { return ownerId; }
-	 * 
-	 * public void setOwnerId(int ownerId) { this.ownerId = ownerId; }
-	 * 
-	 * public OwnerModel getOwner() { return owner; }
-	 * 
-	 * public void setOwner(OwnerModel owner) { this.owner = owner; }
-	 */
-
-	/*
-	 * public int getSizeId() { return sizeId; }
-	 * 
-	 * public void setSizeId(int sizeId) { this.sizeId = sizeId; }
-	 * 
-	 * public PetSizeModel getSize() { return size; }
-	 * 
-	 * public void setSize(PetSizeModel size) { this.size = size; }
-	 * 
-	 * public int getSexId() { return sexId; }
-	 * 
-	 * public void setSexId(int sexId) { this.sexId = sexId; }
-	 * 
-	 * public PetSexModel getSex() { return sex; }
-	 * 
-	 * public void setSex(PetSexModel sex) { this.sex = sex; }
-	 * 
-	 * public int getTypeId() { return typeId; }
-	 * 
-	 * public void setTypeId(int typeId) { this.typeId = typeId; }
-	 * 
-	 * public PetTypeModel getType() { return type; }
-	 * 
-	 * public void setType(PetTypeModel type) { this.type = type; }
-	 */
-	@Override
-	public String toString() {
-		return "PetModel [petId=" + petId + ", name=" + name + ", dob=" + dob + ", weight=" + weight + ", height="
-				+ height + ", age="
-				+ age /* ", ownerId=" + ownerId + ", owner=" + owner + */ /*
-																			 * ", sizeId=" + sizeId + ", size=" + size +
-																			 * ", sexId=" + sexId + ", sex=" + sex +
-																			 * ", typeId=" + typeId + ", type=" + type +
-																			 * "]"
-																			 */;
+	public Owner getOwner() {
+		return owner;
 	}
 
-	public Pet(int petId, String name) {
-		super();
-		this.petId = petId;
-		this.name = name;
+	public void setOwner(Owner owner) {
+		this.owner = owner;
+	}
+
+	public PetSize getSize() {
+		return size;
+	}
+
+	public void setSize(PetSize size) {
+		this.size = size;
+	}
+
+	public PetSex getSex() {
+		return sex;
+	}
+
+	public void setSex(PetSex sex) {
+		this.sex = sex;
+	}
+
+	public PetType getType() {
+		return type;
+	}
+
+	public void setType(PetType type) {
+		this.type = type;
 	}
 
 	public Pet() {
-		super();
-		// TODO Auto-generated constructor stub
 	}
 
+	public Pet(int petId, String name, String dob, double weight, double height, int age, Owner owner, PetSize size,
+			PetSex sex, PetType type) {
+		super();
+		this.petId = petId;
+		this.name = name;
+		this.dob = dob;
+		this.weight = weight;
+		this.height = height;
+		this.age = age;
+		this.owner = owner;
+		this.size = size;
+		this.sex = sex;
+		this.type = type;
+	}
+
+	@Override
+	public String toString() {
+		return "Pet [petId=" + petId + ", name=" + name + ", dob=" + dob + ", weight=" + weight + ", height=" + height
+				+ ", age=" + age + ", owner=" + owner + ", size=" + size + ", sex=" + sex + ", type=" + type + "]";
+	}
+
+	
+	
+	
 }

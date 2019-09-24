@@ -13,7 +13,7 @@
  	
  	<!-- Misc options -->
  	
- 	<property name="connection.pool_size">1</property>
+ 	<property name="connection.pool_size">10</property>
  	<property name="hibernate.hbm2ddl.auto">create</property>
  	
  	<mapping class ="com.model.CreditCard"></mapping>
