@@ -12,12 +12,12 @@ import { RodentCardsComponent } from './insurance-cards/rodent-cards/rodent-card
 import { ReptileCardsComponent } from './insurance-cards/reptile-cards/reptile-cards.component';
 import { SignupComponent } from './signup/signup.component';
 import { SigninComponent } from './signin/signin.component';
-import { UserPageComponent } from './user-page/user-page.component';
 import { UserComponent } from './user/user.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeNavbarComponent } from './home-navbar/home-navbar.component';
 import { SignupNavbarComponent } from './signup-navbar/signup-navbar.component';
 import { SigninNavbarComponent } from './signin-navbar/signin-navbar.component';
+
 
 
 
@@ -31,7 +31,6 @@ import { SigninNavbarComponent } from './signin-navbar/signin-navbar.component';
     ReptileCardsComponent,
     SignupComponent,
     SigninComponent,
-    UserPageComponent,
     UserComponent,
     RegisterComponent,
     HomeNavbarComponent,
