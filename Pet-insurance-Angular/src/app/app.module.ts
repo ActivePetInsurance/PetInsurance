@@ -21,6 +21,7 @@ import { UserInfoComponent } from './user-info/user-info.component';
 import { UserPetsComponent } from './user-pets/user-pets.component';
 import { UserPlansComponent } from './user-plans/user-plans.component';
 import { UserServiceService } from './user-service.service';
+import { UserPaymentComponent } from './user-payment/user-payment.component';
 
 
 
@@ -42,7 +43,8 @@ import { UserServiceService } from './user-service.service';
     SigninNavbarComponent,
     UserInfoComponent,
     UserPetsComponent,
-    UserPlansComponent
+    UserPlansComponent,
+    UserPaymentComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +67,8 @@ import { UserServiceService } from './user-service.service';
         {path: '', outlet: 'siNav', component: SigninNavbarComponent},
         {path: '', outlet: 'uInfo', component: UserInfoComponent},
         {path: '', outlet: 'uPets', component: UserPetsComponent},
-        {path: '', outlet: 'uPlans', component: UserPlansComponent}
+        {path: '', outlet: 'uPlans', component: UserPlansComponent},
+        {path: '', outlet: 'uPay', component: UserPaymentComponent}
       ]
     },
       {path: 'signin', component: SigninComponent,
