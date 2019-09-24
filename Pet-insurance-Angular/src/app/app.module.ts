@@ -17,6 +17,9 @@ import { RegisterComponent } from './register/register.component';
 import { HomeNavbarComponent } from './home-navbar/home-navbar.component';
 import { SignupNavbarComponent } from './signup-navbar/signup-navbar.component';
 import { SigninNavbarComponent } from './signin-navbar/signin-navbar.component';
+import { UserInfoComponent } from './user-info/user-info.component';
+import { UserPetsComponent } from './user-pets/user-pets.component';
+import { UserPlansComponent } from './user-plans/user-plans.component';
 
 
 
@@ -35,7 +38,10 @@ import { SigninNavbarComponent } from './signin-navbar/signin-navbar.component';
     RegisterComponent,
     HomeNavbarComponent,
     SignupNavbarComponent,
-    SigninNavbarComponent
+    SigninNavbarComponent,
+    UserInfoComponent,
+    UserPetsComponent,
+    UserPlansComponent
   ],
   imports: [
     BrowserModule,
@@ -56,6 +62,9 @@ import { SigninNavbarComponent } from './signin-navbar/signin-navbar.component';
       {path: 'user', component: UserComponent,
       children : [
         {path: '', outlet: 'siNav', component: SigninNavbarComponent},
+        {path: '', outlet: 'uInfo', component: UserInfoComponent},
+        {path: '', outlet: 'uPets', component: UserPetsComponent},
+        {path: '', outlet: 'uPlans', component: UserPlansComponent}
       ]
     },
       {path: 'signin', component: SigninComponent,
