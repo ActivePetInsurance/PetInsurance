@@ -27,6 +27,8 @@ public class HibernateServlet extends HttpServlet{
 		InsertPetType.InsertInitialPetType();
 		InsertPetSex.InserInitialPetSex();
 		InsertInsurancePlans.InsertInitialInsurancePlans();
+		InsertOwner.InsertOwners();
+		
 	}
 	
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) 

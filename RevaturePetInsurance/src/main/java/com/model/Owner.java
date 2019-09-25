@@ -1,6 +1,5 @@
 package com.model;
 
-import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -26,7 +25,7 @@ public class Owner {
 	private String lastName;
 	
 	@Column(name = "date_of_birth")
-	private Date dob;
+	private String dob;
 	
 	@Column(name = "street_address")
 	private String streetAddress;
@@ -81,11 +80,11 @@ public class Owner {
 		this.lastName = lastName;
 	}
 
-	public Date getDob() {
+	public String getDob() {
 		return dob;
 	}
 
-	public void setDob(Date dob) {
+	public void setDob(String dob) {
 		this.dob = dob;
 	}
 
@@ -148,7 +147,7 @@ public class Owner {
 	public Owner() {
 	}
 
-	public Owner(int accountNumber, String firstName, String middleInitial, String lastName, Date dob,
+	public Owner(int accountNumber, String firstName, String middleInitial, String lastName, String dob,
 			String streetAddress, String city, String state, int zipCode, String phoneNumber, String email,
 			String password) {
 		super();

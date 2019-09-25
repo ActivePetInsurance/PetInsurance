@@ -2,6 +2,8 @@ package com.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 
@@ -11,6 +13,7 @@ public class InsurancePlan {
 	
 	@Id
 	@Column(name = "plan_id")
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int planId;
 	
 	@Column(name = "plan_name")
