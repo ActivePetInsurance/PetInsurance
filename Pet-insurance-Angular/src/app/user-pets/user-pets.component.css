@@ -1,0 +1,16 @@
+#addAnimal{
+    max-width: 150px;
+    max-height: 150px;
+    margin: auto auto;
+    position: relative;
+}
+
+#plusContainer{
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+}
+
+#addPetCaption{
+    text-align: center;
+}

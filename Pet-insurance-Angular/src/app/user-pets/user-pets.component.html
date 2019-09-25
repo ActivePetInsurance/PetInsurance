@@ -1,1 +1,36 @@
-<p>user-pets works!</p>
+<div class="container">
+    <div class="row">
+<div class="card mb-3" *ngFor="let pet of userPets" style="max-width: 540px;">
+        <div class="row no-gutters">
+          <div class="col-md-4" id ="anCards" *ngIf="pet.petType == 'Bird'; else elseTemplate1">
+            <img src="https://www.oddee.com/wp-content/uploads/_media/imgs/articles2/a98487_b1.jpg" class="card-img" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">{{pet.name}}</h5>
+              <h6 class="card-title">{{pet.petType}}</h6>
+              <p class="card-text">Birthday: {{pet.bDate}},  Weight: {{pet.weight}} lb,</p>
+              <p class="card-text">Height: {{pet.height}} in,  Age: {{pet.age}} years,</p>
+              <p class="card-text">Size: {{pet.petSize}},   Sex: {{pet.petSex}}</p>
+            </div>
+          </div>
+          <ng-template #elseTemplate1>
+                <div class="col-md-4" *ngIf="pet.petType == 'Reptile'; else elseTemplate2">
+                        <img src="https://i.pinimg.com/originals/a6/ea/81/a6ea81f8b2d5a54e7fd65aa4cec8ef17.jpg" class="card-img" alt="...">
+                      </div>
+          </ng-template>
+          <ng-template #elseTemplate2>
+          <div class="col-md-4">
+                <img src="https://www.newquayzoo.org.uk/userfiles/animals/images/capybara%20jpeg(1).jpg?w=500&h=600&zc=1&hash=9b62d6c09a52ff2ce8305003a16b37e6" class="card-img" alt="...">
+              </div>
+            </ng-template>
+        </div>
+      </div>
+      <div class="col-md-4" id="plusContainer">
+    <figure>
+      <img id="addAnimal" src="https://image.flaticon.com/icons/svg/32/32339.svg">
+      <figcaption id="addPetCaption">Add a New Pet</figcaption>
+    </figure>
+    </div>
+    </div>
+</div>

@@ -22,6 +22,7 @@ import { UserPetsComponent } from './user-pets/user-pets.component';
 import { UserPlansComponent } from './user-plans/user-plans.component';
 import { UserServiceService } from './user-service.service';
 import { UserPaymentComponent } from './user-payment/user-payment.component';
+import { UOwnedPetsService } from './u-owned-pets.service';
 
 
 
@@ -90,7 +91,7 @@ import { UserPaymentComponent } from './user-payment/user-payment.component';
       {path: '**', redirectTo: 'welcome', pathMatch: 'full'}
      ])
   ],
-  providers: [InsurancePackagesService, UserServiceService],
+  providers: [InsurancePackagesService, UserServiceService, UOwnedPetsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
