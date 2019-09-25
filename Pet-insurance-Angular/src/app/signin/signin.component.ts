@@ -20,7 +20,7 @@ export class SigninComponent implements OnInit {
   }
 
   signin(): void {
-    if (this.SignIn.value.email === 'fake@gmail.com' && this.SignIn.value.password === 'admin') {
+    if (this.SignIn.value.email === 'fakeUser@gmail.com' && this.SignIn.value.password === 'admin') {
       console.log(this.SignIn.value);
       console.log('in success');
       this.router.navigate(['/user']);

@@ -17,6 +17,12 @@ import { RegisterComponent } from './register/register.component';
 import { HomeNavbarComponent } from './home-navbar/home-navbar.component';
 import { SignupNavbarComponent } from './signup-navbar/signup-navbar.component';
 import { SigninNavbarComponent } from './signin-navbar/signin-navbar.component';
+import { UserInfoComponent } from './user-info/user-info.component';
+import { UserPetsComponent } from './user-pets/user-pets.component';
+import { UserPlansComponent } from './user-plans/user-plans.component';
+import { UserServiceService } from './user-service.service';
+import { UserPaymentComponent } from './user-payment/user-payment.component';
+import { UOwnedPetsService } from './u-owned-pets.service';
 
 
 
@@ -35,7 +41,11 @@ import { SigninNavbarComponent } from './signin-navbar/signin-navbar.component';
     RegisterComponent,
     HomeNavbarComponent,
     SignupNavbarComponent,
-    SigninNavbarComponent
+    SigninNavbarComponent,
+    UserInfoComponent,
+    UserPetsComponent,
+    UserPlansComponent,
+    UserPaymentComponent
   ],
   imports: [
     BrowserModule,
@@ -56,6 +66,10 @@ import { SigninNavbarComponent } from './signin-navbar/signin-navbar.component';
       {path: 'user', component: UserComponent,
       children : [
         {path: '', outlet: 'siNav', component: SigninNavbarComponent},
+        {path: '', outlet: 'uInfo', component: UserInfoComponent},
+        {path: '', outlet: 'uPets', component: UserPetsComponent},
+        {path: '', outlet: 'uPlans', component: UserPlansComponent},
+        {path: '', outlet: 'uPay', component: UserPaymentComponent}
       ]
     },
       {path: 'signin', component: SigninComponent,
@@ -77,7 +91,7 @@ import { SigninNavbarComponent } from './signin-navbar/signin-navbar.component';
       {path: '**', redirectTo: 'welcome', pathMatch: 'full'}
      ])
   ],
-  providers: [InsurancePackagesService],
+  providers: [InsurancePackagesService, UserServiceService, UOwnedPetsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
