@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UserInfo } from '../UserInfo.1';
+import { UserServiceService } from '../user-service.service';
 
 @Component({
   selector: 'app-user',
@@ -6,8 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
+  userInfo: UserInfo[] = [];
 
-  constructor() { }
+  constructor(private sessionUser: UserServiceService) {
+    this.userInfo = sessionUser.getUserInfo();
+    console.log(this.userInfo);
+  }
 
   ngOnInit() {
   }
