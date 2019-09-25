@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup } from '@angular/forms';
 
+
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
