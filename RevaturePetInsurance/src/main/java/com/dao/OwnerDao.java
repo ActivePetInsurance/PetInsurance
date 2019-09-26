@@ -9,6 +9,15 @@ import com.model.Owner;
 import com.util.HibernateUtil;
 
 public class OwnerDao {
+	
+	static {
+		try {
+			Class.forName("org.postgresql.Driver");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public void insert (Owner myOwner) {
 		Session ses = HibernateUtil.getSession();
 		Transaction tx = ses.beginTransaction();
@@ -34,6 +43,14 @@ public class OwnerDao {
 		Owner ip = ses.get(Owner.class, insurancePlanId);
 		return ip;
 		
+	}
+	
+	public Owner selectOwnerByEmail(String ownerEmail){
+		Session ses = HibernateUtil.getSession();
+		Owner ow = ses.createQuery("from Owner where ownerEmail='" 
+					+ ownerEmail + "'", Owner.class).uniqueResult();
+		return ow;
+
 	}
 
 
