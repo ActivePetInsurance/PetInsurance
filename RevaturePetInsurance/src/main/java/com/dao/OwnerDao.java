@@ -35,6 +35,12 @@ public class OwnerDao {
 		return ip;
 		
 	}
+	
+	public Owner selectOwnerByEmail(String ownerEmail){
+		Session ses = HibernateUtil.getSession();
+		Owner ow = ses.get(Owner.class, ownerEmail);
+		return ow;
+	}
 
 
 }
