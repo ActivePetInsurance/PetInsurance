@@ -38,8 +38,10 @@ public class OwnerDao {
 	
 	public Owner selectOwnerByEmail(String ownerEmail){
 		Session ses = HibernateUtil.getSession();
-		Owner ow = ses.get(Owner.class, ownerEmail);
+		Owner ow = ses.createQuery("from Owner where ownerEmail='" 
+					+ ownerEmail + "'", Owner.class).uniqueResult();
 		return ow;
+
 	}
 
 
