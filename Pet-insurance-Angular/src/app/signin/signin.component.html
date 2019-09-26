@@ -1,0 +1,30 @@
+<router-outlet name="siNav"></router-outlet>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+    </div>
+    <div class="col-sm">
+
+          <form id = "myform1" [formGroup] = "SignIn" (ngSubmit)="signin()">
+                  <div class="form-group">
+                      <h1 style ="color: black">User Sign</h1>
+                    <label for="exampleInputEmail2" style ="color: black" name="email" ngControlDefault required>Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp" formControlName="email" placeholder="Enter Email">
+                    <small id="emailHelp" class="form-text text-muted">example@gmail.com</small>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword2" style ="color: black" name="password" required>Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword2" formControlName="password" placeholder="Password" >
+                  </div>
+                  <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck2">
+                    <label class="form-check-label" for="exampleCheck2" style ="color: black">Remember login</label>
+                  </div>
+                  <input id ="submitbutton1" type="submit" value = "Sign in"/>
+              </form>
+    </div>
+    <div class="col-sm">
+
+    </div>
+  </div>
+</div>
