@@ -11,7 +11,9 @@ public class OwnerServiceImpl implements OwnerService {
 	@Override
 	public boolean verifyLogin(String email, String password) {
 
-		if (od.selectOwnerByEmail(email).getPassword().equals(password)) {
+		owner = od.selectOwnerByEmail(email);
+		
+		if (owner.getPassword().equals(password)) {
 			return true;
 		} else {
 			return false;

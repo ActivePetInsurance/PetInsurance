@@ -1,6 +1,7 @@
 package com.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -16,7 +17,7 @@ public class LoginController {
 	private OwnerService os;
 	
 	@PostMapping(value="/login.app")
-	public String login(HttpServletRequest req) {
+	public String login(HttpServletRequest req, HttpServletResponse res) {
 		
 		HttpSession ses = req.getSession();
 		String email = req.getParameter("email");
