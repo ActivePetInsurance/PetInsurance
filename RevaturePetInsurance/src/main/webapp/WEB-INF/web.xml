@@ -4,17 +4,19 @@
   <welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 	</welcome-file-list>
+	
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
 
 	<servlet>
-		<display-name>HibernateServlet</display-name>
-		<servlet-name>HibernateServlet</servlet-name>
-		<servlet-class>com.servlet.HibernateServlet</servlet-class>
+		<servlet-name>master</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 	</servlet>
 	
 	<servlet-mapping>
-		<servlet-name>HibernateServlet</servlet-name>
-		<url-pattern>/Hibernate/*</url-pattern>
-		<url-pattern>*.maybe</url-pattern>
+		<servlet-name>master</servlet-name>
+		<url-pattern>*.app</url-pattern>
 	</servlet-mapping>
 
 </web-app>
