@@ -22,11 +22,13 @@ public class HibernateServlet extends HttpServlet{
 	
 	
 	public HibernateServlet() {
-		insertInitialValues();
+		//insertInitialValues();
 		InsertPetSize.InsertInitialPetSize();
 		InsertPetType.InsertInitialPetType();
 		InsertPetSex.InserInitialPetSex();
 		InsertInsurancePlans.InsertInitialInsurancePlans();
+		InsertOwner.InsertOwners();
+		
 	}
 	
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) 
@@ -42,11 +44,7 @@ public class HibernateServlet extends HttpServlet{
 		
 	}
 	
-	private static void insertInitialValues() {
-		Pet momocat = new Pet(2, "momo");
-		pd.insert(momocat);
-		
-	}
+	
 	
 
 }

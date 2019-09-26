@@ -9,7 +9,7 @@ public class InsertInsurancePlans {
 	
 	public static void InsertInitialInsurancePlans() {
 		
-		InsurancePlan roa = new InsurancePlan(1, "Rodent A");
+		InsurancePlan roa = new InsurancePlan(1, "Rodent A", 150.50, 50.50, 1900, 25);
 		InsurancePlan rob = new InsurancePlan(2, "Rodent B");
 		InsurancePlan roc = new InsurancePlan(3, "Rodent C");
 		InsurancePlan ba = new InsurancePlan(4, "Bird A");
