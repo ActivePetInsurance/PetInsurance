@@ -2,14 +2,12 @@ package com.dao;
 
 import java.util.List;
 
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.model.Routing;
-import com.util.HibernateUtil;
 
 @Transactional
 @Repository("routDao")
@@ -21,6 +19,7 @@ public class RoutingDao {
 		
 	}
 	
+	@Autowired
 	public RoutingDao(SessionFactory sesFact) {
 		this.sesFact = sesFact;
 	}
