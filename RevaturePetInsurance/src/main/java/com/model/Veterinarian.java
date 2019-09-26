@@ -26,10 +26,10 @@ public class Veterinarian {
 	private int licenseNumber;
 	
 	@Column(name = "license_expiration_date")
-	private Date licenseExpirationDate;
+	private String licenseExpirationDate;
 	
 	@Column(name = "license_issue_date")
-	private Date licenseIssueDate;
+	private String licenseIssueDate;
 	
 	@Column(name = "license_status")
 	private boolean licenseStatus;
@@ -41,14 +41,14 @@ public class Veterinarian {
 	private int zipCode;
 
 	public Veterinarian(int vet_id, String firtName, String middleInitial, String lastName, int licenseNumber,
-			Date licenseExpirationDate, Date licenseIssuedDate, boolean licenseStatus, String city, int zipCode) {
+			String licenseExpirationDate, String licenseIssueDate, boolean licenseStatus, String city, int zipCode) {
 		this.vet_id = vet_id;
 		this.firtName = firtName;
 		this.middleInitial = middleInitial;
 		this.lastName = lastName;
 		this.licenseNumber = licenseNumber;
 		this.licenseExpirationDate = licenseExpirationDate;
-		this.licenseIssuedDate = licenseIssuedDate;
+		this.licenseIssueDate = licenseIssueDate;
 		this.licenseStatus = licenseStatus;
 		this.city = city;
 		this.zipCode = zipCode;
@@ -61,7 +61,7 @@ public class Veterinarian {
 	public String toString() {
 		return "Veterinarian [vet_id=" + vet_id + ", firtName=" + firtName + ", middleInitial=" + middleInitial
 				+ ", lastName=" + lastName + ", licenseNumber=" + licenseNumber + ", licenseExpirationDate="
-				+ licenseExpirationDate + ", licenseIssuedDate=" + licenseIssuedDate + ", licenseStatus="
+				+ licenseExpirationDate + ", licenseIssuedDate=" + licenseIssueDate + ", licenseStatus="
 				+ licenseStatus + ", city=" + city + ", zipCode=" + zipCode + "]";
 	}
 	
