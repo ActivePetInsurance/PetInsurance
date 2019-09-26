@@ -3,37 +3,55 @@ package com.dao;
 import java.util.List;
 
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.model.Policy;
 import com.util.HibernateUtil;
 
+@Transactional
+@Repository("policyDao")
 public class PolicyDao {
 	
-	public void insert (Policy myPolicy) {
-		Session ses = HibernateUtil.getSession();
-		Transaction tx = ses.beginTransaction();
-		ses.save(myPolicy);
-		tx.commit();
+	private SessionFactory sesFact;
+	
+	public PolicyDao() {
 		
 	}
+	
+	public PolicyDao(SessionFactory sesFact) {
+		this.sesFact = sesFact;
+	}
+	
+	public void insert (Policy myPolicy) {
+//		Session ses = HibernateUtil.getSession();
+//		Transaction tx = ses.beginTransaction();
+//		ses.save(myPolicy);
+//		tx.commit();
+		sesFact.getCurrentSession().save(myPolicy);
+		
+	}
+	
 	public void update (Policy myPolicy) {
-		Session ses = HibernateUtil.getSession();
-		Transaction tx = ses.beginTransaction();
-		ses.update(myPolicy);
-		tx.commit();
+//		Session ses = HibernateUtil.getSession();
+//		Transaction tx = ses.beginTransaction();
+//		ses.update(myPolicy);
+//		tx.commit();
+		sesFact.getCurrentSession().update(myPolicy);
 	}
 	
 	public List<Policy> selectAll(){
-		Session ses = HibernateUtil.getSession();
-		List<Policy> petList = ses.createQuery("from Policy", Policy.class).list();
-		return petList;
+//		Session ses = HibernateUtil.getSession();
+//		List<Policy> petList = ses.createQuery("from Policy", Policy.class).list();
+		return sesFact.getCurrentSession().createQuery("from Policy", Policy.class).list();
 	}
 	
 	public Policy selectInsurancePlanByID(int insurancePlanId) {
-		Session ses = HibernateUtil.getSession();
-		Policy ip = ses.get(Policy.class, insurancePlanId);
-		return ip;
+//		Session ses = HibernateUtil.getSession();
+//		Policy ip = ses.get(Policy.class, insurancePlanId);
+		return sesFact.getCurrentSession().get(Policy.class, insurancePlanId);
 		
 	}
 

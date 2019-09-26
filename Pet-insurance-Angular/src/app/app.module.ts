@@ -65,7 +65,6 @@ import { UserPageComponent } from './user-page/user-page.component';
           {path: 'Reptiles', component: ReptileCardsComponent}
         ]
     },
-      
       {path: 'user', component: UserComponent,
       children : [
         {path: '', outlet: 'siNav', component: SigninNavbarComponent},
