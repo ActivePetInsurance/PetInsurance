@@ -29,10 +29,10 @@ public class OwnerDao {
 		return petList;
 	}
 	
-	public Owner selectInsurancePlanByID(int insurancePlanId) {
+	public Owner selectOwnerbyId(int ownerId) {
 		Session ses = HibernateUtil.getSession();
-		Owner ip = ses.get(Owner.class, insurancePlanId);
-		return ip;
+		Owner ow = ses.get(Owner.class, ownerId);
+		return ow;
 		
 	}
 
