@@ -8,7 +8,6 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./signin.component.css']
 })
 export class SigninComponent implements OnInit {
-
   SignIn = new FormGroup({
     email: new FormControl(''),
     password: new FormControl('')
@@ -19,6 +18,7 @@ export class SigninComponent implements OnInit {
   ngOnInit() {
   }
 
+
   signin(): void {
     if (this.SignIn.value.email === 'fakeUser@gmail.com' && this.SignIn.value.password === 'admin') {
       console.log(this.SignIn.value);
@@ -28,6 +28,5 @@ export class SigninComponent implements OnInit {
        alert('Passwords Do Not Match');
      }
   }
-
 
 }

@@ -23,6 +23,9 @@ import { UserPlansComponent } from './user-plans/user-plans.component';
 import { UserServiceService } from './user-service.service';
 import { UserPaymentComponent } from './user-payment/user-payment.component';
 import { UOwnedPetsService } from './u-owned-pets.service';
+import { UserPageComponent } from './user-page/user-page.component';
+import { UserComponent } from './user/user.component';
+import { RegisterComponent } from './register/register.component';
 
 
 
@@ -46,6 +49,7 @@ import { UOwnedPetsService } from './u-owned-pets.service';
     UserPetsComponent,
     UserPlansComponent,
     UserPaymentComponent
+
   ],
   imports: [
     BrowserModule,
@@ -63,6 +67,7 @@ import { UOwnedPetsService } from './u-owned-pets.service';
           {path: 'Reptiles', component: ReptileCardsComponent}
         ]
     },
+      
       {path: 'user', component: UserComponent,
       children : [
         {path: '', outlet: 'siNav', component: SigninNavbarComponent},
@@ -87,6 +92,9 @@ import { UOwnedPetsService } from './u-owned-pets.service';
         {path: '', outlet: 'suNav', component: SignupNavbarComponent},
       ]
     },
+      {path: 'signin', component: SigninComponent},
+      {path: 'signup', component: SignupComponent},
+      {path: 'register', component: RegisterComponent},
       {path: '', redirectTo: 'welcome', pathMatch: 'full'},
       {path: '**', redirectTo: 'welcome', pathMatch: 'full'}
      ])
