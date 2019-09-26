@@ -24,8 +24,6 @@ import { UserServiceService } from './user-service.service';
 import { UserPaymentComponent } from './user-payment/user-payment.component';
 import { UOwnedPetsService } from './u-owned-pets.service';
 import { UserPageComponent } from './user-page/user-page.component';
-import { UserComponent } from './user/user.component';
-import { RegisterComponent } from './register/register.component';
 
 
 
