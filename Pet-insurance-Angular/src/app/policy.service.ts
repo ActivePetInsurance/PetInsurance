@@ -11,17 +11,23 @@ export class PolicyService {
     {
       PolicyNumber: '0000064',
       Plan: 'Bird A',
-      Pets: ['Jet', 'Wings']
+      Pet1: 'Jet',
+      Pet2: 'Wings',
+      Pet3: null
     },
     {
       PolicyNumber: '0000065',
       Plan: 'Reptile B',
-      Pets: ['Scales']
+      Pet1: 'Scales',
+      Pet2: null,
+      Pet3: null
     },
     {
       PolicyNumber: '0000066',
       Plan: 'Rodent B',
-      Pets: ['Peanut']
+      Pet1: 'Peanut',
+      Pet2: null,
+      Pet3: null
     }
     ];
   }

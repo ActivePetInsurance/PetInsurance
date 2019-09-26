@@ -1,5 +1,7 @@
 export interface Policy {
     PolicyNumber: string;
     Plan: string;
-    Pets: string[];
+    Pet1: string;
+    Pet2: string;
+    Pet3: string;
 }
