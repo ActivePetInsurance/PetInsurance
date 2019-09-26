@@ -30,9 +30,9 @@ public class CreditCardDao {
 		return petList;
 	}
 	
-	public CreditCard selectInsurancePlanByID(int insurancePlanId) {
+	public CreditCard selectCreditCardByID(int creditCardId) {
 		Session ses = HibernateUtil.getSession();
-		CreditCard ip = ses.get(CreditCard.class, insurancePlanId);
+		CreditCard ip = ses.get(CreditCard.class, creditCardId);
 		return ip;
 		
 	}
