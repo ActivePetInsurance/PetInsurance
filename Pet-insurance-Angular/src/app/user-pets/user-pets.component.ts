@@ -31,7 +31,7 @@ toggle() {
 }
   ngOnInit() {
   }
-  info_Change() {
+  new_Pet() {
     console.log(this.newPet.value);
     this.toggle();
   }
