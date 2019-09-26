@@ -16,14 +16,6 @@ import com.util.HibernateUtil;
 @Repository("ownDao")
 public class OwnerDao {
 	
-	static {
-		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-		}catch(ClassNotFoundException e) {
-			e.printStackTrace();
-		}
-	}
-	
 	private SessionFactory sesFact;
 	
 	public OwnerDao() {
