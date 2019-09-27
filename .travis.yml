@@ -33,7 +33,7 @@ after_success:
 language: node_js
 sudo: true
 node_js: 
- - 12.10.
+ - 12.10.0
 
 notifications:
   email:
