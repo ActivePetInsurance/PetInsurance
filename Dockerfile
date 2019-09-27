@@ -4,5 +4,4 @@ ENV DATABASE_NAME="postgres"
 ENV JDBC_SCHEMA=""
 ENV JDBC_URL="34.70.42.108"
 ENV JDBC_USERNAME="postgres"
-RUN ls
 COPY RevaturePetInsurance/target/RevaturePetInsurance-0.0.1-SNAPSHOT.war CATALINA_HOME/webapps/
