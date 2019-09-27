@@ -1,1 +1,30 @@
-<p>user-plans works!</p>
+<div class="row">
+<div class="card" *ngFor="let plan of userPolicy">
+        <div class="card-body" *ngIf="plan.Pet2 == null; else elseTemplate1">
+          <h5 class="card-title">{{plan.PolicyNumber}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{plan.Plan}}</h6>
+          <h6>Pets:</h6>
+          <p class="card-text">{{plan.Pet1}}</p>
+        </div>
+        <ng-template #elseTemplate1>
+        <div class="card-body" *ngIf="plan.Pet3 == null; else elseTemplate2">
+            <h5 class="card-title">{{plan.PolicyNumber}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{plan.Plan}}</h6>
+            <h6>Pets:</h6>
+            <p class="card-text">{{plan.Pet1}}</p>
+            <p class="card-text">{{plan.Pet2}}</p>
+        </div>
+        </ng-template>
+        <ng-template #elseTemplate2>
+        <div class="card-body">
+            <h5 class="card-title">{{plan.PolicyNumber}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{plan.Plan}}</h6>
+            <h6>Pets:</h6>
+            <p class="card-text">{{plan.Pet1}}</p>
+            <p class="card-text">{{plan.Pet2}}</p>
+            <p class="card-text">{{plan.Pet3}}</p>
+        </div>
+        </ng-template>
+          <a href="#" class="card-link">Plan link</a>
+        </div>
+      </div>

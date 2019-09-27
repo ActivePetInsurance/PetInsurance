@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Policy } from '../Policy';
+import { PolicyService } from '../policy.service';
 
 @Component({
   selector: 'app-user-plans',
@@ -7,7 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserPlansComponent implements OnInit {
 
-  constructor() { }
+  userPolicy: Policy[] = [];
+  constructor(private userPol: PolicyService) {
+    this.userPolicy = userPol.getPolInfo();
+    console.log(this.userPolicy);
+   }
 
   ngOnInit() {
   }
