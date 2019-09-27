@@ -35,10 +35,10 @@ public class LoginController {
 	}
 	
 	@PostMapping(value="/login.app", consumes = MediaType.ALL_VALUE)
-	public  @ResponseBody Owner login(@RequestBody Object whyTrevin) {
+	public  @ResponseBody Owner login(@RequestBody Object loginCreds) {
 		System.out.println("here");
-		System.out.println(whyTrevin);
-		LinkedHashMap ownerM = (LinkedHashMap) whyTrevin;
+		System.out.println(loginCreds);
+		LinkedHashMap ownerM = (LinkedHashMap) loginCreds;
 		System.out.println(ownerM.keySet());
 		String email = (String) ownerM.get("email");
 		String password = (String) ownerM.get("password");
