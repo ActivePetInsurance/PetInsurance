@@ -8,8 +8,9 @@
 
 cd RevaturePetInsurance/
 mvn package
+cd target/
 ls
-cd ../
+cd ../../
 cd Pet-insurance-Angular/
 npm install
 npm run build
