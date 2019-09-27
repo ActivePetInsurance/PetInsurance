@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { UserSigninService } from '../user-signin.service';
 
 @Component({
   selector: 'app-signin',
@@ -13,20 +15,24 @@ export class SigninComponent implements OnInit {
     password: new FormControl('')
     });
 
-  constructor(private router: Router) { }
+    
+
+  constructor(private router: Router, private usignin: UserSigninService, private loginVal: string) { }
 
   ngOnInit() {
   }
 
 
-  signin(): void {
-    if (this.SignIn.value.email === 'fakeUser@gmail.com' && this.SignIn.value.password === 'admin') {
-      console.log(this.SignIn.value);
-      console.log('in success');
-      this.router.navigate(['/user']);
-     } else {
-       alert('Passwords Do Not Match');
-     }
+  signin(SignIn): void {
+    console.log('third button clicked');
+
+    this.usignin.signin(SignIn).subscribe(
+      data => {
+        console.log(data);
+      }
+    );
+
+      // this.router.navigate(['/user']);
   }
 
 }
