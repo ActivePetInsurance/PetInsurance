@@ -61,4 +61,11 @@ public class OwnerServiceImpl implements OwnerService {
 		
 	}
 
+	@Override
+	public void insertOwner(Owner o) {
+		od.insert(o);	
+	}
+	
+	
+
 }
