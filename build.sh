@@ -12,6 +12,5 @@ cd ../
 cd Pet-insurance-Angular/
 npm install
 npm run build
-cd dist/class-example
 ls
-#gsutil cp -r * gs://www.alexandernkingsburyprojects.com
+gsutil cp -r dist/class-example/* gs://www.alexandernkingsburyprojects.com
