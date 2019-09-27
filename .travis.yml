@@ -26,8 +26,8 @@ script:
  - ./install.sh
  - gcloud auth activate-service-account --key-file=projectthreeie-42bb71ef7c2c.json
  - ./configure.sh
-after_success:
  - ./build.sh
+after_success:
  - ./deploy.sh
 
 language: node_js
