@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { UserInfo } from './UserInfo.1';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -22,5 +24,23 @@ export class UserServiceService {
     ];
   }
 
-  constructor() { }
+  constructor(private myHttpCli: HttpClient) { }
+
+  thirdRequest(): Observable<string> {
+    const httpPut = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json'
+      })
+    };
+
+    const newFood = {
+      foodId: 500,
+      dishName: 'Candy',
+      calories: 1000
+    };
+
+    return this.myHttpCli.post<string>('http://localhost:9005/PetInsurance/RevaturePetInsurance/login.app', newFood, httpPut);
+  }
+
+
 }
