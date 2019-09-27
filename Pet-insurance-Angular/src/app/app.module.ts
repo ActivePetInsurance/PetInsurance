@@ -24,8 +24,8 @@ import { UserServiceService } from './user-service.service';
 import { UserPaymentComponent } from './user-payment/user-payment.component';
 import { UOwnedPetsService } from './u-owned-pets.service';
 import { UserPageComponent } from './user-page/user-page.component';
-import { UserComponent } from './user/user.component';
-import { RegisterComponent } from './register/register.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 
@@ -54,6 +54,7 @@ import { RegisterComponent } from './register/register.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
@@ -67,7 +68,6 @@ import { RegisterComponent } from './register/register.component';
           {path: 'Reptiles', component: ReptileCardsComponent}
         ]
     },
-      
       {path: 'user', component: UserComponent,
       children : [
         {path: '', outlet: 'siNav', component: SigninNavbarComponent},

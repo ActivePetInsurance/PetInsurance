@@ -26,11 +26,117 @@
             </ng-template>
         </div>
       </div>
-      <div class="col-md-4" id="plusContainer">
-    <figure>
-      <img id="addAnimal" src="https://image.flaticon.com/icons/svg/32/32339.svg">
-      <figcaption id="addPetCaption">Add a New Pet</figcaption>
-    </figure>
-    </div>
     </div>
 </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4" id="plusContainer">
+            <figure>
+                <a (click)="toggle()"><img id="addAnimal" src="https://image.flaticon.com/icons/svg/32/32339.svg"></a>
+                <figcaption id="addPetCaption">Add a New Pet</figcaption>
+              </figure>
+            </div>
+      <div class="col-md-4">
+      <form class="form-inline" *ngIf='showForm' id="myform" [formGroup]="newPet" (ngSubmit)="new_Pet()">
+          <div class="form-row">
+              <div class="form-group col-md-6">
+                  <label for="newPetName" style="color: black" name="newPetName" ngControlDefault required>Name</label>
+                  <input type="text" class="form-control" id="newPetName" aria-describedby="emailHelp"
+                      formControlName="newPetName" placeholder="Pet Name" />
+              </div>
+          </div>
+          <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="newbDate" style="color: black" name="bDate" required>Birthday</label>
+                <input type="date" class="form-control" id="newbDate" formControlName="newbDate">
+              </div>
+            </div>
+          <div class="form-row">
+              <div class="form-group col-md-6">
+                  <label for="newWeight">Weight</label>
+                  <input type="text" class="form-control" id="newWeight" formControlName="newWeight"
+                      placeholder="Weight in Pounds">
+              </div>
+          </div>
+          <div class="form-row">
+              <div class="form-group col-md-6">
+                  <label for="newHeight">Height</label>
+                  <input type="text" class="form-control" id="newHeight" formControlName="newHeight"
+                       placeholder="Height in Inches">
+              </div>
+          </div>
+          <div class="form-row">
+              <div class="form-group col-md-6">
+                  <label for="newAge">Age</label>
+                  <input type="text" class="form-control" formControlName="newAge"
+                      id="newAge" placeholder="Age in Years">
+              </div>
+          </div>
+          <div class="form-row">
+              <div class="form-group col-md-6">
+                  <label for="newPetSize">Size</label>
+                  <select class="form-control" id="newPetSize">
+                    <option value = "1">Small</option>
+                    <option value = "2">Medium</option>
+                    <option value = "3">Large</option>
+                  </select>
+              </div>
+          </div>
+          <div class="form-row">
+              <div class="form-group col-md-6">
+                  <label for="newPetSex">Sex</label>
+                  <select class="form-control" id="newPetSex">
+                    <option value = "0">Male</option>
+                    <option value = "1">Female</option>
+                  </select>
+              </div>
+          </div>
+          <div class="form-row">
+              <div class="form-group col-md-6">
+                  <label for="newPetType">Pet Type</label>
+                  <select class="form-control" id="newPetType">
+                    <option value = "1">Brid</option>
+                    <option value = "2">Rodent</option>
+                    <option value = "3">Reptile</option>
+                  </select>
+              </div>
+          </div>
+          <div class="form-row">
+              <div class="form-group col-md-6">
+                  <button class="btn btn-outline-success" id="submitbutton" type="submit">Submit</button>
+              </div>
+          </div>
+      </form>
+    </div>
+  </div>
+
+<!-- <form>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Email address</label>
+    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Example select</label>
+    <select class="form-control" id="exampleFormControlSelect1">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect2">Example multiple select</label>
+    <select multiple class="form-control" id="exampleFormControlSelect2">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Example textarea</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div>
+</form> -->

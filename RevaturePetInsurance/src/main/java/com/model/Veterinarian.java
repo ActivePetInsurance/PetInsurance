@@ -48,7 +48,7 @@ public class Veterinarian {
 		this.lastName = lastName;
 		this.licenseNumber = licenseNumber;
 		this.licenseExpirationDate = licenseExpirationDate;
-		this.licenseIssuedDate = licenseIssuedDate;
+		this.licenseIssueDate = licenseIssuedDate;
 		this.licenseStatus = licenseStatus;
 		this.city = city;
 		this.zipCode = zipCode;
@@ -61,7 +61,7 @@ public class Veterinarian {
 	public String toString() {
 		return "Veterinarian [vet_id=" + vet_id + ", firtName=" + firtName + ", middleInitial=" + middleInitial
 				+ ", lastName=" + lastName + ", licenseNumber=" + licenseNumber + ", licenseExpirationDate="
-				+ licenseExpirationDate + ", licenseIssuedDate=" + licenseIssuedDate + ", licenseStatus="
+				+ licenseExpirationDate + ", licenseIssuedDate=" + licenseIssueDate + ", licenseStatus="
 				+ licenseStatus + ", city=" + city + ", zipCode=" + zipCode + "]";
 	}
 	
