@@ -9,12 +9,8 @@
 cd RevaturePetInsurance/
 mvn package
 cd ../
-
-ls
 cd Pet-insurance-Angular/
-ls
 npm install
-ls
 npm run build
-ls
-gsutil cp -r dist/class-example/* gs://www.alexandernkingsburyprojects.com
+cd dist
+gsutil cp -r class-example gs://www.alexandernkingsburyprojects.com
