@@ -26,21 +26,15 @@ export class UserServiceService {
 
   constructor(private myHttpCli: HttpClient) { }
 
-  thirdRequest(): Observable<string> {
+  getLoggedUser(): Observable<string[]> {
     const httpPut = {
       headers: new HttpHeaders({
-        'Content-Type':  'application/json'
+        'Content-Type':  'application/json',
+          withCredentials: 'true'
       })
     };
-
-    const newFood = {
-      foodId: 500,
-      dishName: 'Candy',
-      calories: 1000
-    };
-
-    return this.myHttpCli.post<string>('http://localhost:9005/PetInsurance/RevaturePetInsurance/login.app', newFood, httpPut);
-  }
+    return this.myHttpCli.get<string[]>('http://localhost:9005/RevaturePetInsurance/log/getCurrentInfo.app', httpPut);
+}
 
 
 }

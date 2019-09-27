@@ -43,17 +43,19 @@ public class OwnerController {
 	
 	@PostMapping(value="/addOwner.app", consumes = MediaType.ALL_VALUE)
 	public @ResponseBody String[] insertOwner(@RequestBody Object newOwner) {
-		System.out.println("here");
 		System.out.println(newOwner);
 		LinkedHashMap ownerM = (LinkedHashMap) newOwner;
-		System.out.println(ownerM);
-//		Owner newO = new Owner(ownerM.get("fName"), "", ownerM.get("lName"), ownerM.get("bDate"))
+		String temp = (String) ownerM.get("bDate");
+		String dem = "[-]";
+		String[] demLine = temp.split(dem);
+		System.out.println(demLine[0]);
+//		LocalDate.of(Integer.parseInt(demLine[0]), Integer.parseInt(demLine[1]), Integer.parseInt(demLine[3]));
+		String add = (String)ownerM.get("add1") + " " + (String)ownerM.get("add2");
+		int zipT = Integer.parseInt((String)ownerM.get("zip"));
+		Owner newO = new Owner((String)ownerM.get("fName"), "", (String)ownerM.get("lName"), "", add, (String)ownerM.get("city"),
+				"VA", zipT, (String)ownerM.get("phoneNum"), (String)ownerM.get("email"), (String)ownerM.get("password"));
+		os.insertOwner(newO);
 		String[] s = {"sucess"};
 		return s;
-//		LocalDate.of(arg0, arg1, arg2)
-//		
-//		String firstName, String middleInitial, String lastName, String dob,
-//		String streetAddress, String city, String state, int zipCode, String phoneNumber, String email,
-//		String password
 	}
 }

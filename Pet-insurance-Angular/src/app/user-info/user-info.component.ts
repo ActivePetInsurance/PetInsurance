@@ -36,6 +36,11 @@ export class UserInfoComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.sessionUser.getLoggedUser().subscribe(
+      data => {
+        console.log('loggedUser: ' + data);
+      }
+    );
   }
 
 }
