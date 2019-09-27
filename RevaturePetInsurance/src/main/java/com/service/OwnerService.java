@@ -13,5 +13,7 @@ public interface OwnerService {
 	public boolean loginPasswordCheck(String email, String password, Owner owner);
 	
 	public void updateInfo(Owner o);
+	
+	public void insertOwner(Owner o);
 
 }
