@@ -12,7 +12,7 @@ spec:
     spec:
       containers:
       - name: petinsurance
-        image: gcr.io/gcpdemosbmongeon/petinsurance:v1.0
+        image: gcr.io/projectthreeie/petinsurance:v1.0
         env:
         - name: PetInsurancePassword
           valueFrom:
