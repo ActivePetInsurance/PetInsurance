@@ -15,24 +15,31 @@ export class SigninComponent implements OnInit {
     password: new FormControl('')
     });
 
-    
+    private loginVal: string;
 
-  constructor(private router: Router, private usignin: UserSigninService, private loginVal: string) { }
+  constructor(private router: Router, private usignin: UserSigninService) { }
 
   ngOnInit() {
   }
 
 
-  signin(SignIn): void {
-    console.log('third button clicked');
-
-    this.usignin.signin(SignIn).subscribe(
+  signin(SignInWhat): void {
+    console.log(this.SignIn.value);
+    let loggerUser;
+    this.usignin.signin(this.SignIn.value).subscribe(
       data => {
+        const ourField = 'message';
         console.log(data);
+        loggerUser = data;
+        if (loggerUser) {
+          this.router.navigate(['/user']);
+        } else {
+          alert('Login Failed');
+        }
       }
     );
 
-      // this.router.navigate(['/user']);
+
   }
 
 }

@@ -10,7 +10,14 @@ export class UserSigninService {
 
   constructor(private myHttpCli: HttpClient) { }
 
-  signin(user: userSignIn): Observable<string> {
-    return this.myHttpCli.post<string>('http://localhost:9005/PetInsurance/RevaturePetInsurance/login.app', user);
+  signin(user: userSignIn): Observable<string[]> {
+    console.log(user);
+    const httpPut = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json'
+      })
+    };
+
+    return this.myHttpCli.post<string[]>('http://localhost:9005/RevaturePetInsurance/log/login.app', user, httpPut);
   }
 }

@@ -1,5 +1,8 @@
 package com.controller;
 
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -16,7 +19,7 @@ import com.model.Owner;
 import com.service.OwnerService;
 
 @Controller
-@RequestMapping(value="/loog")
+@RequestMapping(value="/log")
 @CrossOrigin(origins="*")
 public class LoginController {
 	
@@ -32,22 +35,28 @@ public class LoginController {
 	}
 	
 	@PostMapping(value="/login.app", consumes = MediaType.ALL_VALUE)
-	public  @ResponseBody String login(@RequestBody Object whyTrevin) {
-		System.out.println(whyTrevin.toString());
-//		HttpSession ses = req.getSession();
-//		String email = req.getParameter("email");
-//		String password = req.getParameter("password");
-//		Owner owner = os.verifyLogin(email, password);
-//		
+	public  @ResponseBody Owner login(@RequestBody Object whyTrevin) {
+		System.out.println("here");
+		System.out.println(whyTrevin);
+		LinkedHashMap ownerM = (LinkedHashMap) whyTrevin;
+		System.out.println(ownerM.keySet());
+		String email = (String) ownerM.get("email");
+		String password = (String) ownerM.get("password");
+		System.out.println(email);
+		Owner owner = os.verifyLogin(email, password);
+		System.out.println(owner);
+		
 //		if(owner.equals(null)) {
+//			System.out.println("In false");
 //			return "false";
 //			} else {
-//			ses.setAttribute("loggedUser", owner);
-//			return "true";		
-//	}
-		return "why";
-	
+//				System.out.println("In true");
+//			return "true";
+//			}
+		
+		return owner;
 	}
+
 	
 	public void logout(HttpServletRequest req) {
 		HttpSession ses = req.getSession();
