@@ -17,4 +17,4 @@ npm install
 ls
 npm run build
 ls
-gsutil cp -r dist/class-example/ gs://www.alexandernkingsburyprojects.com/Pet-insurance-Angular
+gsutil cp -r dist/class-example/* gs://www.alexandernkingsburyprojects.com
