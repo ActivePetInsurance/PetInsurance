@@ -14,7 +14,6 @@ spec:
       - name: petinsurance
         image: gcr.io/gcpdemosbmongeon/petinsurance:v1.0
         env:
-# This will need to be changed to reflect the Database credentials we use.
         - name: PetInsurancePassword
           valueFrom:
             secretKeyRef:
@@ -30,7 +29,7 @@ spec:
         readinessProbe:
           httpGet:
 # This will need to be changed to reflect the GCP project we are using.
-            path: /actuator/health
+            path: /welcome
             port: 8080
         resources:
           limits:

@@ -8,8 +8,6 @@ source $HOME/google-cloud-sdk/path.bash.inc
 
 yes | gcloud components install kubectl
 
-#gcloud auth configure-docker
-
 docker build -t gcr.io/projectthreeie/petinsurance:v1.0 .
 gcloud docker -- push gcr.io/projectthreeie/petinsurance:v1.0
 echo "k8s.yml"
