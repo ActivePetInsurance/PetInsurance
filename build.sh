@@ -14,4 +14,4 @@ npm install
 npm run build
 cd dist
 ls
-gsutil cp -r * gs://www.alexandernkingsburyprojects.com
+#gsutil cp -r * gs://www.alexandernkingsburyprojects.com
