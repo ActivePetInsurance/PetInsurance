@@ -23,7 +23,11 @@ public class CreditCardController {
 		this.ccd = ccd;
 	}
 	@PostMapping(value="/postcreditCardinfo.app")
-	public @ResponseBody CreditCard getCreditCardbyID(@RequestParam("id") int num) {
-		return ccd.selectCreditCardByID(num);
+	public @ResponseBody CreditCard getCreditCardbyID(@RequestParam("id") int num, @RequestParam("address") String address,
+				@RequestParam("cardExpiration") String exDate, @RequestParam("cardNum") int cardNum, @RequestParam("city") String city,
+				@RequestParam("cvv")int cvv, @RequestParam("state")String state, @RequestParam("zipCode") int zipCode, @RequestParam("ownerId")int ownerId) {
+		CreditCard cc1 = new CreditCard(address, city, state, zipCode, cardNum, exDate, cvv);
+		ccd.insert(cc1);
+		return cc1;
 	}
 }

@@ -129,6 +129,34 @@ public class CreditCard {
 		this.cardExpirationDate = cardExpirationDate;
 		this.cvv = cvv;
 	}
+	
+	
+
+	public CreditCard(Owner owner, String billingStreetAddress, String city, String state, int zipcode, int cardNumber,
+			String cardExpirationDate, int cvv) {
+		super();
+		this.owner = owner;
+		this.billingStreetAddress = billingStreetAddress;
+		this.city = city;
+		this.state = state;
+		this.zipcode = zipcode;
+		this.cardNumber = cardNumber;
+		this.cardExpirationDate = cardExpirationDate;
+		this.cvv = cvv;
+	}
+	
+
+	public CreditCard(String billingStreetAddress, String city, String state, int zipcode, int cardNumber,
+			String cardExpirationDate, int cvv) {
+		super();
+		this.billingStreetAddress = billingStreetAddress;
+		this.city = city;
+		this.state = state;
+		this.zipcode = zipcode;
+		this.cardNumber = cardNumber;
+		this.cardExpirationDate = cardExpirationDate;
+		this.cvv = cvv;
+	}
 
 	public CreditCard() {
 	}
