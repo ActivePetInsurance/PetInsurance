@@ -16,6 +16,14 @@ import com.util.HibernateUtil;
 @Repository("ownDao")
 public class OwnerDao {
 	
+	static {
+		try {
+			Class.forName("org.postgresql.Driver");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	private SessionFactory sesFact;
 	
 	public OwnerDao() {
