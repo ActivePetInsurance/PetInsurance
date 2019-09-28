@@ -164,6 +164,23 @@ public class Owner {
 		this.email = email;
 		this.password = password;
 	}
+	
+	public Owner(String firstName, String middleInitial, String lastName, String dob,
+			String streetAddress, String city, String state, int zipCode, String phoneNumber, String email,
+			String password) {
+		super();
+		this.firstName = firstName;
+		this.middleInitial = middleInitial;
+		this.lastName = lastName;
+		this.dob = dob;
+		this.streetAddress = streetAddress;
+		this.city = city;
+		this.state = state;
+		this.zipCode = zipCode;
+		this.phoneNumber = phoneNumber;
+		this.email = email;
+		this.password = password;
+	}
 
 	@Override
 	public String toString() {

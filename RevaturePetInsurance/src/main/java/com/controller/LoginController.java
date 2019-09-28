@@ -1,39 +1,61 @@
 package com.controller;
 
+import java.util.LinkedHashMap;
+
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.dao.OwnerDao;
 import com.model.Owner;
 import com.service.OwnerService;
 
 @Controller
-@RequestMapping(value="/loog")
-@CrossOrigin(origins="*")
+@RequestMapping(value="/log")
+@CrossOrigin(origins="http://localhost:4200", allowCredentials="true")
 public class LoginController {
 	
-	private OwnerDao od;
 	private OwnerService os;
 	
-	@PostMapping(value="/login.app")
-	public @ResponseBody Owner login(HttpServletRequest req, HttpServletResponse res) {
+	public LoginController() {
 		
-		HttpSession ses = req.getSession();
-		String email = req.getParameter("email");
-		String password = req.getParameter("password");
-		
-		if(!(os.verifyLogin(email, password))) {
-			return null;
-		} else {
-			return od.selectOwnerByEmail(email);
-		}
+	}
 	
+	@Autowired
+	public LoginController(OwnerService os) {
+		this.os = os;
+	}
+
+	
+	@PostMapping(value="/login.app", consumes = MediaType.ALL_VALUE)
+	public  @ResponseBody Owner login(@RequestBody Object loginCreds, HttpSession session) {
+		
+		System.out.println("here");
+		LinkedHashMap ownerM = (LinkedHashMap) loginCreds;
+
+		String email = (String) ownerM.get("email");
+		String password = (String) ownerM.get("password");
+		System.out.println(email);
+		System.out.println(password);
+		Owner owner = os.verifyLogin(email, password);
+		
+		return owner;
+	}
+
+	
+	public @ResponseBody String[] logout(HttpServletRequest req) {
+		HttpSession ses = req.getSession();
+		Owner owner = (Owner)ses.getAttribute("loggedUser");
+		ses.invalidate();
+		String[] s = {"You are logged out"};
+		return s;
 	}
 }

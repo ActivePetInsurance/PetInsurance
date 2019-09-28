@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup } from '@angular/forms';
+import { UserSignupService } from '../user-signup.service';
 
 
 @Component({
@@ -24,18 +25,25 @@ export class SignupComponent implements OnInit {
   passwordC: new FormControl('')
   });
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private usignup: UserSignupService) { }
 
   ngOnInit() {
   }
 
-  signup(): void {
+  signup(SignInWhat): void {
     if (this.initSignUp.value.password === this.initSignUp.value.passwordC) {
       console.log(this.initSignUp.value);
-      console.log('in success');
-      this.router.navigate(['/welcome']);
+      this.usignup.usignup(this.initSignUp.value).subscribe(
+        data => {
+          this.routing();
+        }
+      );
      } else {
        alert('Passwords Do Not Match');
      }
+  }
+
+  routing(): void {
+    this.router.navigate(['/welcome']);
   }
 }
