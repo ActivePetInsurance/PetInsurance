@@ -23,7 +23,7 @@ export class SigninComponent implements OnInit {
   }
 
 
-  signin(): void {
+  signin(SignInWhat): void {
     console.log(this.SignIn.value);
     let loggerUser;
     this.usignin.signin(this.SignIn.value).subscribe(
@@ -32,6 +32,7 @@ export class SigninComponent implements OnInit {
         console.log(data);
         loggerUser = data;
         if (loggerUser) {
+          localStorage.setItem('owner', JSON.stringify(data));
           this.router.navigate(['/user']);
         } else {
           alert('Login Failed');

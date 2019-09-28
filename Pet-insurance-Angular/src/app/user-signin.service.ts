@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { userSignIn } from 'src/environments/userSignIn';
+import { UserInfo } from './UserInfo.1';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,8 @@ export class UserSigninService {
     console.log(user);
     const httpPut = {
       headers: new HttpHeaders({
-        'Content-Type':  'application/json'
+        'Content-Type':  'application/json',
+        withCredentials: 'true'
       })
     };
 
