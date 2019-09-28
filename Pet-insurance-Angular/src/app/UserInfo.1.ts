@@ -1,4 +1,5 @@
 export interface UserInfo {
+    accNum: string;
     email: string;
     fName: string;
     mInit: string;
@@ -8,4 +9,5 @@ export interface UserInfo {
     city: string;
     zip: string;
     phoneNum: string;
+    password: string;
 }

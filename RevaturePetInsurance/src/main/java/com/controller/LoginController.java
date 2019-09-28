@@ -43,8 +43,8 @@ public class LoginController {
 
 		String email = (String) ownerM.get("email");
 		String password = (String) ownerM.get("password");
-		System.out.println(email);
-		System.out.println(password);
+//		System.out.println(email);
+//		System.out.println(password);
 		Owner owner = os.verifyLogin(email, password);
 		
 		return owner;

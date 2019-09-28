@@ -57,7 +57,7 @@ public class OwnerServiceImpl implements OwnerService {
 
 	@Override
 	public void updateInfo(Owner o) {
-		// TODO Auto-generated method stub
+		od.update(o);
 		
 	}
 

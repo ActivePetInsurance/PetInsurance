@@ -1,7 +1,8 @@
 package com.controller;
 
-import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -46,12 +47,34 @@ public class OwnerController {
 		System.out.println(newOwner);
 		LinkedHashMap ownerM = (LinkedHashMap) newOwner;
 
-		String add = (String)ownerM.get("add1") + " " + (String)ownerM.get("add2");
+		String add = (String)ownerM.get("add1");
 		int zipT = Integer.parseInt((String)ownerM.get("zip"));
 		Owner newO = new Owner((String)ownerM.get("fName"), "", (String)ownerM.get("lName"), (String)ownerM.get("bDate"), add, (String)ownerM.get("city"),
 				"VA", zipT, (String)ownerM.get("phoneNum"), (String)ownerM.get("email"), (String)ownerM.get("password"));
 		os.insertOwner(newO);
 		String[] s = {"sucess"};
 		return s;
+	}
+	
+	@PostMapping(value="/updateOwner.app", consumes = MediaType.ALL_VALUE)
+	public @ResponseBody Owner updateOwner(@RequestBody Object newOwner) {
+		List ownerA = (ArrayList) newOwner;
+		LinkedHashMap upOwnerM = (LinkedHashMap) ownerA.get(0);
+		System.out.println(upOwnerM);
+	
+		String add = (String)upOwnerM.get("add1");
+		int zipT;
+		if(upOwnerM.get("zip") instanceof String) {
+			zipT = Integer.parseInt((String) upOwnerM.get("zip"));
+		} else {
+			zipT = (int) upOwnerM.get("zip");
+		}
+		int accNum = (int) upOwnerM.get("accNum");
+		Owner newO = new Owner(accNum, (String)upOwnerM.get("fName"), "", (String)upOwnerM.get("lName"), (String)upOwnerM.get("bDate"), add, (String)upOwnerM.get("city"),
+				"VA", zipT, (String)upOwnerM.get("phoneNum"), (String)upOwnerM.get("email"), (String)upOwnerM.get("password"));
+		System.out.println(newO);
+				os.updateInfo(newO);
+		String[] s = {"sucess"};
+		return newO;
 	}
 }
