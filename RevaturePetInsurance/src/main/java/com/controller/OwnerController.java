@@ -45,14 +45,10 @@ public class OwnerController {
 	public @ResponseBody String[] insertOwner(@RequestBody Object newOwner) {
 		System.out.println(newOwner);
 		LinkedHashMap ownerM = (LinkedHashMap) newOwner;
-		String temp = (String) ownerM.get("bDate");
-		String dem = "[-]";
-		String[] demLine = temp.split(dem);
-		System.out.println(demLine[0]);
-//		LocalDate.of(Integer.parseInt(demLine[0]), Integer.parseInt(demLine[1]), Integer.parseInt(demLine[3]));
+
 		String add = (String)ownerM.get("add1") + " " + (String)ownerM.get("add2");
 		int zipT = Integer.parseInt((String)ownerM.get("zip"));
-		Owner newO = new Owner((String)ownerM.get("fName"), "", (String)ownerM.get("lName"), "", add, (String)ownerM.get("city"),
+		Owner newO = new Owner((String)ownerM.get("fName"), "", (String)ownerM.get("lName"), (String)ownerM.get("bDate"), add, (String)ownerM.get("city"),
 				"VA", zipT, (String)ownerM.get("phoneNum"), (String)ownerM.get("email"), (String)ownerM.get("password"));
 		os.insertOwner(newO);
 		String[] s = {"sucess"};
