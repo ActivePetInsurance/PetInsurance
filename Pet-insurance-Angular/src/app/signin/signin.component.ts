@@ -32,6 +32,7 @@ export class SigninComponent implements OnInit {
         console.log(data);
         loggerUser = data;
         if (loggerUser) {
+          localStorage.setItem('owner', JSON.stringify(data));
           this.router.navigate(['/user']);
         } else {
           alert('Login Failed');

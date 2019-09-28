@@ -36,6 +36,8 @@ export class UserInfoComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(localStorage.getItem('owner'));
+
   }
 
 }
