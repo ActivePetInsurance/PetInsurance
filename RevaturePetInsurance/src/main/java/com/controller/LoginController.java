@@ -20,7 +20,7 @@ import com.service.OwnerService;
 
 @Controller
 @RequestMapping(value="/log")
-@CrossOrigin(origins="*", allowCredentials="true")
+@CrossOrigin(origins="http://localhost:4200", allowCredentials="true")
 public class LoginController {
 	
 	private OwnerService os;
@@ -33,45 +33,19 @@ public class LoginController {
 	public LoginController(OwnerService os) {
 		this.os = os;
 	}
-	
-	@GetMapping(value="/getCurrentInfo.app")
-	public @ResponseBody Owner getLoggedInUser(HttpSession session) {
-		System.out.println("in the getCurrentInfo method");
-		
-		Owner currentUser= (Owner)session.getAttribute("loggedUser");
-		System.out.println(currentUser);
-		
-		
-		System.out.println("\n\n\n");
-		
-		if( currentUser == null ) {
-			return new Owner();
-		}else {
-			return currentUser;
-		}
-	}
 
 	
 	@PostMapping(value="/login.app", consumes = MediaType.ALL_VALUE)
-	public  @ResponseBody Owner login(@RequestBody Object loginCreds, HttpServletRequest req) {
-		HttpSession ses =req.getSession();
+	public  @ResponseBody Owner login(@RequestBody Object loginCreds, HttpSession session) {
+		
 		System.out.println("here");
-//		System.out.println(loginCreds);
 		LinkedHashMap ownerM = (LinkedHashMap) loginCreds;
-//		System.out.println(ownerM.keySet());
+
 		String email = (String) ownerM.get("email");
 		String password = (String) ownerM.get("password");
-//		System.out.println(email);
+		System.out.println(email);
+		System.out.println(password);
 		Owner owner = os.verifyLogin(email, password);
-		
-		ses.setAttribute("loggedUser", owner);
-		Owner currentUser= (Owner)ses.getAttribute("loggedUser");
-		System.out.println(currentUser);
-		
-//		if( owner != null ) {
-//			ses.setAttribute("loggedUser", owner);
-//		}
-//		System.out.println(owner);
 		
 		return owner;
 	}

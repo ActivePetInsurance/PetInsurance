@@ -30,6 +30,7 @@ export class SigninComponent implements OnInit {
       data => {
         const ourField = 'message';
         console.log(data);
+        localStorage.setItem('owner', JSON.stringify(data));
         loggerUser = data;
         if (loggerUser) {
           this.router.navigate(['/user']);
