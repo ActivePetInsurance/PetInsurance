@@ -25,7 +25,7 @@ public class RoutingController {
 	
 	@PostMapping(value="/routinginfo")
 	public @ResponseBody Routing getRoutingInfo(@RequestParam("paymendId") int paymentId,
-			@RequestParam("accountNum")int accountNum, @RequestParam("accountType")String accountType
+			@RequestParam("accountNum")int accountNum, @RequestParam("accountType")String accountType,
 			@RequestParam("name")String name, @RequestParam("paidAmount") double paidAmount) {
 		return null;
 	}

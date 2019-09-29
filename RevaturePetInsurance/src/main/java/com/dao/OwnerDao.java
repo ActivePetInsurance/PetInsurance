@@ -58,17 +58,12 @@ public class OwnerDao {
 		return sesFact.getCurrentSession().createQuery("from Owner", Owner.class).list();
 	}
 	
-<<<<<<< HEAD
-	public Owner selectOwnerbyId(int ownerId) {
-		Session ses = HibernateUtil.getSession();
-		Owner ow = ses.get(Owner.class, ownerId);
-		return ow;
-=======
+
 	public Owner selectInsurancePlanByID(int insurancePlanId) {
 //		Session ses = HibernateUtil.getSession();
 //		Owner ip = ses.get(Owner.class, insurancePlanId);
 		return sesFact.getCurrentSession().get(Owner.class, insurancePlanId);
->>>>>>> development
+
 		
 	}
 	

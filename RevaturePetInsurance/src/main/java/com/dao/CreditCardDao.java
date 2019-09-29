@@ -46,17 +46,12 @@ public class CreditCardDao {
 		return sesFact.getCurrentSession().createQuery("from CreditCard", CreditCard.class).list();
 	}
 	
-<<<<<<< HEAD
-	public CreditCard selectCreditCardByID(int creditCardId) {
-		Session ses = HibernateUtil.getSession();
-		CreditCard ip = ses.get(CreditCard.class, creditCardId);
-		return ip;
-=======
+
 	public CreditCard selectInsurancePlanByID(int insurancePlanId) {
 //		Session ses = HibernateUtil.getSession();
 //		CreditCard ip = ses.get(CreditCard.class, insurancePlanId);
 		return sesFact.getCurrentSession().get(CreditCard.class, insurancePlanId);
->>>>>>> development
+
 		
 	}
 
