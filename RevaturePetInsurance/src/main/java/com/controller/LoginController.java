@@ -20,7 +20,7 @@ import com.service.OwnerService;
 
 @Controller
 @RequestMapping(value="/log")
-@CrossOrigin(origins="http://localhost:4200", allowCredentials="true")
+@CrossOrigin(origins="*", allowCredentials="true")
 public class LoginController {
 	
 	private OwnerService os;
