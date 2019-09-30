@@ -14,9 +14,7 @@ import com.model.Pet;
 
 public class HibernateServlet extends HttpServlet{
 	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	public static PetDao pd = new PetDao();
 	
