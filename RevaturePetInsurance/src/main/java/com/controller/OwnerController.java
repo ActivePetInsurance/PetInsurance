@@ -111,25 +111,35 @@ public class OwnerController {
 		int planId;
 		String polPetType = (String)ownerM.get("polPetType");
 		String polPlanType = (String)ownerM.get("polPlanType");
+		int petType;
 		
 		if(polPetType.equals("1") && polPlanType.equals("1")) {
 			planId = 1;
+			petType = 2;
 		} else if(polPetType.equals("1") && polPlanType.equals("2")){
 			planId = 2;
+			petType = 2;
 		} else if(polPetType.equals("1") && polPlanType.equals("3")){
 			planId = 3;
+			petType = 2;
 		} else if(polPetType.equals("2") && polPlanType.equals("1")){
 			planId = 4;
+			petType = 1;
 		} else if(polPetType.equals("2") && polPlanType.equals("2")){
 			planId = 5;
+			petType = 1;
 		} else if(polPetType.equals("2") && polPlanType.equals("3")){
 			planId = 6;
+			petType = 1;
 		} else if(polPetType.equals("3") && polPlanType.equals("1")){
 			planId = 7;
+			petType = 3;
 		} else if(polPetType.equals("3") && polPlanType.equals("2")){
 			planId = 8;
+			petType = 3;
 		} else {
 			planId = 9;
+			petType = 3;
 		}
 		
 		String add = (String)ownerM.get("add1");
@@ -147,13 +157,12 @@ public class OwnerController {
 		int petAge = Integer.parseInt((String)ownerM.get("newAge"));
 		int petSize = Integer.parseInt((String)ownerM.get("newPetSize"));
 		int petSex = Integer.parseInt((String)ownerM.get("newPetSex"));
-		int petType = Integer.parseInt(polPetType);
+		System.out.println(polPetType);
 		Pet newPet = new Pet((String)ownerM.get("newPetName"), (String)ownerM.get("newbDate"), petWeight, petHeight, petAge, newO, ps.getPetSize(petSize), ps.getPetSex(petSex), ps.getPetType(petType));
 		ps.createPet(newPet);
 		List<Pet> petList = new ArrayList<>();
 		petList.add(newPet);
 		System.out.println(newPet);
-		
 		System.out.println(ips.selectPlanById(planId));
 		
 		os.insertNewPolicy(ips.selectPlanById(planId), newO, petList);
