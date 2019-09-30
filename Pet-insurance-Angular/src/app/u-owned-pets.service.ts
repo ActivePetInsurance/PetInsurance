@@ -66,8 +66,8 @@ export class UOwnedPetsService {
     };
     console.log('before return');
 
-    // return this.myHttpCli.post<string[]>('http://localhost:9005/RevaturePetInsurance/own/getPets.app', curUser, httpPut);
-    return this.myHttpCli.post<string[]>('http://35.232.12.74:32420/TCP/RevaturePetInsurance/own/getPets.app', curUser, httpPut);
+     return this.myHttpCli.post<string[]>('http://localhost:9005/RevaturePetInsurance/own/getPets.app', curUser, httpPut);
+    //return this.myHttpCli.post<string[]>('http://35.232.12.74:32420/TCP/RevaturePetInsurance/own/getPets.app', curUser, httpPut);
 }
 
 }

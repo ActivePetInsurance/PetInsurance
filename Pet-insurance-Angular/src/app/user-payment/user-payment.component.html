@@ -1,1 +1,135 @@
-<p>user-payment works!</p>
+<br>
+<br>
+
+<div class="container" id = "reciept">
+    <div class = "col-sm">
+        <button class='btn btn-primary' (click) = 'toggleCredit()'>Pay with credit card</button>
+    </div>
+    <br/>
+    
+    <form class = "form-inline" *ngIf = 'showCreditform' id="myform1" [formGroup]="creditform" (ngSubmit) = "credit_info()">
+        <div class="form-row">
+            <div class = "form-group col-md-6">
+                <label for="Name" style = "color:black" name = "nameCC" ngControlDefault required>Name on Credit Card</label>
+                <input type = "text" class="form-control" id = "nameCC"  formControlName="nameCC"
+                placeholder="Enter name on credit card">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class = "form-group col-md-6">
+                <label for="billAddCC" style = "color:black" name = "billAddCC" ngControlDefault required>Billing Address</label>
+                <input type = "text" class="form-control" id = "billAddCC"  formControlName="billAddCC"
+                placeholder="Billing Address">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class = "form-group col-md-6">
+                <label for="cityCC" style = "color:black" name = "cityCC" ngControlDefault required>city</label>
+                <input type = "text" class="form-control" id = "cityCC"  formControlName="cityCC"
+                placeholder="City">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class = "form-group col-md-6">
+                <label for="stateCC" style = "color:black" name = "stateCC" ngControlDefault required>State</label>
+                <input type = "text" class="form-control" id = "stateCC"  formControlName="stateCC"
+                placeholder="City">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class = "form-group col-md-6">
+                <label for="zipcodeCC" style = "color:black" name = "zipcodeCC" ngControlDefault required>Zipcode</label>
+                <input type = "text" class="form-control" id = "zipcodeCC"  formControlName="zipcodeCC"
+                placeholder="Zipcode">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class = "form-group col-md-6">
+                <label for="cardnumCC" style = "color:black" name = "cardnumCC" ngControlDefault required>Card Number</label>
+                <input type = "text" class="form-control" id = "cardnumCC"  formControlName="cardnumCC"
+                placeholder="Card Number">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class = "form-group col-md-6">
+                <label for="cardexpirCC" style = "color:black" name = "cardexpirCC" ngControlDefault required>Card Expiration</label>
+                <input type = "text" class="form-control" id = "cardexpirCC"  formControlName="cardexpirCC"
+                placeholder="Card Expiration date">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class = "form-group col-md-6">
+                <label for="cvv" style = "color:black" name = "cvv" ngControlDefault required>CVV</label>
+                <input type = "text" class="form-control" id = "cvv"  formControlName="cvv"
+                placeholder="CVV">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class = "form-group col-md-6">
+                <label for="paidAmount" style = "color:black" name = "paidAmount" ngControlDefault required>Enter amount to be paid</label>
+                <input type = "text" class="form-control" id = "paidAmount"  formControlName="paidAmount"
+                placeholder="amount to be paid">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <button class="btn btn-outline-success" id="submitbutton" type="submit">Submit</button>
+            </div>
+        </div>
+
+    </form>
+
+    <br><br>
+
+    <div class = "col-sm">
+        <button class='btn btn-primary' (click) = 'toggleBankAccount()'>Pay with Bank Account</button>
+    </div>
+
+
+    <form class = "form-inline" *ngIf = 'showBankAccountform' id="myform2" [formGroup]="BankAccountform" (ngSubmit) = "BA_info()">
+        <div class="form-row">
+            <div class = "form-group col-md-6">
+                <label for="Name" style = "color:black" name = "nameBa" ngControlDefault required>Name on Bank Account</label>
+                <input type = "text" class="form-control" id = "nameBA"  formControlName="nameBA"
+                placeholder="Enter name on account">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class = "form-group col-md-6">
+                <label for="routingNum" style = "color:black" name = "routingNumBA" ngControlDefault required>Routing Number</label>
+                <input type = "text" class="form-control" id = "routingNumBA"  formControlName="routingNumBA"
+                placeholder="Enter routing number">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class = "form-group col-md-6">
+                <label for="AccountType" style = "color:black" name = "accountTypeBA" ngControlDefault required>Type of Account</label>
+                <input type = "text" class="form-control" id = "accountTypeBA"  formControlName="accountTypeBA"
+                placeholder="Enter account type">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class = "form-group col-md-6">
+                <label for="AccountNum" style = "color:black" name = "accountNumBA" ngControlDefault required>Account Number</label>
+                <input type = "text" class="form-control" id = "accountNumBA" formControlName="accountNumBA"
+                placeholder="Enter account number">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class = "form-group col-md-6">
+                <label for="paidAmount" style = "color:black" name = "paidAmount" ngControlDefault required>Enter Amount to pay</label>
+                <input type = "text" class="form-control" id = "paidAmount" formControlName="paidAmount"
+                placeholder="Enter amount to pay">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <button class="btn btn-outline-success" id="submitbutton" type="submit">Submit</button>
+            </div>
+        </div>
+
+    </form>
+</div>
+
+
+
