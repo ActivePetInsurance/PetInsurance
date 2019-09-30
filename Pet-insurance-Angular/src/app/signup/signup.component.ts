@@ -28,6 +28,9 @@ export class SignupComponent implements OnInit {
   constructor(private router: Router, private usignup: UserSignupService) { }
 
   ngOnInit() {
+    console.log('cleared');
+    // tslint:disable-next-line: no-unused-expression
+    localStorage.removeItem('owner');
   }
 
   signup(SignInWhat): void {
