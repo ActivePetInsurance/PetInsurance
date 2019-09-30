@@ -41,6 +41,10 @@ public class PetController {
 	@PostMapping(value="/update.app", consumes = MediaType.ALL_VALUE)
 	public @ResponseBody Pet updatePetInfo(@RequestBody Object currentPet) {
 		System.out.println(currentPet);
+		LinkedHashMap myPet = (LinkedHashMap) currentPet;
+		
+		int petId = (Integer) myPet.get("petId");
+		
 		
 		
 		
