@@ -73,6 +73,11 @@ public class OwnerDao {
 		return sesFact.getCurrentSession().createQuery("from Owner where ownerEmail='"+ ownerEmail + "'", Owner.class).uniqueResult();
 
 	}
+	
+	public Owner selectOwnerByAccount(int accountNum) {
+		
+		return sesFact.getCurrentSession().createQuery("from Owner where accountNumber='" + accountNum + "'", Owner.class).uniqueResult();
+	}
 
 
 }
