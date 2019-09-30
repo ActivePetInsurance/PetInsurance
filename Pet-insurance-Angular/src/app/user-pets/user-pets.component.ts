@@ -10,6 +10,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class UserPetsComponent implements OnInit {
 
+  ownerPets;
   userPets: Pet[] = [];
   showForm = false;
   newPet = new FormGroup({
@@ -35,6 +36,7 @@ ngOnInit() {
   this.userPetServ.getOwnerPets().subscribe(
     data => {
       console.log(data);
+      this.ownerPets = data;
       });
   }
 

@@ -10,6 +10,7 @@ import { FormGroup,  FormControl } from '@angular/forms';
 })
 export class UserPlansComponent implements OnInit {
 
+  owerPol;
   newPol = new FormGroup({
     polPetType: new FormControl(''),
     polPlanType: new FormControl(''),
@@ -32,6 +33,7 @@ export class UserPlansComponent implements OnInit {
     this.userPol.getPlans().subscribe(
       data => {
         console.log(data);
+        this.owerPol = data;
         });
   }
 

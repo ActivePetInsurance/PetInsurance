@@ -121,40 +121,32 @@
 
 <!-- Card generation -->
 <div class="row">
-<div class="card" *ngFor="let plan of userPolicy">
-    <div class="card-body" *ngIf="plan.Pet1 == null; else elseTemplateB">
-        <h5 class="card-title">{{plan.PolicyNumber}}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">{{plan.Plan}}</h6>
+<div class="card" *ngFor="let plan of owerPol">
+    <div class="card-body" *ngIf="plan.petList.length == 1; else elseTemplate1">
+        <h5 class="card-title">{{plan.insurancePlan.planId}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{plan.insurancePlan.planName}}</h6>
         <h6>Pets:</h6>
+        <p class="card-text">{{plan.petList[0].name}}</p>
         <button>Add A Pet</button>
       </div>
-      <ng-template #elseTemplateB>
-        <div class="card-body" *ngIf="plan.Pet2 == null; else elseTemplate1">
-          <h5 class="card-title">{{plan.PolicyNumber}}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">{{plan.Plan}}</h6>
-          <h6>Pets:</h6>
-          <p class="card-text">{{plan.Pet1}}</p>
-          <button>Add A Pet</button>
-        </div>
-      </ng-template>
         <ng-template #elseTemplate1>
-        <div class="card-body" *ngIf="plan.Pet3 == null; else elseTemplate2">
-            <h5 class="card-title">{{plan.PolicyNumber}}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">{{plan.Plan}}</h6>
+        <div class="card-body" *ngIf="plan.petList.length == 2; else elseTemplate2">
+            <h5 class="card-title">{{plan.insurancePlan.planId}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{plan.insurancePlan.planName}}</h6>
             <h6>Pets:</h6>
-            <p class="card-text">{{plan.Pet1}}</p> 
-            <p class="card-text">{{plan.Pet2}}</p>
+            <p class="card-text">{{plan.petList[0].name}}</p> 
+            <p class="card-text">{{plan.petList[1].name}}</p>
             <button>Add A Pet</button>
         </div>
         </ng-template>
         <ng-template #elseTemplate2>
         <div class="card-body">
-            <h5 class="card-title">{{plan.PolicyNumber}}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">{{plan.Plan}}</h6>
+            <h5 class="card-title">{{plan.insurancePlan.planId}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{plan.insurancePlan.planName}}</h6>
             <h6>Pets:</h6>
-            <p class="card-text">{{plan.Pet1}}</p>
-            <p class="card-text">{{plan.Pet2}}</p>
-            <p class="card-text">{{plan.Pet3}}</p>
+            <p class="card-text">{{plan.petList[0].name}}</p>
+            <p class="card-text">{{plan.petList[1].name}}</p>
+            <p class="card-text">{{plan.petList[2].name}}</p>
         </div>
         </ng-template>
           <a href="#" class="card-link">Plan link</a>

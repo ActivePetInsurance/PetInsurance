@@ -1,6 +1,7 @@
 package com.controller;
 
 import java.util.ArrayList;
+
 import java.util.LinkedHashMap;
 import java.util.List;
 
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.model.Owner;
 import com.model.Pet;
+import com.model.Policy;
 import com.service.InsurancePlanServiceImpl;
 import com.service.OwnerServiceImpl;
 import com.service.PetServiceImpl;
@@ -152,16 +154,6 @@ public class OwnerController {
 		petList.add(newPet);
 		System.out.println(newPet);
 		
-//		this.name = name;
-//		this.dob = dob;
-//		this.weight = weight;
-//		this.height = height;
-//		this.age = age;
-//		this.owner = owner;
-//		this.size = size;
-//		this.sex = sex;
-//		this.type = type;
-		
 		System.out.println(ips.selectPlanById(planId));
 		
 		os.insertNewPolicy(ips.selectPlanById(planId), newO, petList);
@@ -172,18 +164,16 @@ public class OwnerController {
 	}
 	
 	@PostMapping(value="/getPolicy.app", consumes = MediaType.ALL_VALUE)
-	public @ResponseBody String[] selectOwnerPolicy(@RequestBody Object newOwner) {
+	public @ResponseBody List<Policy> selectOwnerPolicy(@RequestBody Object newOwner) {
 		System.out.println("here in get Policy");
 //		List<Policy>
 //		System.out.println(newOwner);
 		LinkedHashMap ownerM = (LinkedHashMap) newOwner;
 		System.out.println(ownerM);
 		
-		System.out.println(os.selectAllPolicy());
-//		System.out.println(os.selectOwnerPolicy((Integer)ownerM.get("accountNumber")));
+//		System.out.println(os.selectAllPolicy());
+		System.out.println(os.selectOwnerPolicy((Integer)ownerM.get("accountNumber")));
 		
-		
-		String[] s = {"sucess"};
-		return s;
+		return os.selectOwnerPolicy((Integer)ownerM.get("accountNumber"));
 	}
 }
