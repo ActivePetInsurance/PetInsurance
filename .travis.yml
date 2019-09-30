@@ -29,6 +29,7 @@ script:
  - ./build.sh
 after_success:
  - ./deploy.sh
+ - gcloud logging write my-test-log "Successful build"
 
 language: node_js
 sudo: true
