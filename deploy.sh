@@ -10,6 +10,5 @@ yes | gcloud components install kubectl
 
 docker build -t gcr.io/projectthreeie/petinsurance:v1.0 .
 gcloud docker -- push gcr.io/projectthreeie/petinsurance:v1.0
-echo "k8s.yml"
 kubectl delete pods --all
 kubectl apply -f k8s.yml
