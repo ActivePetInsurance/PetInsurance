@@ -35,7 +35,7 @@ public class Pet {
 	@Column(name = "age")
 	private int age;
 	
-	@ManyToOne(cascade=CascadeType.ALL, fetch =FetchType.EAGER)
+	@ManyToOne(fetch =FetchType.EAGER)
 	@JoinColumn(name = "owner_fk")
 	private Owner owner;
 	

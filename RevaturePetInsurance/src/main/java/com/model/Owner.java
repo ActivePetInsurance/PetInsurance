@@ -56,7 +56,7 @@ public class Owner {
 	
 	@Column(name = "password")
 	private String password;
-	
+
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "pet_fk")
 	private List<Pet> petList = new ArrayList<Pet>();

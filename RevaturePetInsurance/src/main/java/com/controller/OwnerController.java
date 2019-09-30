@@ -157,7 +157,7 @@ public class OwnerController {
 		int petAge = Integer.parseInt((String)ownerM.get("newAge"));
 		int petSize = Integer.parseInt((String)ownerM.get("newPetSize"));
 		int petSex = Integer.parseInt((String)ownerM.get("newPetSex"));
-		System.out.println(polPetType);
+//		System.out.println(polPetType);
 		Pet newPet = new Pet((String)ownerM.get("newPetName"), (String)ownerM.get("newbDate"), petWeight, petHeight, petAge, newO, ps.getPetSize(petSize), ps.getPetSex(petSex), ps.getPetType(petType));
 		ps.createPet(newPet);
 		List<Pet> petList = new ArrayList<>();
@@ -181,8 +181,54 @@ public class OwnerController {
 		System.out.println(ownerM);
 		
 //		System.out.println(os.selectAllPolicy());
-		System.out.println(os.selectOwnerPolicy((Integer)ownerM.get("accountNumber")));
+		System.out.println("owner policy" + os.selectOwnerPolicy((Integer)ownerM.get("accountNumber")));
 		
 		return os.selectOwnerPolicy((Integer)ownerM.get("accountNumber"));
+	}
+	
+	@PostMapping(value="/NewPet.app", consumes = MediaType.ALL_VALUE)
+	public @ResponseBody String[] addPetToPolicy(@RequestBody Object newOwner) {
+		System.out.println("here in add Pet");
+//		System.out.println(newOwner);
+		List ownerA = (ArrayList) newOwner;
+		LinkedHashMap ownerM = (LinkedHashMap) ownerA.get(0);
+		System.out.println(ownerM);
+		int accNum = (int) ownerM.get("accNum");
+		int polNum = Integer.parseInt((String) ownerM.get("PolNum"));
+		System.out.println(polNum);
+		
+		System.out.println((os.selectOwnerById(accNum)));
+		System.out.println(os.selectPolicyById(polNum));
+		double petWeight = Double.parseDouble((String)ownerM.get("newWeight"));
+		double petHeight = Double.parseDouble((String)ownerM.get("newHeight"));
+		int petAge = Integer.parseInt((String)ownerM.get("newAge"));
+		int petSize = Integer.parseInt((String)ownerM.get("newPetSize"));
+		int petSex = Integer.parseInt((String)ownerM.get("newPetSex"));
+	
+		Policy pol = os.selectPolicyById(polNum);
+		System.out.println(pol);
+		System.out.println(pol.getInsurancePlan().getPlanId());
+		int petType;
+		if(1 <= pol.getInsurancePlan().getPlanId() &&  pol.getInsurancePlan().getPlanId() < 4) {
+			petType = 2;
+		}else if(4<= pol.getInsurancePlan().getPlanId() && pol.getInsurancePlan().getPlanId()< 7) {
+			petType = 1;
+		}else {
+			petType = 3;
+		}
+		System.out.println(petType);
+		Pet newPet = new Pet((String)ownerM.get("newPetName"), (String)ownerM.get("newbDate"), petWeight, petHeight, petAge, os.selectOwnerById(accNum), ps.getPetSize(petSize), ps.getPetSex(petSex), ps.getPetType(petType));
+		System.out.println(newPet);
+		
+		ps.createPet(newPet);
+//		ps.selectPetByOwnerId(accNum);
+		List<Pet> petlist = pol.getPetList();
+		petlist.add(newPet);
+		pol.setPetList(petlist);
+		System.out.println(pol);
+		os.updatePolicy(pol);
+		
+		String[] s = {"sucess"};
+		return s;
 	}
 }

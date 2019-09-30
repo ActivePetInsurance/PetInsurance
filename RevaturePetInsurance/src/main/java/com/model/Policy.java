@@ -24,7 +24,7 @@ public class Policy {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int policyNumber;
 	
-	@ManyToOne(cascade = CascadeType.ALL, fetch=FetchType.EAGER)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name = "owner_fk")
 	private Owner owner;
 	
@@ -95,7 +95,7 @@ public class Policy {
 
 	@Override
 	public String toString() {
-		return "Policy [policyNumber=" + policyNumber + ", owner=" + owner + ", insurancePlan=" + insurancePlan
+		return "\nPolicy [policyNumber=" + policyNumber + ", owner=" + owner + ", insurancePlan=" + insurancePlan
 				+ ", petList=" + petList + "]";
 	}
 	

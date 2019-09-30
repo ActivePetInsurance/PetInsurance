@@ -15,6 +15,15 @@ public class PolicyDao {
 	
 	private SessionFactory sesFact;
 	
+//	public static void main(String[] args) {
+//		PolicyDao policydao = new PolicyDao();
+//		Policy pol = policydao.selectInsurancePlanByID(8);
+//		
+//		OwnerDao od = new OwnerDao();
+//		
+//		policydao.update();
+//	}
+	
 	public PolicyDao() {
 		
 	}
@@ -38,7 +47,7 @@ public class PolicyDao {
 //		Transaction tx = ses.beginTransaction();
 //		ses.update(myPolicy);
 //		tx.commit();
-		sesFact.getCurrentSession().update(myPolicy);
+		sesFact.getCurrentSession().merge(myPolicy);
 	}
 	
 	public List<Policy> selectAll(){

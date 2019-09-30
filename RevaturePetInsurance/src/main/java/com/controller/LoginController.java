@@ -6,7 +6,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,6 +35,11 @@ public class LoginController {
 	public LoginController(OwnerService os) {
 		this.os = os;
 	}
+	
+	@GetMapping("/health.app")
+	public @ResponseBody ResponseEntity<String> getStuff() {
+		return new ResponseEntity<>("Health HTTP Status 200 OK", HttpStatus.OK);
+	}
 
 	
 	@PostMapping(value="/login.app", consumes = MediaType.ALL_VALUE)
@@ -46,6 +53,7 @@ public class LoginController {
 //		System.out.println(email);
 //		System.out.println(password);
 		Owner owner = os.verifyLogin(email.toLowerCase(), password);
+		System.out.println(owner);
 		
 		return owner;
 	}
