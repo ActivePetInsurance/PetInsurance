@@ -10,20 +10,22 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="policy")
 public class Policy {
 
 	@Id
 	@Column(name = "policy_number")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int policyNumber;
-	
+
 	@ManyToOne(cascade = CascadeType.ALL, fetch=FetchType.EAGER)
 	@JoinColumn(name = "owner_fk")
 	private Owner owner;
-	
+
 	@ManyToOne(cascade = CascadeType.ALL, fetch=FetchType.EAGER)
 	@JoinColumn(name = "insurance_plan_fk")
 	private InsurancePlan insurancePlan;
@@ -31,11 +33,11 @@ public class Policy {
 	@OneToOne(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "pet1_fk")
 	private Pet pet1;
-	
+
 	@OneToOne(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "pet2_fk")
 	private Pet pet2;
-	
+
 	@OneToOne(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "pet3_fk")
 	private Pet pet3;
@@ -108,8 +110,79 @@ public class Policy {
 		return "Policy [policyNumber=" + policyNumber + ", owner=" + owner + ", insurancePlan=" + insurancePlan
 				+ ", pet1=" + pet1 + ", pet2=" + pet2 + ", pet3=" + pet3 + "]";
 	}
-	
-	
-	
-	
+
+
+
+
+<<<<<<< HEAD
+=======
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name = "pet_fk")
+	private List<Pet> petList = new ArrayList<Pet>();
+
+	public Policy() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Policy(int policyNumber, Owner owner, InsurancePlan insurancePlan, List<Pet> petList) {
+		super();
+		this.policyNumber = policyNumber;
+		this.owner = owner;
+		this.insurancePlan = insurancePlan;
+		this.petList = petList;
+	}
+
+	public Policy(Owner owner, InsurancePlan insurancePlan, List<Pet> petList) {
+		super();
+		this.owner = owner;
+		this.insurancePlan = insurancePlan;
+		this.petList = petList;
+	}
+
+	public Policy(Owner owner, InsurancePlan insurancePlan) {
+		super();
+		this.owner = owner;
+		this.insurancePlan = insurancePlan;
+	}
+
+	public int getPolicyNumber() {
+		return policyNumber;
+	}
+
+	public void setPolicyNumber(int policyNumber) {
+		this.policyNumber = policyNumber;
+	}
+
+	public Owner getOwner() {
+		return owner;
+	}
+
+	public void setOwner(Owner owner) {
+		this.owner = owner;
+	}
+
+	public InsurancePlan getInsurancePlan() {
+		return insurancePlan;
+	}
+
+	public void setInsurancePlan(InsurancePlan insurancePlan) {
+		this.insurancePlan = insurancePlan;
+	}
+
+	public List<Pet> getPetList() {
+		return petList;
+	}
+
+	public void setPetList(List<Pet> petList) {
+		this.petList = petList;
+	}
+
+	@Override
+	public String toString() {
+		return "Policy [policyNumber=" + policyNumber + ", owner=" + owner + ", insurancePlan=" + insurancePlan
+				+ ", petList=" + petList + "]";
+	}
+
+
+>>>>>>> development
 }

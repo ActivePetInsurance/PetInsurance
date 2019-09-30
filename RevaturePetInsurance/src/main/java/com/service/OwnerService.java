@@ -2,7 +2,10 @@ package com.service;
 
 import java.util.List;
 
+import com.model.InsurancePlan;
 import com.model.Owner;
+import com.model.Pet;
+import com.model.Policy;
 
 public interface OwnerService {
 	
@@ -15,5 +18,11 @@ public interface OwnerService {
 	public void updateInfo(Owner o);
 	
 	public void insertOwner(Owner o);
+	
+	public void insertNewPolicy(InsurancePlan inPlan, Owner o, List<Pet> petList);
+	
+	public List<Policy> selectOwnerPolicy(int oId);
+	
+	public List<Policy> selectAllPolicy();
 
 }
