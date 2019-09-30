@@ -6,20 +6,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.dao.OwnerDao;
+import com.dao.PolicyDao;
+import com.model.InsurancePlan;
 import com.model.Owner;
+import com.model.Pet;
+import com.model.Policy;
 
 @Service("ownerServ")
 public class OwnerServiceImpl implements OwnerService {
 	
 	private OwnerDao od;
+	private PolicyDao pd;
 	
 	public OwnerServiceImpl() {
 		
 	}
 	
 	@Autowired
-	public OwnerServiceImpl(OwnerDao od) {
+	public OwnerServiceImpl(OwnerDao od, PolicyDao pd) {
 		this.od = od;
+		this.pd = pd;
 	}
 	
 	@Override
@@ -45,6 +51,7 @@ public class OwnerServiceImpl implements OwnerService {
 	@Override
 	public Owner verifyLogin(String email, String password) {
 
+		System.out.println(od.selectAll());
 		Owner owner = loginEmailCheck(email, od.selectAll());
 		
 		if(owner == null) {
@@ -65,7 +72,26 @@ public class OwnerServiceImpl implements OwnerService {
 	public void insertOwner(Owner o) {
 		od.insert(o);	
 	}
-	
+
+	@Override
+	public void insertNewPolicy(InsurancePlan inPlan, Owner o, List<Pet> petList) {
+		
+		Policy pol = new Policy(o, inPlan, petList);
+		pd.insert(pol);
+	}
+
+	@Override
+	public List<Policy> selectOwnerPolicy(int oId) {
+		System.out.println("Before select all");
+		return pd.selectByOwner(oId);
+	}
+
+	@Override
+	public List<Policy> selectAllPolicy() {
+
+		return  pd.selectAll();
+	}
+
 	
 
 }

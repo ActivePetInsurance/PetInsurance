@@ -20,7 +20,7 @@ import com.service.OwnerService;
 
 @Controller
 @RequestMapping(value="/log")
-@CrossOrigin(origins="http://localhost:4200", allowCredentials="true")
+@CrossOrigin(origins="*", allowCredentials="true")
 public class LoginController {
 	
 	private OwnerService os;
@@ -45,7 +45,7 @@ public class LoginController {
 		String password = (String) ownerM.get("password");
 //		System.out.println(email);
 //		System.out.println(password);
-		Owner owner = os.verifyLogin(email, password);
+		Owner owner = os.verifyLogin(email.toLowerCase(), password);
 		
 		return owner;
 	}

@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Pet } from './pet';
+import { Observable } from 'rxjs';
+import { HttpHeaders, HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -51,5 +53,19 @@ export class UOwnedPetsService {
     ];
   }
 
-  constructor() { }
+  constructor(private myHttpCli: HttpClient) { }
+
+  getOwnerPets(): Observable<string[]> {
+    const curUser = JSON.parse(localStorage.getItem('owner'));
+    console.log(curUser);
+    const httpPut = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+          'withCredentials': 'true'
+      })
+    };
+    console.log('before return');
+    return this.myHttpCli.post<string[]>('http://localhost:9005/RevaturePetInsurance/own/getPets.app', curUser, httpPut);
+}
+
 }

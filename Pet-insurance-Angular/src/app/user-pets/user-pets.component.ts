@@ -29,8 +29,15 @@ export class UserPetsComponent implements OnInit {
 toggle() {
   this.showForm = !this.showForm;
 }
-  ngOnInit() {
+
+ngOnInit() {
+  console.log('in init');
+  this.userPetServ.getOwnerPets().subscribe(
+    data => {
+      console.log(data);
+      });
   }
+
   new_Pet() {
     console.log(this.newPet.value);
     this.toggle();

@@ -18,7 +18,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.model.Owner;
+import com.model.Pet;
+import com.service.InsurancePlanServiceImpl;
 import com.service.OwnerServiceImpl;
+import com.service.PetServiceImpl;
 
 @Controller
 @RequestMapping(value="/own")
@@ -26,13 +29,17 @@ import com.service.OwnerServiceImpl;
 public class OwnerController {
 	
 	private OwnerServiceImpl os;
+	private PetServiceImpl ps;
+	private InsurancePlanServiceImpl ips;
 	
 	public OwnerController() {
 	}
 	
 	@Autowired
-	public OwnerController(OwnerServiceImpl os) {
+	public OwnerController(OwnerServiceImpl os, PetServiceImpl ps, InsurancePlanServiceImpl ips) {
 		this.os = os;
+		this.ps = ps;
+		this.ips = ips;
 	}
 	
 	@PostMapping(value="/getOwner.app")
@@ -46,11 +53,13 @@ public class OwnerController {
 	public @ResponseBody String[] insertOwner(@RequestBody Object newOwner) {
 		System.out.println(newOwner);
 		LinkedHashMap ownerM = (LinkedHashMap) newOwner;
+		
+		String email = (String)ownerM.get("email");
 
 		String add = (String)ownerM.get("add1");
 		int zipT = Integer.parseInt((String)ownerM.get("zip"));
 		Owner newO = new Owner((String)ownerM.get("fName"), "", (String)ownerM.get("lName"), (String)ownerM.get("bDate"), add, (String)ownerM.get("city"),
-				"VA", zipT, (String)ownerM.get("phoneNum"), (String)ownerM.get("email"), (String)ownerM.get("password"));
+				"VA", zipT, (String)ownerM.get("phoneNum"), email.toLowerCase(), (String)ownerM.get("password"));
 		os.insertOwner(newO);
 		String[] s = {"sucess"};
 		return s;
@@ -76,5 +85,105 @@ public class OwnerController {
 				os.updateInfo(newO);
 		String[] s = {"sucess"};
 		return newO;
+	}
+	
+	@PostMapping(value="/getPets.app", consumes = MediaType.ALL_VALUE)
+	public @ResponseBody List<Pet> selectOwnerPets(@RequestBody Object newOwner) {
+		System.out.println("here in get pets");
+		System.out.println(newOwner);
+//		List<Pet>
+		LinkedHashMap ownerM = (LinkedHashMap) newOwner;
+		int accNum = (int) ownerM.get("accountNumber");
+		System.out.println("this is in get pets"+ps.selectPetByOwnerId(accNum));
+		
+		return ps.selectPetByOwnerId(accNum);
+	}
+	
+	@PostMapping(value="/addPolicy.app", consumes = MediaType.ALL_VALUE)
+	public @ResponseBody String[] insertOwnerPolicy(@RequestBody Object newOwner) {
+		System.out.println("here in add Policy");
+//		System.out.println(newOwner);
+		List ownerA = (ArrayList) newOwner;
+		LinkedHashMap ownerM = (LinkedHashMap) ownerA.get(0);
+		System.out.println(ownerM);
+		int planId;
+		String polPetType = (String)ownerM.get("polPetType");
+		String polPlanType = (String)ownerM.get("polPlanType");
+		
+		if(polPetType.equals("1") && polPlanType.equals("1")) {
+			planId = 1;
+		} else if(polPetType.equals("1") && polPlanType.equals("2")){
+			planId = 2;
+		} else if(polPetType.equals("1") && polPlanType.equals("3")){
+			planId = 3;
+		} else if(polPetType.equals("2") && polPlanType.equals("1")){
+			planId = 4;
+		} else if(polPetType.equals("2") && polPlanType.equals("2")){
+			planId = 5;
+		} else if(polPetType.equals("2") && polPlanType.equals("3")){
+			planId = 6;
+		} else if(polPetType.equals("3") && polPlanType.equals("1")){
+			planId = 7;
+		} else if(polPetType.equals("3") && polPlanType.equals("2")){
+			planId = 8;
+		} else {
+			planId = 9;
+		}
+		
+		String add = (String)ownerM.get("add1");
+		int zipT;
+		if(ownerM.get("zip") instanceof String) {
+			zipT = Integer.parseInt((String) ownerM.get("zip"));
+		} else {
+			zipT = (int) ownerM.get("zip");
+		}
+		int accNum = (int) ownerM.get("accNum");
+		Owner newO = new Owner(accNum, (String)ownerM.get("fName"), "", (String)ownerM.get("lName"), (String)ownerM.get("bDate"), add, (String)ownerM.get("city"),
+				"VA", zipT, (String)ownerM.get("phoneNum"), (String)ownerM.get("email"), (String)ownerM.get("password"));
+		double petWeight = Double.parseDouble((String)ownerM.get("newWeight"));
+		double petHeight = Double.parseDouble((String)ownerM.get("newHeight"));
+		int petAge = Integer.parseInt((String)ownerM.get("newAge"));
+		int petSize = Integer.parseInt((String)ownerM.get("newPetSize"));
+		int petSex = Integer.parseInt((String)ownerM.get("newPetSex"));
+		int petType = Integer.parseInt(polPetType);
+		Pet newPet = new Pet((String)ownerM.get("newPetName"), (String)ownerM.get("newbDate"), petWeight, petHeight, petAge, newO, ps.getPetSize(petSize), ps.getPetSex(petSex), ps.getPetType(petType));
+		ps.createPet(newPet);
+		List<Pet> petList = new ArrayList<>();
+		petList.add(newPet);
+		System.out.println(newPet);
+		
+//		this.name = name;
+//		this.dob = dob;
+//		this.weight = weight;
+//		this.height = height;
+//		this.age = age;
+//		this.owner = owner;
+//		this.size = size;
+//		this.sex = sex;
+//		this.type = type;
+		
+		System.out.println(ips.selectPlanById(planId));
+		
+		os.insertNewPolicy(ips.selectPlanById(planId), newO, petList);
+		
+		
+		String[] s = {"sucess"};
+		return s;
+	}
+	
+	@PostMapping(value="/getPolicy.app", consumes = MediaType.ALL_VALUE)
+	public @ResponseBody String[] selectOwnerPolicy(@RequestBody Object newOwner) {
+		System.out.println("here in get Policy");
+//		List<Policy>
+//		System.out.println(newOwner);
+		LinkedHashMap ownerM = (LinkedHashMap) newOwner;
+		System.out.println(ownerM);
+		
+		System.out.println(os.selectAllPolicy());
+//		System.out.println(os.selectOwnerPolicy((Integer)ownerM.get("accountNumber")));
+		
+		
+		String[] s = {"sucess"};
+		return s;
 	}
 }
