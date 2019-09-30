@@ -18,6 +18,7 @@ import com.service.PetServiceImpl;
 @RequestMapping(value="/pet")
 @CrossOrigin(origins="*")
 public class PetController {
+<<<<<<< HEAD
 
 	private PetServiceImpl ps;
 
@@ -44,6 +45,34 @@ public class PetController {
 
 
 
+=======
+	
+	private PetServiceImpl ps;
+	
+	public PetController() {
+
+	}
+	
+	public PetController(PetServiceImpl ps) {
+		this.ps = ps;
+	}
+	
+	@PostMapping(value="/getpets.app", consumes = MediaType.ALL_VALUE)
+	public @ResponseBody List<Pet> getOwnPets(@RequestBody Object owner) {
+		LinkedHashMap ownerP = (LinkedHashMap) owner;
+		
+		int ownerAccountNum = (Integer) ownerP.get("accountNum");
+		
+		return ps.getOwnerPets(ownerAccountNum);
+	}
+	
+	@PostMapping(value="/update.app", consumes = MediaType.ALL_VALUE)
+	public @ResponseBody Pet updatePetInfo(@RequestBody Object currentPet) {
+		System.out.println(currentPet);
+		
+		
+		
+>>>>>>> 2e938cd71e87f97b69fa586b6629e22e9c717971
 		return null;
 	}
 
