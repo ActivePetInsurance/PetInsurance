@@ -71,7 +71,9 @@ export class PolicyService {
             'withCredentials': 'true'
         })
       };
-      return this.myHttpCli.post<string[]>('http://localhost:9005/RevaturePetInsurance/own/addPolicy.app', this.pol, httpPut);
+
+      // return this.myHttpCli.post<string[]>('http://localhost:9005/RevaturePetInsurance/own/addPolicy.app', this.pol, httpPut);
+      return this.myHttpCli.post<string[]>('http://35.232.12.74:32420/TCP/RevaturePetInsurance/own/addPolicy.app', this.pol, httpPut);
   }
 
   getPlans(): Observable<string[]> {
@@ -83,7 +85,9 @@ export class PolicyService {
       })
     };
     console.log('before Plans return');
-    return this.myHttpCli.post<string[]>('http://localhost:9005/RevaturePetInsurance/own/getPolicy.app', curUser, httpPut);
+
+    // return this.myHttpCli.post<string[]>('http://localhost:9005/RevaturePetInsurance/own/getPolicy.app', curUser, httpPut);
+    return this.myHttpCli.post<string[]>('http://35.232.12.74:32420/TCP/RevaturePetInsurance/own/getPolicy.app', curUser, httpPut);
   }
 
 }
