@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { UserBAPaymentService } from '../user-bapayment-service.service';
+import { UserCCpaymentServiceService } from '../user-ccpayment-service.service';
 
 @Component({
   selector: 'app-user-payment',
@@ -17,7 +18,8 @@ export class UserPaymentComponent implements OnInit {
     zipcodeCC: new FormControl(''),
     cardnumCC: new FormControl(''),
     cardexpirCC: new FormControl(''),
-    cvv: new FormControl('')
+    cvv: new FormControl(''),
+    paidAmount: new FormControl('')
   });
 
   BankAccountform = new FormGroup({
@@ -30,7 +32,7 @@ export class UserPaymentComponent implements OnInit {
   showCreditform = false;
   showBankAccountform = false;
 
-  constructor(private BAService: UserBAPaymentService) {
+  constructor(private BAService: UserBAPaymentService, private CCService: UserCCpaymentServiceService) {
    }
 
   toggleCredit() {
@@ -42,6 +44,11 @@ export class UserPaymentComponent implements OnInit {
   }
   credit_info() {
     console.log(this.creditform.value);
+    this.CCService.upayCC(this.creditform.value).subscribe(
+      data => {
+        this.recieptCC();
+      }
+    );
 
   }
 
@@ -60,7 +67,18 @@ export class UserPaymentComponent implements OnInit {
     const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
     const time = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
     const dateTime = date + ' ' + time;
-    myReciept.innerHTML = ' <div class = reciept> <h1>A+ Pet Insurance</h1> <h2>reciept</h2> <h3>Date:' + dateTime + '</h3><h4>Total Amount Paid: $' + this.BankAccountform.value.paidAmount+'</h4></div>';
+    // tslint:disable-next-line: max-line-length
+    myReciept.innerHTML = ' <div class = reciept> <h1>A+ Pet Insurance</h1> <h2>receipt</h2> <h3>Date: ' + dateTime + '</h3><h4>Total Amount Paid: $' + this.BankAccountform.value.paidAmount + '</h4></div>';
+  }
+
+  recieptCC(): void {  
+    const myReciept = document.getElementById('reciept') as HTMLElement;
+    const today = new Date();
+    const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+    const time = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
+    const dateTime = date + ' ' + time;
+    // tslint:disable-next-line: max-line-length
+    myReciept.innerHTML = ' <div class = reciept> <h1>A+ Pet Insurance</h1> <h2>receipt</h2> <h3>Date: ' + dateTime + '</h3><h4>Total Amount Paid: $' + this.creditform.value.paidAmount + '</h4></div>';
   }
 
 

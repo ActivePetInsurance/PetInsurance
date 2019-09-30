@@ -65,6 +65,13 @@
             </div>
         </div>
         <div class="form-row">
+            <div class = "form-group col-md-6">
+                <label for="paidAmount" style = "color:black" name = "paidAmount" ngControlDefault required>Enter amount to be paid</label>
+                <input type = "text" class="form-control" id = "paidAmount"  formControlName="paidAmount"
+                placeholder="amount to be paid">
+            </div>
+        </div>
+        <div class="form-row">
             <div class="form-group col-md-6">
                 <button class="btn btn-outline-success" id="submitbutton" type="submit">Submit</button>
             </div>
@@ -122,16 +129,6 @@
         </div>
 
     </form>
-
-    <div class = reciept>
-        <h1>A+ Pet Insurance</h1>
-        <h2>reciept</h2>
-        <h3>Date:</h3>
-        <h4>Total Amount Paid:</h4>
-    </div>
-
-
-
 </div>
 
 
