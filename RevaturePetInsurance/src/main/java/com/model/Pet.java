@@ -9,8 +9,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="pet")
 public class Pet {
 
 	@Id
@@ -48,6 +50,18 @@ public class Pet {
 	@ManyToOne(cascade=CascadeType.ALL, fetch =FetchType.EAGER)
 	@JoinColumn(name="type_fk")
 	private PetType type;
+	
+	@ManyToOne(cascade=CascadeType.ALL, fetch =FetchType.EAGER)
+	@JoinColumn(name="policy_fk")
+	private Policy policy;
+
+	public Policy getPolicy() {
+		return policy;
+	}
+
+	public void setPolicy(Policy policy) {
+		this.policy = policy;
+	}
 
 	public int getPetId() {
 		return petId;
@@ -133,9 +147,24 @@ public class Pet {
 	}
 
 	public Pet(int petId, String name, String dob, double weight, double height, int age, Owner owner, PetSize size,
-			PetSex sex, PetType type) {
+			PetSex sex, PetType type, Policy policy) {
 		super();
 		this.petId = petId;
+		this.name = name;
+		this.dob = dob;
+		this.weight = weight;
+		this.height = height;
+		this.age = age;
+		this.owner = owner;
+		this.size = size;
+		this.sex = sex;
+		this.type = type;
+		this.policy = policy;
+	}
+	
+	public Pet(String name, String dob, double weight, double height, int age, Owner owner, PetSize size,
+			PetSex sex, PetType type) {
+		super();
 		this.name = name;
 		this.dob = dob;
 		this.weight = weight;
