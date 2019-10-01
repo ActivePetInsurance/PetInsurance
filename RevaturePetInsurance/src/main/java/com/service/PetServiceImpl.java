@@ -7,13 +7,9 @@ import org.springframework.stereotype.Service;
 
 import com.dao.OwnerDao;
 import com.dao.PetDao;
-<<<<<<< HEAD
-import com.model.Owner;
-=======
 import com.dao.PetSexDao;
 import com.dao.PetSizeDao;
 import com.dao.PetTypeDao;
->>>>>>> development
 import com.model.Pet;
 import com.model.PetSex;
 import com.model.PetSize;
@@ -23,14 +19,9 @@ import com.model.PetType;
 public class PetServiceImpl implements PetService {
 	
 	private PetDao pd;
-<<<<<<< HEAD
-	private OwnerDao od;
-	private List<Pet> myPetList;
-=======
 	private PetSizeDao psd;
 	private PetSexDao psxd;
 	private PetTypeDao ptd;
->>>>>>> development
 	
 	public PetServiceImpl() {
 		
@@ -49,28 +40,12 @@ public class PetServiceImpl implements PetService {
 		pd.insert(myPet);
 		
 	}
-	
-	@Override
-	public List<Pet> getOwnerPets(int ownerAccountNum) {
-		
-		Owner own = od.selectOwnerByAccount(ownerAccountNum);
-		
-		for(Pet pet : pd.selectAll()) {
-			if(pet.getOwner().equals(own)) {
-				myPetList.add(pet);
-			}
-		}
-
-		return myPetList;
-	}
 
 	@Override
-<<<<<<< HEAD
 	public void updateInfo(Pet myPet) {
 		pd.update(myPet);
 	}
 
-=======
 	public List<Pet> selectAllPets() {
 		return pd.selectAll();
 		
@@ -99,6 +74,4 @@ public class PetServiceImpl implements PetService {
 	
 	
 	
->>>>>>> development
-
 }

@@ -11,7 +11,7 @@ public interface PetService {
 
 	public void createPet(Pet myPet);
 
-	public void updateInfo();
+	public void updateInfo(Pet myPet);
 
 	public List<Pet> selectAllPets();
 

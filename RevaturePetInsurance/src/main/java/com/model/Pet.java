@@ -63,18 +63,6 @@ public class Pet {
 		this.policy = policy;
 	}
 
-	@ManyToOne(cascade=CascadeType.ALL, fetch =FetchType.EAGER)
-	@JoinColumn(name="policy_fk")
-	private Policy policy;
-
-	public Policy getPolicy() {
-		return policy;
-	}
-
-	public void setPolicy(Policy policy) {
-		this.policy = policy;
-	}
-
 	public int getPetId() {
 		return petId;
 	}
