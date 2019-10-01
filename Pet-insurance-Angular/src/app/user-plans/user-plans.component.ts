@@ -13,6 +13,11 @@ export class UserPlansComponent implements OnInit {
 
   owerPol;
   polCheck;
+
+  remPlan = new FormGroup({
+    polNum: new FormControl('')
+  });
+
   newPol = new FormGroup({
     polPetType: new FormControl(''),
     polPlanType: new FormControl(''),
@@ -56,7 +61,6 @@ export class UserPlansComponent implements OnInit {
     this.userPol.addNewPlan(this.newPol).subscribe(
       data => {
         console.log(data);
-        this.router.navigate(['/user/uInfo']);
         });
   }
 
@@ -76,16 +80,23 @@ export class UserPlansComponent implements OnInit {
               this.userPol.addPetToPlans(this.newPet).subscribe(
                 data1 => {
                   console.log(data1);
-                  this.router.navigate(['/user/uInfo']);
                 }
               );
              }
+           }else {
+            console.log('TOOO MUCH');
+            alert('This Policy already has 3 Pets, please add a new Policy');
            }
-          console.log("TOOO MUCH");
-          alert('This Policy already has 3 Pets, please add a new Policy');
-          this.router.navigate(['/user']);
          }
         });
+  }
+
+  remove_Policy() {
+    this.userPol.remove_Policy(this.remPlan).subscribe(
+      data => {
+        console.log(data);
+      }
+    );
   }
 
 }

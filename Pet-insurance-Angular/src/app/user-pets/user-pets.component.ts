@@ -11,6 +11,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 export class UserPetsComponent implements OnInit {
 
   ownerPets;
+  ownerPetLen;
   userPets: Pet[] = [];
   showForm = false;
   newPet = new FormGroup({
@@ -37,6 +38,8 @@ ngOnInit() {
     data => {
       console.log(data);
       this.ownerPets = data;
+      this.ownerPetLen = data.length;
+      console.log(this.ownerPets);
       });
   }
 
