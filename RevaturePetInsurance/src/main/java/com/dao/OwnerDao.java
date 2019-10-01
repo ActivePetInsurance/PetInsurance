@@ -67,6 +67,13 @@ public class OwnerDao {
 		
 	}
 	
+	public Owner selectOwnerByID(int oId) {
+//		Session ses = HibernateUtil.getSession();
+//		Owner ip = ses.get(Owner.class, insurancePlanId);
+		return sesFact.getCurrentSession().get(Owner.class, oId);
+		
+	}
+	
 	public Owner selectOwnerByEmail(String ownerEmail){
 //		Session ses = HibernateUtil.getSession();
 //		Owner ow = ses.createQuery("from Owner where ownerEmail='" 

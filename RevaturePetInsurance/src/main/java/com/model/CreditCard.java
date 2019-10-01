@@ -39,6 +39,10 @@ public class CreditCard {
 	private int cvv;
 	@Column(name = "paid_amount")
 	private double paidAmount;
+	
+	public CreditCard() {
+	}
+	
 	public int getPaymentId() {
 		return paymentId;
 	}
