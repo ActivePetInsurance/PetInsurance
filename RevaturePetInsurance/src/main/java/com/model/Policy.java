@@ -24,7 +24,7 @@ public class Policy {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int policyNumber;
 	
-	@ManyToOne(fetch=FetchType.EAGER)
+	@ManyToOne(cascade = CascadeType.ALL, fetch=FetchType.EAGER)
 	@JoinColumn(name = "owner_fk")
 	private Owner owner;
 	

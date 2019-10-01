@@ -35,7 +35,6 @@ public class PetDao {
 //		ses.save(myPet);
 //		tx.commit();
 		sesFact.getCurrentSession().save(myPet);
-		sesFact.getCurrentSession().clear();
 	}
 	public void update (Pet myPet) {
 //		Session ses = HibernateUtil.getSession();

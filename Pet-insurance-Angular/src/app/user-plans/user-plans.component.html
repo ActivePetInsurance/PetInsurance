@@ -23,7 +23,7 @@
         </div>
         <div class="modal-body">
           <p>Please Pick a Plan</p>
-            <form class="form-inline" id="myform" [formGroup]="newPol" (ngSubmit)="new_Policy()">
+            <form class="form-inline" id="myform" [formGroup]="newPol" >
                 <div class="form-group">
                     <label for="polPetType">Choose Pet Type</label>
                     <select class="form-control" id="polPetType" formControlName="polPetType">
@@ -92,7 +92,7 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button class="btn btn-outline-success" id="submitbutton" type="submit">Submit</button>
+                  <button class="btn btn-outline-success" id="submitbutton" type="submit" (click)="new_Policy(newPol)" data-dismiss="modal">Submit</button>
                 </div>
               </form>
       </div>
@@ -132,7 +132,7 @@
           </button>
         </div>
         <div class="modal-body">
-            <form class="form-inline" id="myform" [formGroup]="newPet" (ngSubmit)="new_PetToPol()">
+            <form class="form-inline" id="myform" [formGroup]="newPet">
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="polNum">Policy Number</label>
@@ -191,7 +191,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button class="btn btn-outline-success" id="submitbutton" type="submit">Submit</button>
+              <button class="btn btn-outline-success" id="submitbutton" type="submit" (click)="new_PetToPol(newPet)" data-dismiss="modal">Submit</button>
             </div>
           </form>
       </div>

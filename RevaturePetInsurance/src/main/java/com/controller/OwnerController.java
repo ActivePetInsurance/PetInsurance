@@ -66,7 +66,7 @@ public class OwnerController {
 		String[] s = {"sucess"};
 		return s;
 	}
-	
+
 	@PostMapping(value="/updateOwner.app", consumes = MediaType.ALL_VALUE)
 	public @ResponseBody Owner updateOwner(@RequestBody Object newOwner) {
 		List ownerA = (ArrayList) newOwner;
@@ -167,7 +167,6 @@ public class OwnerController {
 		
 		os.insertNewPolicy(ips.selectPlanById(planId), newO, petList);
 		
-		
 		String[] s = {"sucess"};
 		return s;
 	}
@@ -227,7 +226,7 @@ public class OwnerController {
 		pol.setPetList(petlist);
 		System.out.println(pol);
 		os.updatePolicy(pol);
-		
+	
 		String[] s = {"sucess"};
 		return s;
 	}

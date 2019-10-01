@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class UserPlansComponent implements OnInit {
 
   owerPol;
+  polCheck;
   newPol = new FormGroup({
     polPetType: new FormControl(''),
     polPlanType: new FormControl(''),
@@ -44,7 +45,7 @@ export class UserPlansComponent implements OnInit {
   ngOnInit() {
     this.userPol.getPlans().subscribe(
       data => {
-        console.log("get policy: ")
+        console.log('get policy: ');
         console.log(data);
         this.owerPol = data;
         });
@@ -55,17 +56,36 @@ export class UserPlansComponent implements OnInit {
     this.userPol.addNewPlan(this.newPol).subscribe(
       data => {
         console.log(data);
-        this.router.navigate(['/user']);
+        this.router.navigate(['/user/uInfo']);
         });
   }
 
-  new_PetToPol() {
-    console.log(this.newPet.value);
-    this.userPol.addPetToPlans(this.newPet).subscribe(
+  new_PetToPol(): void {
+    this.userPol.getPlans().subscribe(
       data => {
+        console.log('get policy: ');
         console.log(data);
-      }
-    );
+        this.polCheck = data;
+        for (const plan of this.polCheck) {
+          console.log(plan);
+          console.log(this.newPet.value.polNum);
+          console.log(plan.policyNumber);
+          console.log(plan.petList.length);
+          if (this.newPet.value.polNum == plan.policyNumber) {
+             if (plan.petList.length < 3) {
+              this.userPol.addPetToPlans(this.newPet).subscribe(
+                data1 => {
+                  console.log(data1);
+                  this.router.navigate(['/user/uInfo']);
+                }
+              );
+             }
+           }
+          console.log("TOOO MUCH");
+          alert('This Policy already has 3 Pets, please add a new Policy');
+          this.router.navigate(['/user']);
+         }
+        });
   }
 
 }

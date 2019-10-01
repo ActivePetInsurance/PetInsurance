@@ -97,7 +97,7 @@ public class OwnerServiceImpl implements OwnerService {
 		
 		return od.selectOwnerByID(oId);
 	}
-
+	
 	@Override
 	public Policy selectPolicyById(int pId) {
 		return pd.selectInsurancePlanByID(pId);

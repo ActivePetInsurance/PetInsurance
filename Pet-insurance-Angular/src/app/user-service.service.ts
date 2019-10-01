@@ -38,8 +38,8 @@ export class UserServiceService {
       })
     };
 
-    return this.myHttpCli.post<string[]>('http://localhost:9005/RevaturePetInsurance/own/updateOwner.app', upUser, httpPut);
-    // return this.myHttpCli.post<string[]>('http://35.232.12.74:32420/TCP/RevaturePetInsurance/own/updateOwner.app', upUser, httpPut);
+    // return this.myHttpCli.post<string[]>('http://localhost:9005/RevaturePetInsurance/own/updateOwner.app', upUser, httpPut);
+    return this.myHttpCli.post<string[]>('http://35.232.12.74/RevaturePetInsurance-0.0.1-SNAPSHOT/own/updateOwner.app', upUser, httpPut);
 }
 
 

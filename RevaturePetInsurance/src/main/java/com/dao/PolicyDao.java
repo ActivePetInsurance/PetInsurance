@@ -47,7 +47,7 @@ public class PolicyDao {
 //		Transaction tx = ses.beginTransaction();
 //		ses.update(myPolicy);
 //		tx.commit();
-		sesFact.getCurrentSession().merge(myPolicy);
+		sesFact.getCurrentSession().update(myPolicy);
 	}
 	
 	public List<Policy> selectAll(){

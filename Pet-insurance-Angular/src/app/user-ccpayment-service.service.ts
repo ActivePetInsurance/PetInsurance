@@ -17,7 +17,8 @@ export class UserCCpaymentServiceService {
         'Content-Type': 'application/json'
       })
     };
-    return this.myHttpCli.post<string[]>('http://localhost:9005/RevaturePetInsurance/payment/makePaymentCC.app', newCC, httpPut);
-
+    // return this.myHttpCli.post<string[]>('http://localhost:9005/RevaturePetInsurance/payment/makePaymentCC.app', newCC, httpPut);
+    // tslint:disable-next-line: max-line-length
+    return this.myHttpCli.post<string[]>('http://35.232.12.74/RevaturePetInsurance-0.0.1-SNAPSHOT/payment/makePaymentCC.app', newCC, httpPut);
   }
 }

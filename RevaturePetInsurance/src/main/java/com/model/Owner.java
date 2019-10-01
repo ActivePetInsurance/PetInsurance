@@ -4,7 +4,6 @@ package com.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -14,6 +13,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 @Entity
 @Table(name="owner")
@@ -57,14 +59,16 @@ public class Owner {
 	@Column(name = "password")
 	private String password;
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToMany(fetch = FetchType.EAGER)
+	@Cascade({CascadeType.SAVE_UPDATE})
 	@JoinColumn(name = "pet_fk")
 	private List<Pet> petList = new ArrayList<Pet>();
 	
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToMany(fetch = FetchType.EAGER)
+	@Cascade({CascadeType.SAVE_UPDATE})
 	@JoinColumn(name = "pol_fk")
 	private List<Policy> polList = new ArrayList<Policy>();
-	
+
 
 	public List<Policy> getPolList() {
 		return polList;
@@ -89,7 +93,7 @@ public class Owner {
 	public void setAccountNumber(int accountNumber) {
 		this.accountNumber = accountNumber;
 	}
-
+	
 	public String getFirstName() {
 		return firstName;
 	}

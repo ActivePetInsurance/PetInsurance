@@ -41,7 +41,7 @@ public class LoginController {
 		return new ResponseEntity<>("Health HTTP Status 200 OK", HttpStatus.OK);
 	}
 
-	
+
 	@PostMapping(value="/login.app", consumes = MediaType.ALL_VALUE)
 	public  @ResponseBody Owner login(@RequestBody Object loginCreds, HttpSession session) {
 		
