@@ -68,6 +68,10 @@ public class PolicyDao {
 		return sesFact.getCurrentSession().get(Policy.class, insurancePlanId);
 		
 	}
+	
+	public void deletePolicy(Policy pol) {
+		sesFact.getCurrentSession().delete(pol);
+	}
 
 
 }

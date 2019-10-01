@@ -185,6 +185,42 @@ public class OwnerController {
 		return os.selectOwnerPolicy((Integer)ownerM.get("accountNumber"));
 	}
 	
+	@PostMapping(value="/removePolicy.app", consumes = MediaType.ALL_VALUE)
+	public @ResponseBody String[] deleteAPolicy(@RequestBody Object newOwner) {
+		System.out.println("here in remove Policy");
+//		List<Policy>
+//		System.out.println(newOwner);
+		ArrayList ownerA = (ArrayList) newOwner;
+		LinkedHashMap ownerM = (LinkedHashMap) ownerA.get(0);
+		System.out.println(ownerM);
+		int accNum = (int) ownerM.get("accNum");
+		int polNum = Integer.parseInt((String)ownerM.get("polNum"));
+		Policy rePol = null;
+		for(Policy plan: os.selectOwnerPolicy(accNum)) {
+			if(plan.getPolicyNumber() == polNum) {
+				rePol = plan;
+				break;
+			}
+		}
+		
+		if(rePol == null) {
+			String[] s = {"Failed"};
+			return s;
+		}
+		
+		
+		System.out.println(rePol.getPolicyNumber());
+		System.out.println(rePol.getPetList());
+		List<Pet> petlist = rePol.getPetList();
+//		os.deletePolicy(rePol);
+		
+//		for(Pet pet: petlist) {
+//			ps.deletePet(pet);
+//		}
+		String[] s = {"sucess"};
+		return s;
+	}
+	
 	@PostMapping(value="/NewPet.app", consumes = MediaType.ALL_VALUE)
 	public @ResponseBody String[] addPetToPolicy(@RequestBody Object newOwner) {
 		System.out.println("here in add Pet");

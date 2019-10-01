@@ -96,8 +96,8 @@ import { HttpClientModule } from '@angular/common/http';
       {path: 'signup', component: SignupComponent},
       {path: 'register', component: RegisterComponent},
       {path: '', redirectTo: 'welcome', pathMatch: 'full'},
-      {path: '**', redirectTo: 'welcome', pathMatch: 'full'}
-     ])
+      {path: '**', redirectTo: 'welcome', pathMatch: 'full'},
+    ])
   ],
   providers: [InsurancePackagesService, UserServiceService, UOwnedPetsService],
   bootstrap: [AppComponent]
