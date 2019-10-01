@@ -61,4 +61,8 @@ public class PetDao {
 		return sesFact.getCurrentSession().get(Pet.class, petId);
 	}
 	
+	public void deletePet(Pet pet) {
+		sesFact.getCurrentSession().delete(pet);
+	}
+	
 }
