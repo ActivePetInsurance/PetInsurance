@@ -30,5 +30,7 @@ public interface OwnerService {
 	public Policy selectPolicyById(int pId);
 	
 	public void updatePolicy(Policy newPol);
+	
+	public void deletePolicy(Policy pol);
 
 }
