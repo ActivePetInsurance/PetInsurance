@@ -28,6 +28,7 @@ script:
  - ./configure.sh
  - ./build.sh
 after_success:
+ - if branch = staging
  - ./deploy.sh
  - gcloud logging write my-test-log "Successful build"
 
