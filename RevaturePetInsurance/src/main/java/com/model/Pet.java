@@ -22,35 +22,35 @@ public class Pet {
 
 	@Column(name = "pet_name")
 	private String name;
-	
+
 	@Column(name = "date_of_birth")
 	private String dob;
-	
+
 	@Column(name="weight")
 	private double weight;
-	
+
 	@Column(name = "height")
 	private double height;
-	
+
 	@Column(name = "age")
 	private int age;
-	
+
 	@ManyToOne(cascade=CascadeType.ALL, fetch =FetchType.EAGER)
 	@JoinColumn(name = "owner_fk")
 	private Owner owner;
-	
+
 	@ManyToOne(cascade=CascadeType.ALL, fetch =FetchType.EAGER)
 	@JoinColumn(name="size_fk")
 	private PetSize size;
-	
+
 	@ManyToOne(cascade=CascadeType.ALL, fetch =FetchType.EAGER)
 	@JoinColumn(name="sex_fk")
 	private PetSex sex;
-	
+
 	@ManyToOne(cascade=CascadeType.ALL, fetch =FetchType.EAGER)
 	@JoinColumn(name="type_fk")
 	private PetType type;
-	
+
 	@ManyToOne(cascade=CascadeType.ALL, fetch =FetchType.EAGER)
 	@JoinColumn(name="policy_fk")
 	private Policy policy;
@@ -161,7 +161,7 @@ public class Pet {
 		this.type = type;
 		this.policy = policy;
 	}
-	
+
 	public Pet(String name, String dob, double weight, double height, int age, Owner owner, PetSize size,
 			PetSex sex, PetType type) {
 		super();
@@ -182,7 +182,7 @@ public class Pet {
 				+ ", age=" + age + ", owner=" + owner + ", size=" + size + ", sex=" + sex + ", type=" + type + "]";
 	}
 
-	
-	
-	
+
+
+
 }
