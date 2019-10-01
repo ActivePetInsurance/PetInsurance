@@ -109,6 +109,14 @@ public class OwnerServiceImpl implements OwnerService {
 		
 	}
 
+	@Override
+	public void deletePolicy(Policy pol) {
+		pd.deletePolicy(pol);
+		
+	}
+	
+	
+
 	
 
 }

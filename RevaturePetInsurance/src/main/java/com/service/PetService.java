@@ -22,5 +22,7 @@ public interface PetService {
 	public PetSex getPetSex(int sxId);
 
 	public PetType getPetType(int tId);
+	
+	public void deletePet(Pet pet);
 
 }

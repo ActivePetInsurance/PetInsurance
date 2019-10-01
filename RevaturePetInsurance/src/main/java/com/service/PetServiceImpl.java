@@ -70,6 +70,12 @@ public class PetServiceImpl implements PetService {
 	public List<Pet> selectPetByOwnerId(int oId) {
 		return pd.selectByOwnerId(oId);
 	}
+
+	@Override
+	public void deletePet(Pet pet) {
+		pd.deletePet(pet);
+		
+	}
 	
 	
 	
