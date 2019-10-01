@@ -1,13 +1,24 @@
 package com.model;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 @Entity
+@Table(name="owner")
 public class Owner {
 	
 	@Id
@@ -48,6 +59,33 @@ public class Owner {
 	@Column(name = "password")
 	private String password;
 
+	@OneToMany(fetch = FetchType.EAGER)
+	@Cascade({CascadeType.SAVE_UPDATE})
+	@JoinColumn(name = "pet_fk")
+	private List<Pet> petList = new ArrayList<Pet>();
+	
+	@OneToMany(fetch = FetchType.EAGER)
+	@Cascade({CascadeType.SAVE_UPDATE})
+	@JoinColumn(name = "pol_fk")
+	private List<Policy> polList = new ArrayList<Policy>();
+
+
+	public List<Policy> getPolList() {
+		return polList;
+	}
+
+	public void setPolList(List<Policy> polList) {
+		this.polList = polList;
+	}
+
+	public List<Pet> getPetList() {
+		return petList;
+	}
+
+	public void setPetList(List<Pet> petList) {
+		this.petList = petList;
+	}
+
 	public int getAccountNumber() {
 		return accountNumber;
 	}
@@ -55,7 +93,7 @@ public class Owner {
 	public void setAccountNumber(int accountNumber) {
 		this.accountNumber = accountNumber;
 	}
-
+	
 	public String getFirstName() {
 		return firstName;
 	}
@@ -147,6 +185,26 @@ public class Owner {
 	public Owner() {
 	}
 
+	public Owner(int accountNumber, String firstName, String middleInitial, String lastName, String dob,
+			String streetAddress, String city, String state, int zipCode, String phoneNumber, String email,
+			String password, List<Pet> petList, List<Policy> polList) {
+		super();
+		this.accountNumber = accountNumber;
+		this.firstName = firstName;
+		this.middleInitial = middleInitial;
+		this.lastName = lastName;
+		this.dob = dob;
+		this.streetAddress = streetAddress;
+		this.city = city;
+		this.state = state;
+		this.zipCode = zipCode;
+		this.phoneNumber = phoneNumber;
+		this.email = email;
+		this.password = password;
+		this.petList = petList;
+		this.polList = polList;
+	}
+	
 	public Owner(int accountNumber, String firstName, String middleInitial, String lastName, String dob,
 			String streetAddress, String city, String state, int zipCode, String phoneNumber, String email,
 			String password) {

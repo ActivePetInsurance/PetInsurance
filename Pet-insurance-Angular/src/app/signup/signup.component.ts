@@ -28,6 +28,9 @@ export class SignupComponent implements OnInit {
   constructor(private router: Router, private usignup: UserSignupService) { }
 
   ngOnInit() {
+    console.log('cleared');
+    // tslint:disable-next-line: no-unused-expression
+    localStorage.removeItem('owner');
   }
 
   signup(SignInWhat): void {
@@ -35,11 +38,15 @@ export class SignupComponent implements OnInit {
       console.log(this.initSignUp.value);
       this.usignup.usignup(this.initSignUp.value).subscribe(
         data => {
-          this.router.navigate(['/welcome']);
+          this.routing();
         }
       );
      } else {
        alert('Passwords Do Not Match');
      }
+  }
+
+  routing(): void {
+    this.router.navigate(['/welcome']);
   }
 }

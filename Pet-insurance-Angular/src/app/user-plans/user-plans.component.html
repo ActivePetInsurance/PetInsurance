@@ -1,28 +1,234 @@
-<div class="row">
-<div class="card" *ngFor="let plan of userPolicy">
-        <div class="card-body" *ngIf="plan.Pet2 == null; else elseTemplate1">
-          <h5 class="card-title">{{plan.PolicyNumber}}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">{{plan.Plan}}</h6>
-          <h6>Pets:</h6>
-          <p class="card-text">{{plan.Pet1}}</p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" href="#" data-toggle="modal" data-target="#aPlanModal">Add New Plan</a>
+      <a class="nav-item nav-link" href="#" data-toggle="modal" data-target="#petPlanModal">Add Pet To a Plan</a>
+      <a class="nav-item nav-link" href="#" data-toggle="modal" data-target="#dPlanModal">Remove Plan</a>
+    </div>
+  </div>
+</nav>
+
+<!-- new plan Modal -->
+<div class="modal fade" id="aPlanModal" tabindex="-1" role="dialog" aria-labelledby="aPlanModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="aPlanModalLabel">Add A New Plan</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
+        <div class="modal-body">
+          <p>Please Pick a Plan</p>
+            <form class="form-inline" id="myform" [formGroup]="newPol" >
+                <div class="form-group">
+                    <label for="polPetType">Choose Pet Type</label>
+                    <select class="form-control" id="polPetType" formControlName="polPetType">
+                      <option value = "1">Rodent</option>
+                      <option value = "2">Bird</option>
+                      <option value = "3">Reptile</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="polPlanType">Choose Plan</label>
+                    <select class="form-control" id="polPlanType" formControlName="polPlanType">
+                      <option value = "1">Plan A</option>
+                      <option value = "2">Plan B</option>
+                      <option value = "3">Plan C</option>
+                    </select>
+                </div>
+                <p>Insert An Initial Pet</p>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="newPetName" style="color: black" name="newPetName" ngControlDefault required>Name</label>
+                        <input type="text" class="form-control" id="newPetName" aria-describedby="emailHelp"
+                            formControlName="newPetName" placeholder="Pet Name" />
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="newbDate" style="color: black" name="bDate" required>Birthday</label>
+                      <input type="date" class="form-control" id="newbDate" formControlName="newbDate">
+                    </div>
+                  </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="newWeight">Weight</label>
+                        <input type="text" class="form-control" id="newWeight" formControlName="newWeight"
+                            placeholder="Weight in Pounds">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="newHeight">Height</label>
+                        <input type="text" class="form-control" id="newHeight" formControlName="newHeight"
+                             placeholder="Height in Inches">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="newAge">Age</label>
+                        <input type="text" class="form-control" formControlName="newAge"
+                            id="newAge" placeholder="Age in Years">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="newPetSize">Size</label>
+                        <select class="form-control" id="newPetSize" formControlName="newPetSize">
+                          <option value = "1">Small</option>
+                          <option value = "2">Medium</option>
+                          <option value = "3">Large</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="newPetSex">Sex</label>
+                        <select class="form-control" id="newPetSex" formControlName="newPetSex">
+                          <option value = "0">Male</option>
+                          <option value = "1">Female</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button class="btn btn-outline-success" id="submitbutton" type="submit" (click)="new_Policy(newPol)" data-dismiss="modal">Submit</button>
+                </div>
+              </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Remove Plan Modal -->
+<div class="modal fade" id="dPlanModal" tabindex="-1" role="dialog" aria-labelledby="dPlanModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="dPlanModalLabel">Remove Plan</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Add Pet To Plan -->
+<div class="modal fade" id="petPlanModal" tabindex="-1" role="dialog" aria-labelledby="petPlanModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="petPlanModalLabel">Add A New Pet To a Policy</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form class="form-inline" id="myform" [formGroup]="newPet">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="polNum">Policy Number</label>
+                        <input type="text" class="form-control" formControlName="polNum"
+                            id="polNum" placeholder="Policy #">
+                    </div>
+                </div>
+                  <div class="form-row">
+                      <div class="form-group col-md-6">
+                    <label for="newPetName" style="color: black" name="newPetName" ngControlDefault required>Name</label>
+                    <input type="text" class="form-control" id="newPetName" aria-describedby="emailHelp"
+                        formControlName="newPetName" placeholder="Pet Name" />
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="newbDate" style="color: black" name="bDate" required>Birthday</label>
+                  <input type="date" class="form-control" id="newbDate" formControlName="newbDate">
+                </div>
+              </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="newWeight">Weight</label>
+                    <input type="text" class="form-control" id="newWeight" formControlName="newWeight"
+                        placeholder="Weight in Pounds">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="newHeight">Height</label>
+                    <input type="text" class="form-control" id="newHeight" formControlName="newHeight"
+                         placeholder="Height in Inches">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="newAge">Age</label>
+                    <input type="text" class="form-control" formControlName="newAge"
+                        id="newAge" placeholder="Age in Years">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="newPetSize">Size</label>
+                    <select class="form-control" id="newPetSize" formControlName="newPetSize">
+                      <option value = "1">Small</option>
+                      <option value = "2">Medium</option>
+                      <option value = "3">Large</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="newPetSex">Sex</label>
+                    <select class="form-control" id="newPetSex" formControlName="newPetSex">
+                      <option value = "0">Male</option>
+                      <option value = "1">Female</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button class="btn btn-outline-success" id="submitbutton" type="submit" (click)="new_PetToPol(newPet)" data-dismiss="modal">Submit</button>
+            </div>
+          </form>
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+<!-- Card generation -->
+<div class="row">
+<div class="card" *ngFor="let plan of owerPol">
+    <div class="card-body" *ngIf="plan.petList.length == 1; else elseTemplate1">
+        <h5 class="card-title">Policy Number:</h5>
+        <h5 class="card-title">{{plan.policyNumber}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{plan.insurancePlan.planName}}</h6>
+        <h6>Pets:</h6>
+        <p class="card-text">{{plan.petList[0].name}}</p>
+      </div>
         <ng-template #elseTemplate1>
-        <div class="card-body" *ngIf="plan.Pet3 == null; else elseTemplate2">
-            <h5 class="card-title">{{plan.PolicyNumber}}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">{{plan.Plan}}</h6>
+        <div class="card-body" *ngIf="plan.petList.length == 2; else elseTemplate2">
+            <h5 class="card-title">Policy Number:</h5>
+            <h5 class="card-title">{{plan.policyNumber}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{plan.insurancePlan.planName}}</h6>
             <h6>Pets:</h6>
-            <p class="card-text">{{plan.Pet1}}</p>
-            <p class="card-text">{{plan.Pet2}}</p>
+            <p class="card-text">{{plan.petList[0].name}}</p> 
+            <p class="card-text">{{plan.petList[1].name}}</p>
         </div>
         </ng-template>
         <ng-template #elseTemplate2>
         <div class="card-body">
-            <h5 class="card-title">{{plan.PolicyNumber}}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">{{plan.Plan}}</h6>
+            <h5 class="card-title">Policy Number:</h5>
+            <h5 class="card-title">{{plan.policyNumber}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{plan.insurancePlan.planName}}</h6>
             <h6>Pets:</h6>
-            <p class="card-text">{{plan.Pet1}}</p>
-            <p class="card-text">{{plan.Pet2}}</p>
-            <p class="card-text">{{plan.Pet3}}</p>
+            <p class="card-text">{{plan.petList[0].name}}</p>
+            <p class="card-text">{{plan.petList[1].name}}</p>
+            <p class="card-text">{{plan.petList[2].name}}</p>
         </div>
         </ng-template>
           <a href="#" class="card-link">Plan link</a>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { IPetPlans } from '../animals';
@@ -9,7 +9,7 @@ import { InsurancePackagesService } from '../insurance-packages.service';
   templateUrl: './welcome.component.html',
   styleUrls: ['./welcome.component.css']
 })
-export class WelcomeComponent {
+export class WelcomeComponent implements OnInit {
   title = 'A+ Pets';
   petplans: IPetPlans[] = [];
   animalForm: FormGroup;
@@ -17,6 +17,12 @@ export class WelcomeComponent {
   constructor(private myAnimalsService: InsurancePackagesService, private fb: FormBuilder, private router: Router ) {
     this.petplans = myAnimalsService.getAnimals();
     console.log(this.petplans);
+  }
+
+  ngOnInit(): void {
+    console.log('cleared');
+    // tslint:disable-next-line: no-unused-expression
+    localStorage.removeItem('owner');
   }
 
   onNavigate(petVal) {
