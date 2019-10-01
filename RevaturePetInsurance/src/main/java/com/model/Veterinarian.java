@@ -57,6 +57,86 @@ public class Veterinarian {
 	public Veterinarian() {
 	}
 
+	public int getVet_id() {
+		return vet_id;
+	}
+
+	public void setVet_id(int vet_id) {
+		this.vet_id = vet_id;
+	}
+
+	public String getFirtName() {
+		return firtName;
+	}
+
+	public void setFirtName(String firtName) {
+		this.firtName = firtName;
+	}
+
+	public String getMiddleInitial() {
+		return middleInitial;
+	}
+
+	public void setMiddleInitial(String middleInitial) {
+		this.middleInitial = middleInitial;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public int getLicenseNumber() {
+		return licenseNumber;
+	}
+
+	public void setLicenseNumber(int licenseNumber) {
+		this.licenseNumber = licenseNumber;
+	}
+
+	public Date getLicenseExpirationDate() {
+		return licenseExpirationDate;
+	}
+
+	public void setLicenseExpirationDate(Date licenseExpirationDate) {
+		this.licenseExpirationDate = licenseExpirationDate;
+	}
+
+	public Date getLicenseIssueDate() {
+		return licenseIssueDate;
+	}
+
+	public void setLicenseIssueDate(Date licenseIssueDate) {
+		this.licenseIssueDate = licenseIssueDate;
+	}
+
+	public boolean isLicenseStatus() {
+		return licenseStatus;
+	}
+
+	public void setLicenseStatus(boolean licenseStatus) {
+		this.licenseStatus = licenseStatus;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public int getZipCode() {
+		return zipCode;
+	}
+
+	public void setZipCode(int zipCode) {
+		this.zipCode = zipCode;
+	}
+
 	@Override
 	public String toString() {
 		return "Veterinarian [vet_id=" + vet_id + ", firtName=" + firtName + ", middleInitial=" + middleInitial
