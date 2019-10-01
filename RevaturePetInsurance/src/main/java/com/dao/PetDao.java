@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.model.Pet;
+import com.model.Policy;
 import com.util.HibernateUtil;
 
 @Transactional
@@ -49,11 +50,15 @@ public class PetDao {
 		return sesFact.getCurrentSession().createQuery("from Pet", Pet.class).list();
 	}
 	
+	public List<Pet> selectByOwnerId(int oId) {
+		return sesFact.getCurrentSession().createQuery("from Pet where owner_fk ='"+oId+"'", Pet.class).list();
+		
+	}
+	
 	public Pet selectById(int petId){
 //		Session ses = HibernateUtil.getSession();
 //		List<Pet> petList = ses.createQuery("from Pet", Pet.class).list();
 		return sesFact.getCurrentSession().get(Pet.class, petId);
 	}
 	
-
 }

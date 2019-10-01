@@ -19,7 +19,7 @@ public class RoutingDao {
 		
 	}
 	
-	@Autowired
+	@Autowired	
 	public RoutingDao(SessionFactory sesFact) {
 		this.sesFact = sesFact;
 	}

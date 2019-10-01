@@ -58,10 +58,19 @@ public class OwnerDao {
 		return sesFact.getCurrentSession().createQuery("from Owner", Owner.class).list();
 	}
 	
+
 	public Owner selectInsurancePlanByID(int insurancePlanId) {
 //		Session ses = HibernateUtil.getSession();
 //		Owner ip = ses.get(Owner.class, insurancePlanId);
 		return sesFact.getCurrentSession().get(Owner.class, insurancePlanId);
+
+		
+	}
+	
+	public Owner selectOwnerByID(int oId) {
+//		Session ses = HibernateUtil.getSession();
+//		Owner ip = ses.get(Owner.class, insurancePlanId);
+		return sesFact.getCurrentSession().get(Owner.class, oId);
 		
 	}
 	

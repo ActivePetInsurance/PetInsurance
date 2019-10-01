@@ -1,4 +1,4 @@
-package com.dao;
+ package com.dao;
 
 import java.util.List;
 
@@ -14,6 +14,15 @@ import com.model.Policy;
 public class PolicyDao {
 	
 	private SessionFactory sesFact;
+	
+//	public static void main(String[] args) {
+//		PolicyDao policydao = new PolicyDao();
+//		Policy pol = policydao.selectInsurancePlanByID(8);
+//		
+//		OwnerDao od = new OwnerDao();
+//		
+//		policydao.update();
+//	}
 	
 	public PolicyDao() {
 		
@@ -45,6 +54,12 @@ public class PolicyDao {
 //		Session ses = HibernateUtil.getSession();
 //		List<Policy> petList = ses.createQuery("from Policy", Policy.class).list();
 		return sesFact.getCurrentSession().createQuery("from Policy", Policy.class).list();
+	}
+	
+	public List<Policy> selectByOwner(int oId){
+//		Session ses = HibernateUtil.getSession();
+//		List<Policy> petList = ses.createQuery("from Policy", Policy.class).list();
+		return sesFact.getCurrentSession().createQuery("from Policy where owner_fk ='"+oId+"'", Policy.class).list();
 	}
 	
 	public Policy selectInsurancePlanByID(int insurancePlanId) {

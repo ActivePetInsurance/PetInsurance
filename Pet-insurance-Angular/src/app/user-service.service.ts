@@ -8,39 +8,39 @@ import { Observable } from 'rxjs';
 })
 export class UserServiceService {
 
+  curOwner = JSON.parse(localStorage.getItem('owner'));
+
   getUserInfo(): UserInfo[] {
     return [
       {
-        email: 'fakeUser@gmail.com',
-        fName: 'Tester',
-        lName: 'McTestington',
-        bDate: '1990-09-30',
-        add1: '1234 Main st.',
-        add2: ' ',
-        city: 'Reston',
-        zip: '20170',
-        phoneNum: '123-456-7890'
+        accNum: this.curOwner.accountNumber,
+        email: this.curOwner.email,
+        fName: this.curOwner.firstName,
+        mInit: this.curOwner.middleInitial,
+        lName: this.curOwner.lastName,
+        bDate: this.curOwner.dob,
+        add: this.curOwner.streetAddress,
+        city: this.curOwner.city,
+        zip: this.curOwner.zipCode,
+        phoneNum: this.curOwner.phoneNumber,
+        password: this.curOwner.password
       }
     ];
   }
 
   constructor(private myHttpCli: HttpClient) { }
 
-  thirdRequest(): Observable<string> {
+  curUserUpdate(upUser): Observable<string[]> {
     const httpPut = {
       headers: new HttpHeaders({
-        'Content-Type':  'application/json'
+        'Content-Type':  'application/json',
+          'withCredentials': 'true'
       })
     };
 
-    const newFood = {
-      foodId: 500,
-      dishName: 'Candy',
-      calories: 1000
-    };
-
-    return this.myHttpCli.post<string>('http://localhost:9005/PetInsurance/RevaturePetInsurance/login.app', newFood, httpPut);
-  }
+    // return this.myHttpCli.post<string[]>('http://localhost:9005/RevaturePetInsurance/own/updateOwner.app', upUser, httpPut);
+    return this.myHttpCli.post<string[]>('http://35.232.12.74/RevaturePetInsurance-0.0.1-SNAPSHOT/own/updateOwner.app', upUser, httpPut);
+}
 
 
 }

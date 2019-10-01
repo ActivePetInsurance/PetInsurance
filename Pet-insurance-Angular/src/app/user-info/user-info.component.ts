@@ -1,14 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { UserInfo } from '../UserInfo.1';
 import { UserServiceService } from '../user-service.service';
 import { FormGroup, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-info',
   templateUrl: './user-info.component.html',
   styleUrls: ['./user-info.component.css']
 })
-export class UserInfoComponent implements OnInit {
+export class UserInfoComponent implements OnInit, OnDestroy {
 
   infoChange = new FormGroup({
     emailC: new FormControl(''),
@@ -21,7 +22,7 @@ export class UserInfoComponent implements OnInit {
    userInfo: UserInfo[] = [];
    showForm = false;
 
-  constructor(private sessionUser: UserServiceService) {
+  constructor(private router: Router, private sessionUser: UserServiceService) {
     this.userInfo = sessionUser.getUserInfo();
     console.log(this.userInfo);
   }
@@ -33,9 +34,26 @@ export class UserInfoComponent implements OnInit {
   info_Change() {
     console.log(this.infoChange.value);
     this.toggle();
+    this.updateUser();
   }
 
   ngOnInit() {
+    console.log(localStorage.getItem('owner'));
+  }
+  ngOnDestroy(): void {
+  }
+
+  updateUser() {
+    console.log(this.infoChange.value);
+    this.sessionUser.curUserUpdate(this.userInfo).subscribe(
+      data => {
+        const ourField = 'message';
+        console.log(data);
+        localStorage.removeItem('owner');
+        localStorage.setItem('owner', JSON.stringify(data));
+        this.router.navigate(['/user']);
+        }
+    );
   }
 
 }
