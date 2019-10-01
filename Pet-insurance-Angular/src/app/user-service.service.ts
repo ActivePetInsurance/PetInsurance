@@ -13,6 +13,7 @@ export class UserServiceService {
   getUserInfo(): UserInfo[] {
     return [
       {
+        accNum: this.curOwner.accountNumber,
         email: this.curOwner.email,
         fName: this.curOwner.firstName,
         mInit: this.curOwner.middleInitial,
@@ -21,21 +22,24 @@ export class UserServiceService {
         add: this.curOwner.streetAddress,
         city: this.curOwner.city,
         zip: this.curOwner.zipCode,
-        phoneNum: this.curOwner.phoneNumber
+        phoneNum: this.curOwner.phoneNumber,
+        password: this.curOwner.password
       }
     ];
   }
 
   constructor(private myHttpCli: HttpClient) { }
 
-  getLoggedUser(): Observable<string[]> {
+  curUserUpdate(upUser): Observable<string[]> {
     const httpPut = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json',
           'withCredentials': 'true'
       })
     };
-    return this.myHttpCli.get<string[]>('http://localhost:9005/RevaturePetInsurance/log/getCurrentInfo.app', {withCredentials: true} );
+
+    // return this.myHttpCli.post<string[]>('http://localhost:9005/RevaturePetInsurance/own/updateOwner.app', upUser, httpPut);
+    return this.myHttpCli.post<string[]>('http://35.232.12.74/RevaturePetInsurance-0.0.1-SNAPSHOT/own/updateOwner.app', upUser, httpPut);
 }
 
 

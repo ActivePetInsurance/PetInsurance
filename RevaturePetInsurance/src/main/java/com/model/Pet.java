@@ -35,21 +35,33 @@ public class Pet {
 	@Column(name = "age")
 	private int age;
 
-	@ManyToOne(cascade=CascadeType.ALL, fetch =FetchType.EAGER)
+	@ManyToOne(cascade=CascadeType.MERGE, fetch =FetchType.EAGER)
 	@JoinColumn(name = "owner_fk")
 	private Owner owner;
 
-	@ManyToOne(cascade=CascadeType.ALL, fetch =FetchType.EAGER)
+	@ManyToOne(cascade=CascadeType.MERGE, fetch =FetchType.EAGER)
 	@JoinColumn(name="size_fk")
 	private PetSize size;
 
-	@ManyToOne(cascade=CascadeType.ALL, fetch =FetchType.EAGER)
+	@ManyToOne(cascade=CascadeType.MERGE, fetch =FetchType.EAGER)
 	@JoinColumn(name="sex_fk")
 	private PetSex sex;
 
-	@ManyToOne(cascade=CascadeType.ALL, fetch =FetchType.EAGER)
+	@ManyToOne(cascade=CascadeType.MERGE, fetch =FetchType.EAGER)
 	@JoinColumn(name="type_fk")
 	private PetType type;
+
+	@ManyToOne(cascade=CascadeType.ALL, fetch =FetchType.EAGER)
+	@JoinColumn(name="policy_fk")
+	private Policy policy;
+
+	public Policy getPolicy() {
+		return policy;
+	}
+
+	public void setPolicy(Policy policy) {
+		this.policy = policy;
+	}
 
 	@ManyToOne(cascade=CascadeType.ALL, fetch =FetchType.EAGER)
 	@JoinColumn(name="policy_fk")
