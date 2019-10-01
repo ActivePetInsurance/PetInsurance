@@ -95,7 +95,7 @@ public class Policy {
 
 	@Override
 	public String toString() {
-		return "Policy [policyNumber=" + policyNumber + ", owner=" + owner + ", insurancePlan=" + insurancePlan
+		return "\nPolicy [policyNumber=" + policyNumber + ", owner=" + owner + ", insurancePlan=" + insurancePlan
 				+ ", petList=" + petList + "]";
 	}
 	

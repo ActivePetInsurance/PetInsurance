@@ -10,8 +10,8 @@ public class InsertPetSize {
 	public static void InsertInitialPetSize(){
 	
 		PetSize small = new PetSize(1, "small");
-		PetSize large = new PetSize(3, "large");
 		PetSize medium = new PetSize(2, "medium");
+		PetSize large = new PetSize(3, "large");
 		
 		psd.insert(small);
 		psd.insert(medium);

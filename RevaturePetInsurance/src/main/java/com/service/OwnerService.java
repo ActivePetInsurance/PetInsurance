@@ -24,5 +24,11 @@ public interface OwnerService {
 	public List<Policy> selectOwnerPolicy(int oId);
 	
 	public List<Policy> selectAllPolicy();
+	
+	public Owner selectOwnerById(int oId);
+	
+	public Policy selectPolicyById(int pId);
+	
+	public void updatePolicy(Policy newPol);
 
 }

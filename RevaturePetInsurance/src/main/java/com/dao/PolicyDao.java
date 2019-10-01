@@ -15,6 +15,15 @@ public class PolicyDao {
 	
 	private SessionFactory sesFact;
 	
+//	public static void main(String[] args) {
+//		PolicyDao policydao = new PolicyDao();
+//		Policy pol = policydao.selectInsurancePlanByID(8);
+//		
+//		OwnerDao od = new OwnerDao();
+//		
+//		policydao.update();
+//	}
+	
 	public PolicyDao() {
 		
 	}

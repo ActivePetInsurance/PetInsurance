@@ -2,6 +2,8 @@ package com.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
@@ -9,6 +11,8 @@ public class Routing {
 
 	@Id
 	@Column(name = "payment_id")
+	@GeneratedValue(strategy=GenerationType.AUTO)
+
 	private int payment_id;
 	
 	@Column(name="name")
@@ -77,6 +81,17 @@ public class Routing {
 	public Routing(int payment_id, String name, int routingNumber, String accountType, int accountNumber,
 			double paidAmount) {
 		this.payment_id = payment_id;
+		this.name = name;
+		this.routingNumber = routingNumber;
+		this.accountType = accountType;
+		this.accountNumber = accountNumber;
+		this.paidAmount = paidAmount;
+	}
+	
+	
+
+	public Routing(String name, int routingNumber, String accountType, int accountNumber, double paidAmount) {
+		super();
 		this.name = name;
 		this.routingNumber = routingNumber;
 		this.accountType = accountType;
