@@ -1,27 +1,56 @@
 <router-outlet name="hNav"></router-outlet>
+<br>
 <div class="container">
-      <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-4"><h1 style="text-align: center">A+ Pets</h1></div>
-        <div class="col-md-4"></div>
-      </div>
-    </div>
-    <div class = 'container'>
-      <p style="text-align: center">A+ Pets provides customized insurance plans to maximize benefits for the customer and the pet.</p>
-    </div>
-    <br/>
-    <br/>
-    <div class = 'container'>
-    <div class="form-group">
-        <label for="power">Pet Plans</label>
-        <select class="form-control" id="Pet" [(ngModel)]="petValue" (change)="onNavigate($event.target.value)" required>
-          <option *ngFor="let pet of petplans" [value]="pet.name" >{{pet.name}}</option>
-        </select>
-      </div>
-      </div>
-      <br/>
-      <div class = 'container'>
+  <div class="row">
+    <div class="col">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4"></div>
+          <div class="col-md-4">
+            <img src="/assets//A+Pets_v2.0.jpg" height=200px />
 
-        <router-outlet></router-outlet> 
-        
+            <div class="col"></div>
+          </div>
+        </div>
+        <br />
+        <div class='container'>
+          <div class="form-group">
+            <label for="power">Pet Plans</label>
+            <select class="form-control" id="Pet" [(ngModel)]="petValue" (change)="onNavigate($event.target.value)"
+              required>
+              <option *ngFor="let pet of petplans" [value]="pet.name">{{pet.name}}</option>
+            </select>
+          </div>
+        </div>
+        <br />
       </div>
+    </div>
+    <!--More general info-->
+    <div class="col">
+      <div class="container">
+        <div class="row" style="background-color:lightgrey">
+          <br>
+          <h3 style="text-align: center">With A+ Pets you only pay for what you really need. We take care of you, while
+            you take care of your pet. </h3>
+        </div>
+        <div class="row" style="background-color:lightgrey">
+          <ul>
+            <li>Insurance Coverage offered to those in the state of Virginia</li>
+            <li>Customized Plans per pet type</li>
+            <li>Affordable Prices</li>
+          </ul>
+        </div>
+        <div class="row" style="background-color:lightgrey">
+          <h3 style="text-align: center">Call Now For A Quote!<br/>1-800-888-PETS </h3>
+          <br>
+        </div>
+      </div>
+      
+
+    </div>
+  </div>
+</div>
+<div class='container'>
+  <router-outlet></router-outlet>
+
+</div>
