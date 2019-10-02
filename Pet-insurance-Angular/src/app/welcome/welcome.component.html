@@ -14,13 +14,6 @@
         </div>
         <br />
         <div class='container'>
-          <div class="form-group">
-            <label for="power">Pet Plans</label>
-            <select class="form-control" id="Pet" [(ngModel)]="petValue" (change)="onNavigate($event.target.value)"
-              required>
-              <option *ngFor="let pet of petplans" [value]="pet.name">{{pet.name}}</option>
-            </select>
-          </div>
         </div>
         <br />
       </div>
@@ -41,8 +34,10 @@
           </ul>
         </div>
         <div class="row" style="background-color:lightgrey">
+          <div class = "container">
           <h3 style="text-align: center">Call Now For A Quote!<br/>1-800-888-PETS </h3>
           <br>
+        </div>
         </div>
       </div>
       
@@ -50,6 +45,15 @@
     </div>
   </div>
 </div>
+<div class='container'>
+    <div class="form-group">
+      <label for="power"><b>Pet Insurance Plans</b></label>
+      <select class="form-control" id="Pet" [(ngModel)]="petValue" (change)="onNavigate($event.target.value)"
+        required>
+        <option *ngFor="let pet of petplans" [value]="pet.name">{{pet.name}}</option>
+      </select>
+    </div>
+  </div>
 <div class='container'>
   <router-outlet></router-outlet>
 
