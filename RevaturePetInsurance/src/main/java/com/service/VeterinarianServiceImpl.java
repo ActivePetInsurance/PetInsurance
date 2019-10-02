@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import com.dao.VeterinarianDao;
 import com.model.Veterinarian;
 
-@Service()
+@Service
 public class VeterinarianServiceImpl implements VeterinarianService {
 	
 	private VeterinarianDao vd;

@@ -33,8 +33,7 @@ public class OwnerController {
 	private OwnerServiceImpl os;
 	private PetServiceImpl ps;
 	private InsurancePlanServiceImpl ips;
-	
-	public OwnerController() {
+		public OwnerController() {
 	}
 	
 	@Autowired

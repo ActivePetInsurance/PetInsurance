@@ -1,0 +1,178 @@
+[33m7b23a50[m[33m ([m[1;36mHEAD -> [m[1;32mdevelopment[m[33m)[m resolving merge conflict
+[33m7fbd1fc[m[33m ([m[1;31morigin/development[m[33m)[m Merge pull request #30 from ActivePetInsurance/Tim_Redo_Branch
+[33ma060530[m[33m ([m[1;31morigin/Tim_Redo_Branch[m[33m)[m merge1 oct 1
+[33m6e7fb26[m update Pet
+[33m7e99f76[m Merge branch 'development' of https://github.com/ActivePetInsurance/PetInsurance into development
+[33m4571254[m commiting stuff to pull - insert vets into the database
+[33mc7cb777[m Merge pull request #28 from ActivePetInsurance/Jacob_Branch
+[33m7f84e8d[m[33m ([m[1;31morigin/Jacob_Branch[m[33m)[m fixed nav bar and url end points
+[33ma2ba33b[m Merge branch 'development' into Tim_Redo_Branch
+[33md75fa62[m Changed pet model
+[33mb824fa8[m Merge branch 'Tim_Redo_Branch' of https://github.com/ActivePetInsurance/PetInsurance into Tim_Redo_Branch
+[33m63878bc[m Commit via atom
+[33m6afca55[m Merge branch 'development' of https://github.com/ActivePetInsurance/PetInsurance into development
+[33m34fbd99[m filled in some general information stuff
+[33m9e2b0b0[m Merge pull request #26 from ActivePetInsurance/Jacob_Branch
+[33m0964fb8[m fixed database issue, add pet to plans now functioning, end points now for the hosted server
+[33m444dbb9[m merge conficts resolved
+[33m13c4dbd[m Vet stuff
+[33m14abfea[m Merge pull request #25 from ActivePetInsurance/Sabrina_Branch
+[33mb98618c[m Unstable commit, add pets to policy update is broken
+[33mbc1ee2b[m[33m ([m[1;31morigin/Sabrina_Branch[m[33m)[m finished the credit card and bank account payment
+[33mce4f968[m pet create and update
+[33mfa9dfa2[m solving merge conflict
+[33mdb06ea2[m resolving merge conflict
+[33mcdc491f[m finished the bank account payment functionality
+[33m46d55d1[m Pet controller
+[33mc236b19[m Local pet controller
+[33ma03547e[m Pet controller WIP
+[33m2e938cd[m Pet controller addition
+[33m24ed3b9[m Merge pull request #23 from ActivePetInsurance/Jacob_Branch
+[33m2e20287[m Changed endpoints to match the cloud host ports, adding animal bug still being worked on
+[33ma495e09[m Fix pet type bug and formatting, Localhost end points
+[33md35bbe4[m Dynamically adds signed in owner pets and policies now
+[33m30b8f05[m Fixed major database issue and added lots of controller functionality
+[33m412c2fd[m finished the angular/html/js portion for the payment stuff
+[33ma3adf66[m update user infomation currently working, only local endpoints
+[33mae2e9b5[m resolved changes by hand after merge conflict
+[33m8b3c48c[m merge conflict resolved
+[33m7a80331[m merge
+[33m1b2885c[m Merge pull request #21 from ActivePetInsurance/Jacob_Branch
+[33mff90a38[m moved logged session user its proper place
+[33m5c41025[m Login session user invalidate
+[33mb68b88c[m Stored session user, no logout yet
+[33m9c1e443[m signup is working, storing session user still in progress
+[33mccd1918[m Merge pull request #18 from ActivePetInsurance/Jacob_Branch
+[33mf0391a5[m Adding javax dependency to help CA's
+[33m91e22ef[m resolving merge conflict
+[33ma26b876[m commit to merge with dev
+[33m3e12142[m Merge pull request #16 from ActivePetInsurance/Jacob_Branch
+[33me8cbdbc[m Working login with no session storing yet, request still sending to localhost
+[33m3b38134[m Working with a tomcat error
+[33m3a70098[m resolving merge conflicts
+[33m28f6d7c[m commit to merge
+[33mde278e4[m Merge pull request #15 from ActivePetInsurance/Jacob_Branch
+[33m57355a7[m Fixing login controllers, implementing Tims merge conflicts
+[33m633cae4[m Merge branch 'development' into Jacob_Branch
+[33m174c278[m temp controllers
+[33m51b3625[m conflict resolution for master serv addition
+[33mde14df2[m removed static block sto avoid conflicts
+[33m41d6d1c[m added the static block for db communication in war project
+[33m7bb67a7[m addition of master servlet
+[33m544d857[m Merge pull request #12 from ActivePetInsurance/Jacob_Branch
+[33m543e671[m Changed owner service login to avoid database errors and added spring functionality
+[33m6966ebe[m updating Dao's to Spring Beans
+[33mea8caba[m Merge branch 'development' into Jacob_Branch
+[33mec0414a[m Merge pull request #11 from ActivePetInsurance/Tim_Redo_Branch
+[33m1e0f3b2[m Auto generating policy cards
+[33m3646947[m email selection query
+[33mff9f990[m Merge branch 'development' into Jacob_Branch
+[33m74a28ba[m plan cards started, troubleshooting need
+[33mbefc622[m trying to resolve merge conflicts
+[33m71e1ca7[m Merge pull request #10 from ActivePetInsurance/Tim_Redo_Branch
+[33m184deb0[m Merge branch 'development' into Sabrina_Branch
+[33m243fbd8[m updates to controller and daos
+[33mb54b597[m updated redo for login
+[33m871461b[m Unfinished policy cards
+[33mc166fd6[m Merge pull request #9 from ActivePetInsurance/Jacob_Branch
+[33mf7a21bb[m Merge pull request #7 from ActivePetInsurance/Sabrina_Branch
+[33m780d9d0[m Added form functionality to add pets
+[33mbe3e82f[m basic updates
+[33m5559d92[m basic updates
+[33m76d0dfd[m Merge branch 'development' into Sabrina_Branch
+[33mfc4294c[m inputs for initial db values, finished all basic crud procedure for the daos, started the controllers
+[33m7a7bc0d[m Merge branch 'staging' into development
+[33m8d4bef9[m Merge pull request #5 from ActivePetInsurance/Jacob_Branch
+[33mc99fb7e[m Created the user-pet components that will auto generate cards of the pets passed in
+[33mb3722ce[m created a new tab for the user page for insurance payments
+[33mde120e3[m User edit information functionality, formating still needs to be worked on
+[33md46c40e[m user data displayed when the user logs in
+[33mab0a598[m finished the database tables and their joins
+[33m3ff27ff[m Merge branch 'development' into Jacob_Branch merging
+[33mc0a33f1[m adding tabs to the user page
+[33mb7e9389[m Merge branch 'development' into Sabrina_Branch
+[33m0414f0b[m updates to schema
+[33m621105a[m Merge pull request #4 from ActivePetInsurance/Jacob_Branch
+[33m370aa34[m Add files via upload
+[33mf2b5b2e[m Add files via upload
+[33m84ea296[m removed problematic rm line and changed build command to package
+[33mca3b249[m Merge branch 'staging' of https://github.com/ActivePetInsurance/PetInsurance into staging
+[33m74b5868[m fixed things
+[33m1383bc0[m might fix everything
+[33m10b2f87[m Merge branch 'staging' of https://github.com/ActivePetInsurance/PetInsurance into staging
+[33m9561784[m added command to change directory in order to build maven
+[33m12526bd[m Merge pull request #2 from ActivePetInsurance/Sabrina_Branch
+[33mad3fcd0[m added environment variables
+[33m549c40d[m added ls for debugging
+[33mabe7413[m Merge branch 'staging' of https://github.com/ActivePetInsurance/PetInsurance into staging
+[33mbe018ca[m added the build command for maven
+[33m5a40375[m get info
+[33m6e8556a[m Merge branch 'staging' of https://github.com/ActivePetInsurance/PetInsurance into staging
+[33m7566273[m commented the maven line out again
+[33md712932[m uncommented travis
+[33mb0421ab[m Merge branch 'staging' of https://github.com/ActivePetInsurance/PetInsurance into staging
+[33m3a75ece[m Added the maven back in
+[33md7753b0[m Reverted back to almost the orginal version almost
+[33me9f6a2a[m Merge pull request #1 from ActivePetInsurance/Sabrina_Branch
+[33m70a39f3[m finished the lookup tables for the db. currently in the process of doing the pet, owner, policy, routing and credit card tables
+[33m16e85ec[m Fixed the sign out page to grab the correct information
+[33m431724e[m again
+[33mf865e66[m new travis
+[33m0f6ad0a[m ssh
+[33mdbeaf8f[m starting from scratch
+[33m60ed792[m remove js
+[33md7fad66[m another shot
+[33m3016861[m should work
+[33me709e56[m slight change
+[33m2d28504[m this should not work
+[33mef1944f[m idk why it still uses the old version
+[33mf45ec19[m ...
+[33m9ad8c8c[m Add files via upload
+[33m76741c7[m update js
+[33m8243be0[m should fix
+[33meaa173b[m comments
+[33md4a5299[m changed destination directory to not rename file
+[33m48a00d4[m changed source image in dockerfile to proper tomcat image
+[33m52d48a4[m changed gcr image name to fulfill requirements
+[33m82b8a9f[m Merge branch 'staging' of https://github.com/ActivePetInsurance/PetInsurance into staging
+[33m9be573b[m Added new credentials with appropriate permissions
+[33m51f9462[m Added variable to travis and reverted much code
+[33m3502dd4[m added line of code that unpacks the curled sdk
+[33m42d2e7b[m added line to remove google coud sdk before installation
+[33m4fd119a[m added debugging line
+[33m63a38c7[m changed to the google recommended installation method
+[33m4586012[m changed method of downloading
+[33m49a6982[m changed flag to tell the program to auto submit blank form
+[33mc36f1e6[m added fail silently flag to the cur command
+[33mda4c18a[m Merge branch 'staging' of https://github.com/ActivePetInsurance/PetInsurance into staging
+[33m1fab3ae[m added in the other scripts again
+[33m9603127[m changed rm
+[33ma0c660d[m added back the installation commands in install for gcloud
+[33m1d04c78[m changed the install method of cloud sdk
+[33m41d3118[m front end done
+[33m333cdc1[m removed configrue-docker line and added an ls to see file structure
+[33mfe0bf03[m removed install and confugure scripts
+[33m7028b29[m Removed gcloud install.
+[33m2549e24[m pipe yes
+[33maddf004[m ACTUALLY added the install script back to travis
+[33mdf46182[m added install script back to travis
+[33m6e579d3[m Merge branch 'staging' of https://github.com/ActivePetInsurance/PetInsurance into staging
+[33m6bc0b91[m Changed kubernetes cluster name to the correct name for the new cluster
+[33mc30d4b8[m Merge branch 'staging' of https://github.com/ActivePetInsurance/PetInsurance into staging
+[33m553de85[m Added credentials
+[33m45fd3ca[m changed credentials to the correct format
+[33m8ba463e[m Merge branch 'staging' of https://github.com/ActivePetInsurance/PetInsurance into staging
+[33m6a72f38[m fixed the unencrypting line for the credentials
+[33mdfbbea3[m added encrypted gcloud credentials
+[33m3ff3497[m removed unnecessary install script
+[33m34976ba[m temporarily removed maven line to see if anything else needs fixing
+[33me2298a0[m Merge branch 'staging' of https://github.com/RevaturePetInsurance/PetInsurance into staging
+[33m054b492[m Added new ip address of server to dockerfile and k8s
+[33m69cebb8[m Merge pull request #2 from RevaturePetInsurance/Jacob_Branch
+[33macb10db[m Merge pull request #3 from RevaturePetInsurance/development
+[33m3b22220[m Changed navBar routing, and created different navBar configs depending on the route taken
+[33m5de7e5a[m Added all the necessary travis and build files for the backend. I'm unable to test these until the backend exists, but this is version 1 of them
+[33m2bd01f3[m sign up, and sign in component skeletons created
+[33me07b008[m Merge pull request #1 from RevaturePetInsurance/Jacob_Branch
+[33mf7bd478[m re-adding the Angular files to the new GitHub
+[33me1c160e[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m Create README.md
