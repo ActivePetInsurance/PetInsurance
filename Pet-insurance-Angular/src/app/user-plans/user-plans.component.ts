@@ -61,6 +61,7 @@ export class UserPlansComponent implements OnInit {
     this.userPol.addNewPlan(this.newPol).subscribe(
       data => {
         console.log(data);
+        location.reload()
         });
   }
 
@@ -94,6 +95,7 @@ export class UserPlansComponent implements OnInit {
           console.log('NO PLAN');
           alert('Invalide policy number');
         }
+        location.reload();
         });
   }
 
