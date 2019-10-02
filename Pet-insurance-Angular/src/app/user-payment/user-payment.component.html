@@ -1,3 +1,18 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+              <div>
+                <button class='btn btn-primary' (click) = 'toggleCredit()' style="margin: 1%" style="padding-bottom: 1%">Pay with credit card</button>
+            </div>
+            <div>
+                <button class='btn btn-primary' (click) = 'toggleBankAccount()' style="margin: 1%" style="padding-bottom: 1%">Pay with Bank Account</button>
+            </div>
+            </div>
+        </div>
+      </nav>
 <br>
 <div class="row">
         <div class="card" *ngFor="let plan of polPay">
@@ -33,13 +48,9 @@
                 </div>
                 </ng-template>
                 </div>
-              </div>
+
 <br>
 <br>
-<div class="container" id = "reciept">
-    <div class = "col-sm">
-        <button class='btn btn-primary' (click) = 'toggleCredit()'>Pay with credit card</button>
-    </div>
     <br/>
     
     <form class = "form-inline" *ngIf = 'showCreditform' id="myform1" [formGroup]="creditform" (ngSubmit) = "credit_info()">
@@ -115,10 +126,6 @@
     </form>
 
     <br><br>
-
-    <div class = "col-sm">
-        <button class='btn btn-primary' (click) = 'toggleBankAccount()'>Pay with Bank Account</button>
-    </div>
 
 
     <form class = "form-inline" *ngIf = 'showBankAccountform' id="myform2" [formGroup]="BankAccountform" (ngSubmit) = "BA_info()">
