@@ -11,6 +11,8 @@ import { RemovePol } from './removePolicy';
 })
 export class PolicyService {
 
+  age;
+  age1;
   remPol: RemovePol[];
   pol: NewPolicy[];
   petPol: PolicyPets[];
@@ -44,6 +46,8 @@ export class PolicyService {
 
   addNewPlan(newPol): Observable<string[]> {
       const curUser = JSON.parse(localStorage.getItem('owner'));
+      const date = newPol.value.newbDate.split(['-']);
+      this.age = 2019 - date[0];
       this.pol = [
         {
         accNum: curUser.accountNumber,
@@ -63,7 +67,7 @@ export class PolicyService {
         newbDate: newPol.value.newbDate,
         newWeight: newPol.value.newWeight,
         newHeight: newPol.value.newHeight,
-        newAge: newPol.value.newAge,
+        newAge: this.age,
         newPetSize: newPol.value.newPetSize,
         newPetSex: newPol.value.newPetSex
         }
@@ -76,8 +80,8 @@ export class PolicyService {
         })
       };
 
-      // return this.myHttpCli.post<string[]>('http://localhost:9005/RevaturePetInsurance/own/addPolicy.app', this.pol, httpPut);
-      return this.myHttpCli.post<string[]>('http://35.232.12.74/RevaturePetInsurance-0.0.1-SNAPSHOT/own/addPolicy.app', this.pol, httpPut);
+      return this.myHttpCli.post<string[]>('http://localhost:9005/RevaturePetInsurance/own/addPolicy.app', this.pol, httpPut);
+      // return this.myHttpCli.post<string[]>('http://35.232.12.74/RevaturePetInsurance-0.0.1-SNAPSHOT/own/addPolicy.app', this.pol, httpPut);
   }
 
   getPlans(): Observable<string[]> {
@@ -91,12 +95,14 @@ export class PolicyService {
     };
     console.log('before Plans return');
 
-    // return this.myHttpCli.post<string[]>('http://localhost:9005/RevaturePetInsurance/own/getPolicy.app', curUser, httpPut);
-    return this.myHttpCli.post<string[]>('http://35.232.12.74/RevaturePetInsurance-0.0.1-SNAPSHOT/own/getPolicy.app', curUser, httpPut);
+    return this.myHttpCli.post<string[]>('http://localhost:9005/RevaturePetInsurance/own/getPolicy.app', curUser, httpPut);
+    // return this.myHttpCli.post<string[]>('http://35.232.12.74/RevaturePetInsurance-0.0.1-SNAPSHOT/own/getPolicy.app', curUser, httpPut);
   }
 
   addPetToPlans(newPetPol): Observable<string[]> {
     const curUser = JSON.parse(localStorage.getItem('owner'));
+    const date = newPetPol.value.newbDate.split(['-']);
+    this.age = 2019 - date[0];
     this.petPol = [
       {
         accNum: curUser.accountNumber,
@@ -105,7 +111,7 @@ export class PolicyService {
         newbDate: newPetPol.value.newbDate,
         newWeight: newPetPol.value.newWeight,
         newHeight: newPetPol.value.newHeight,
-        newAge: newPetPol.value.newAge,
+        newAge: this.age,
         newPetSize: newPetPol.value.newPetSize,
         newPetSex: newPetPol.value.newPetSex
       }
@@ -119,8 +125,8 @@ export class PolicyService {
     };
     console.log('before add pets');
 
-    // return this.myHttpCli.post<string[]>('http://localhost:9005/RevaturePetInsurance/own/NewPet.app', this.petPol, httpPut);
-    return this.myHttpCli.post<string[]>('http://35.232.12.74/RevaturePetInsurance-0.0.1-SNAPSHOT/own/NewPet.app', this.petPol, httpPut);
+    return this.myHttpCli.post<string[]>('http://localhost:9005/RevaturePetInsurance/own/NewPet.app', this.petPol, httpPut);
+    // return this.myHttpCli.post<string[]>('http://35.232.12.74/RevaturePetInsurance-0.0.1-SNAPSHOT/own/NewPet.app', this.petPol, httpPut);
   }
 
   remove_Policy(policyRem): Observable<string[]> {
@@ -139,8 +145,8 @@ export class PolicyService {
     };
     console.log('before Plans return');
 
-    // return this.myHttpCli.post<string[]>('http://localhost:9005/RevaturePetInsurance/own/removePolicy.app', this.remPol, httpPut);
-    return this.myHttpCli.post<string[]>('http://35.232.12.74/RevaturePetInsurance-0.0.1-SNAPSHOT/own/getPolicy.app', curUser, httpPut);
+    return this.myHttpCli.post<string[]>('http://localhost:9005/RevaturePetInsurance/own/removePolicy.app', this.remPol, httpPut);
+    // return this.myHttpCli.post<string[]>('http://35.232.12.74/RevaturePetInsurance-0.0.1-SNAPSHOT/own/getPolicy.app', curUser, httpPut);
   }
 
 }

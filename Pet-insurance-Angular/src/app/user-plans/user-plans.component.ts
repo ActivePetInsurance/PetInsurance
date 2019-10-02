@@ -70,24 +70,30 @@ export class UserPlansComponent implements OnInit {
         console.log('get policy: ');
         console.log(data);
         this.polCheck = data;
+        let iCount = 0;
         for (const plan of this.polCheck) {
           console.log(plan);
           console.log(this.newPet.value.polNum);
           console.log(plan.policyNumber);
           console.log(plan.petList.length);
           if (this.newPet.value.polNum == plan.policyNumber) {
-             if (plan.petList.length < 3) {
+            iCount++;
+            if (plan.petList.length < 3) {
               this.userPol.addPetToPlans(this.newPet).subscribe(
                 data1 => {
                   console.log(data1);
                 }
               );
-             }
-           }else {
-            console.log('TOOO MUCH');
-            alert('This Policy already has 3 Pets, please add a new Policy');
+             } else {
+              console.log('TOOO MUCH');
+              alert('This Policy already has 3 Pets, please add a new Policy');
            }
+          }
          }
+        if (iCount == 0) {
+          console.log('NO PLAN');
+          alert('Invalide policy number');
+        }
         });
   }
 

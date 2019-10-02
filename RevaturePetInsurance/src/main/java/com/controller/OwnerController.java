@@ -154,7 +154,7 @@ public class OwnerController {
 				"VA", zipT, (String)ownerM.get("phoneNum"), (String)ownerM.get("email"), (String)ownerM.get("password"));
 		double petWeight = Double.parseDouble((String)ownerM.get("newWeight"));
 		double petHeight = Double.parseDouble((String)ownerM.get("newHeight"));
-		int petAge = Integer.parseInt((String)ownerM.get("newAge"));
+		int petAge = (int) ownerM.get("newAge");
 		int petSize = Integer.parseInt((String)ownerM.get("newPetSize"));
 		int petSex = Integer.parseInt((String)ownerM.get("newPetSex"));
 //		System.out.println(polPetType);
@@ -236,7 +236,7 @@ public class OwnerController {
 		System.out.println(os.selectPolicyById(polNum));
 		double petWeight = Double.parseDouble((String)ownerM.get("newWeight"));
 		double petHeight = Double.parseDouble((String)ownerM.get("newHeight"));
-		int petAge = Integer.parseInt((String)ownerM.get("newAge"));
+		int petAge = (int) ownerM.get("newAge");
 		int petSize = Integer.parseInt((String)ownerM.get("newPetSize"));
 		int petSex = Integer.parseInt((String)ownerM.get("newPetSex"));
 	
