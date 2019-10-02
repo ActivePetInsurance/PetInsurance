@@ -24,6 +24,7 @@ public class OwnerDao {
 		}
 	}
 	
+
 	private SessionFactory sesFact;
 	
 	public OwnerDao() {
@@ -80,6 +81,11 @@ public class OwnerDao {
 //					+ ownerEmail + "'", Owner.class).uniqueResult();
 		return sesFact.getCurrentSession().createQuery("from Owner where ownerEmail='"+ ownerEmail + "'", Owner.class).uniqueResult();
 
+	}
+	
+	public Owner selectOwnerByAccount(int accountNum) {
+		
+		return sesFact.getCurrentSession().createQuery("from Owner where accountNumber='" + accountNum + "'", Owner.class).uniqueResult();
 	}
 
 
