@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.dao.OwnerDao;
 import com.dao.PetDao;
 import com.dao.PetSexDao;
 import com.dao.PetSizeDao;
@@ -41,12 +42,10 @@ public class PetServiceImpl implements PetService {
 	}
 
 	@Override
-	public void updateInfo() {
-		
-		
+	public void updateInfo(Pet myPet) {
+		pd.update(myPet);
 	}
 
-	@Override
 	public List<Pet> selectAllPets() {
 		return pd.selectAll();
 		
@@ -81,5 +80,4 @@ public class PetServiceImpl implements PetService {
 	
 	
 	
-
 }
