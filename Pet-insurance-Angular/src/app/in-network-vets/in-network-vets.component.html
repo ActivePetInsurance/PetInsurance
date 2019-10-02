@@ -1,0 +1,25 @@
+<router-outlet name="invNav"></router-outlet>
+<p>in-network-vets works!</p>
+
+<!--filter-->
+<div class = 'panel-body'>
+    <div class='row'>
+        <div class ='col-md-2'> Search by Zipcode</div>
+        <div class='cod-md-4'>
+            <input type='text' [(ngModel)]='zipcode'/>
+        </div>
+    </div>
+</div>
+<!--Vet Table-->
+<div class = 'vet table'>
+    <table class = 'vet_table'>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>License Number</th>
+                <th>Zipcode</th>
+                <th>City</th>
+            </tr>
+        </thead>
+    </table>
+</div>
