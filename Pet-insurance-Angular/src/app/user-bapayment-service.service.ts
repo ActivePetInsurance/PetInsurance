@@ -18,7 +18,7 @@ export class UserBAPaymentService {
                 'Content-Type': 'application/json'
             })
         };
-        // return this.myHttpcli.post<string[]>('http://localhost:9005/RevaturePetInsurance/payment/makePaymentBA.app', newBA, httpPut);
-        return this.myHttpcli.post<string[]>('http://35.232.12.74/RevaturePetInsurance-0.0.1-SNAPSHOT/payment/makePaymentBA.app', newBA, httpPut);
+        return this.myHttpcli.post<string[]>('http://localhost:9005/RevaturePetInsurance/payment/makePaymentBA.app', newBA, httpPut);
+        // return this.myHttpcli.post<string[]>('http://35.232.12.74/RevaturePetInsurance-0.0.1-SNAPSHOT/payment/makePaymentBA.app', newBA, httpPut);
     }
 }

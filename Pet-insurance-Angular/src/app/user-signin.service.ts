@@ -20,7 +20,7 @@ export class UserSigninService {
       })
     };
 
-    // return this.myHttpCli.post<string[]>('http://localhost:9005/RevaturePetInsurance/log/login.app', user, httpPut);
-    return this.myHttpCli.post<string[]>('http://35.232.12.74/RevaturePetInsurance-0.0.1-SNAPSHOT/log/login.app', user, httpPut);
+    return this.myHttpCli.post<string[]>('http://localhost:9005/RevaturePetInsurance/log/login.app', user, httpPut);
+    // return this.myHttpCli.post<string[]>('http://35.232.12.74/RevaturePetInsurance-0.0.1-SNAPSHOT/log/login.app', user, httpPut);
   }
 }

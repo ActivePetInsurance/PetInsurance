@@ -17,7 +17,7 @@ export class InNetworkVetsService {
       //     withCredentials: 'true'
       //   })
       // };
-      // return this.myHttpCli.get<string[]>('http://localhost:9005/RevaturePetInsurance/vet/allVets.app');
-      return this.myHttpCli.get<string[]>('http://35.232.12.74/RevaturePetInsurance-0.0.1-SNAPSHOT/vet/allVets.app');
+      return this.myHttpCli.get<string[]>('http://localhost:9005/RevaturePetInsurance/vet/allVets.app');
+      // return this.myHttpCli.get<string[]>('http://35.232.12.74/RevaturePetInsurance-0.0.1-SNAPSHOT/vet/allVets.app');
     }
 }
