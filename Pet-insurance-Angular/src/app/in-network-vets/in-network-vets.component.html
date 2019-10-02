@@ -1,18 +1,27 @@
 <router-outlet name="invNav"></router-outlet>
-<p>in-network-vets works!</p>
+
 
 <!--filter-->
-<div class = 'panel-body'>
-    <div class='row'>
-        <div class ='col-md-2'> Search by Zipcode</div>
-        <div class='cod-md-4'>
-            <input type='text' [(ngModel)]='zipcode'/>
+
+<div>
+    <form class="search" id="zipSearch" [formGroup]="searchZip" (ngSubmit)=filter()>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="search value">Search by Zipcode</label>
+                <input type="text" class="form-control" formControlName="searchZipcode"
+                    placeholder="insert valid zipcode">
+            </div>
         </div>
-    </div>
+        <div class="form-row">
+                <div class="form-group col-md-6">
+                <button class="btn btn-outline-success" id="submitbutton" type="submit">Submit</button>
+              </div>
+              </div>
+    </form>
 </div>
 <!--Vet Table-->
-<div class = 'vet table'>
-    <table class = 'vet_table'>
+<div class='vet table'>
+    <table class='vet_table'>
         <thead>
             <tr>
                 <th>Name</th>
@@ -21,5 +30,21 @@
                 <th>City</th>
             </tr>
         </thead>
+        <tbody *ngIf ="!show">
+            <tr  *ngFor=' let temp of vets1'>
+                <td>{{temp.firtName}} {{temp.lastName}}</td>
+                <td>{{temp.licenseNumber}}</td>
+                <td>{{temp.zipCode}}</td>
+                <td>{{temp.city}}</td>
+            </tr>
+        </tbody>
+        <tbody *ngIf="show">
+                <tr  *ngFor=' let temp of vetsFilteredbyZipcode'>
+                        <td>{{temp.firtName}} {{temp.lastName}}</td>
+                        <td>{{temp.licenseNumber}}</td>
+                        <td>{{temp.zipCode}}</td>
+                        <td>{{temp.city}}</td>
+                    </tr>
+        </tbody>
     </table>
 </div>
