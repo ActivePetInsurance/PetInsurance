@@ -35,7 +35,7 @@ public class VeterinarianController {
 		return vs.allVets();
 	}
 	
-	@PostMapping(value="getVetsZip.app")
+	@PostMapping(value="/getVetsZip.app")
 	public @ResponseBody List<Veterinarian> getVetByZip(@RequestBody int zip) {
 		
 		return vs.vetsByZip(zip);

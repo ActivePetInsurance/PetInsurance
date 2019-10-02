@@ -3,12 +3,15 @@ package com.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Veterinarian {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="vet_id")
 	private int vet_id;
 
@@ -133,6 +136,38 @@ public class Veterinarian {
 		this.city = city;
 		this.zipCode = zipCode;
 	}
+
+	
+	
+	
+	public Veterinarian(String firtName, String middleInitial, String lastName, int licenseNumber,
+			String licenseExpirationDate, String licenseIssueDate, boolean licenseStatus, String city, int zipCode) {
+		super();
+		this.firtName = firtName;
+		this.middleInitial = middleInitial;
+		this.lastName = lastName;
+		this.licenseNumber = licenseNumber;
+		this.licenseExpirationDate = licenseExpirationDate;
+		this.licenseIssueDate = licenseIssueDate;
+		this.licenseStatus = licenseStatus;
+		this.city = city;
+		this.zipCode = zipCode;
+	}
+	
+	
+
+	public Veterinarian(String firtName, String lastName, int licenseNumber, String licenseExpirationDate,
+			String licenseIssueDate, boolean licenseStatus, String city, int zipCode) {
+		this.firtName = firtName;
+		this.lastName = lastName;
+		this.licenseNumber = licenseNumber;
+		this.licenseExpirationDate = licenseExpirationDate;
+		this.licenseIssueDate = licenseIssueDate;
+		this.licenseStatus = licenseStatus;
+		this.city = city;
+		this.zipCode = zipCode;
+	}
+
 
 	public Veterinarian() {
 	}
