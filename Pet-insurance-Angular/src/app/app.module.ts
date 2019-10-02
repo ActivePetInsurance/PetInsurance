@@ -25,6 +25,8 @@ import { UserPaymentComponent } from './user-payment/user-payment.component';
 import { UOwnedPetsService } from './u-owned-pets.service';
 import { UserPageComponent } from './user-page/user-page.component';
 import { HttpClientModule } from '@angular/common/http';
+import { InNetworkVetsComponent } from './in-network-vets/in-network-vets.component';
+import { InNetworkVetsNavbarComponent } from './in-network-vets-navbar/in-network-vets-navbar.component';
 
 
 
@@ -48,7 +50,10 @@ import { HttpClientModule } from '@angular/common/http';
     UserInfoComponent,
     UserPetsComponent,
     UserPlansComponent,
-    UserPaymentComponent
+    UserPaymentComponent,
+    InNetworkVetsComponent,
+    InNetworkVetsNavbarComponent
+
 
   ],
   imports: [
@@ -92,11 +97,20 @@ import { HttpClientModule } from '@angular/common/http';
         {path: '', outlet: 'suNav', component: SignupNavbarComponent},
       ]
     },
+
+    {path: 'inNetworkVets', component: InNetworkVetsComponent,
+    children : [
+      {path: '', outlet: 'invNav', component: InNetworkVetsNavbarComponent}
+      ]
+    },
+
       {path: 'signin', component: SigninComponent},
       {path: 'signup', component: SignupComponent},
       {path: 'register', component: RegisterComponent},
+      {path: 'inNetworkVets', component: InNetworkVetsComponent},
       {path: '', redirectTo: 'welcome', pathMatch: 'full'},
       {path: '**', redirectTo: 'welcome', pathMatch: 'full'},
+
     ])
   ],
   providers: [InsurancePackagesService, UserServiceService, UOwnedPetsService],

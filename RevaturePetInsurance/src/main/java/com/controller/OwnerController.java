@@ -33,8 +33,7 @@ public class OwnerController {
 	private OwnerServiceImpl os;
 	private PetServiceImpl ps;
 	private InsurancePlanServiceImpl ips;
-	
-	public OwnerController() {
+		public OwnerController() {
 	}
 	
 	@Autowired
@@ -154,8 +153,8 @@ public class OwnerController {
 				"VA", zipT, (String)ownerM.get("phoneNum"), (String)ownerM.get("email"), (String)ownerM.get("password"));
 		double petWeight = Double.parseDouble((String)ownerM.get("newWeight"));
 		double petHeight = Double.parseDouble((String)ownerM.get("newHeight"));
-		int petAge = Integer.parseInt((String)ownerM.get("newAge"));
-		int petSize = Integer.parseInt((String)ownerM.get("newPetSize"));
+		int petAge = (int) ownerM.get("newAge");
+		int petSize = (int)ownerM.get("newPetSize");
 		int petSex = Integer.parseInt((String)ownerM.get("newPetSex"));
 //		System.out.println(polPetType);
 		Pet newPet = new Pet((String)ownerM.get("newPetName"), (String)ownerM.get("newbDate"), petWeight, petHeight, petAge, newO, ps.getPetSize(petSize), ps.getPetSex(petSex), ps.getPetType(petType));
@@ -236,8 +235,8 @@ public class OwnerController {
 		System.out.println(os.selectPolicyById(polNum));
 		double petWeight = Double.parseDouble((String)ownerM.get("newWeight"));
 		double petHeight = Double.parseDouble((String)ownerM.get("newHeight"));
-		int petAge = Integer.parseInt((String)ownerM.get("newAge"));
-		int petSize = Integer.parseInt((String)ownerM.get("newPetSize"));
+		int petAge = (int) ownerM.get("newAge");
+		int petSize = 0;
 		int petSex = Integer.parseInt((String)ownerM.get("newPetSex"));
 	
 		Policy pol = os.selectPolicyById(polNum);
@@ -251,6 +250,38 @@ public class OwnerController {
 		}else {
 			petType = 3;
 		}
+		
+		if (petType == 1) {
+		      if (petWeight <= 0.75) {
+		    	  petSize = 1;
+		      // tslint:disable-next-line: align
+		      } else if (0.75 < petWeight && petWeight <= 4 ) {
+		    	  petSize = 2;
+		      // tslint:disable-next-line: align
+		      } else {
+		    	  petSize = 3;
+		      }
+		    } else if(petType == 2) {
+		      if ( petHeight <= 9) {
+		    	  petSize = 1;
+		      // tslint:disable-next-line: align
+		      } else if (9 < petHeight && petHeight <= 16 ) {
+		    	  petSize = 2;
+		      // tslint:disable-next-line: align
+		      } else {
+		    	  petSize = 3;
+		      }
+		    } else {
+		      if (petHeight <= 5) {
+		    	  petSize = 1;
+		      // tslint:disable-next-line: align
+		      } else if (5 < petHeight && petHeight <= 24 ) {
+		    	  petSize = 2;
+		      // tslint:disable-next-line: align
+		      } else {
+		    	  petSize = 3;
+		      }
+		    }
 		System.out.println(petType);
 		Pet newPet = new Pet((String)ownerM.get("newPetName"), (String)ownerM.get("newbDate"), petWeight, petHeight, petAge, os.selectOwnerById(accNum), ps.getPetSize(petSize), ps.getPetSex(petSex), ps.getPetType(petType));
 		System.out.println(newPet);
