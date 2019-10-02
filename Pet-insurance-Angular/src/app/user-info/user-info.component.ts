@@ -33,8 +33,8 @@ export class UserInfoComponent implements OnInit, OnDestroy {
 
   info_Change() {
     console.log(this.infoChange.value);
-    this.toggle();
     this.updateUser();
+    this.toggle();
   }
 
   ngOnInit() {

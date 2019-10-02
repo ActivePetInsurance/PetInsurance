@@ -66,23 +66,6 @@
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="newAge">Age</label>
-                        <input type="text" class="form-control" formControlName="newAge"
-                            id="newAge" placeholder="Age in Years" required>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="newPetSize">Size</label>
-                        <select class="form-control" id="newPetSize" formControlName="newPetSize" required>
-                          <option value = "1">Small</option>
-                          <option value = "2">Medium</option>
-                          <option value = "3">Large</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
                         <label for="newPetSex">Sex</label>
                         <select class="form-control" id="newPetSex" formControlName="newPetSex" required>
                           <option value = "0">Male</option>
@@ -175,23 +158,6 @@
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="newAge">Age</label>
-                    <input type="text" class="form-control" formControlName="newAge"
-                        id="newAge" placeholder="Age in Years" required>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="newPetSize">Size</label>
-                    <select class="form-control" id="newPetSize" formControlName="newPetSize" required>
-                      <option value = "1">Small</option>
-                      <option value = "2">Medium</option>
-                      <option value = "3">Large</option>
-                    </select>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
                     <label for="newPetSex">Sex</label>
                     <select class="form-control" id="newPetSex" formControlName="newPetSex" required>
                       <option value = "0">Male</option>
@@ -202,13 +168,14 @@
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
               <button class="btn btn-outline-success" id="submitbutton" type="submit" (click)="new_PetToPol(newPet)" data-dismiss="modal">Submit</button>
-            </div>
+          </div>
           </form>
       </div>
     </div>
   </div>
   </div>
 
+  <br>
 
 <!-- Card generation -->
 <div class="row">

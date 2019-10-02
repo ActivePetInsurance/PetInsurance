@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { UserBAPaymentService } from '../user-bapayment-service.service';
 import { UserCCpaymentServiceService } from '../user-ccpayment-service.service';
+import { PolicyService } from '../policy.service';
 
 @Component({
   selector: 'app-user-payment',
@@ -10,6 +11,7 @@ import { UserCCpaymentServiceService } from '../user-ccpayment-service.service';
 })
 export class UserPaymentComponent implements OnInit {
 
+  polPay;
   creditform = new FormGroup({
     nameCC: new FormControl(''),
     billAddCC: new FormControl(''),
@@ -32,7 +34,7 @@ export class UserPaymentComponent implements OnInit {
   showCreditform = false;
   showBankAccountform = false;
 
-  constructor(private BAService: UserBAPaymentService, private CCService: UserCCpaymentServiceService) {
+  constructor(private BAService: UserBAPaymentService, private CCService: UserCCpaymentServiceService, private userPol: PolicyService) {
    }
 
   toggleCredit() {
@@ -71,7 +73,7 @@ export class UserPaymentComponent implements OnInit {
     myReciept.innerHTML = ' <div class = reciept> <h1>A+ Pet Insurance</h1> <h2>receipt</h2> <h3>Date: ' + dateTime + '</h3><h4>Total Amount Paid: $' + this.BankAccountform.value.paidAmount + '</h4></div>';
   }
 
-  recieptCC(): void {  
+  recieptCC(): void {
     const myReciept = document.getElementById('reciept') as HTMLElement;
     const today = new Date();
     const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
@@ -84,6 +86,12 @@ export class UserPaymentComponent implements OnInit {
 
 
   ngOnInit() {
+    this.userPol.getPlans().subscribe(
+      data => {
+        console.log('pay: ');
+        console.log(data);
+        this.polPay = data;
+        });
   }
 
 }
