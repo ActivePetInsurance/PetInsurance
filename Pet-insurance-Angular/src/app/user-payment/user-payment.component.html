@@ -1,6 +1,41 @@
 <br>
+<div class="row">
+        <div class="card" *ngFor="let plan of polPay">
+            <div class="card-body" *ngIf="plan.petList.length == 1; else elseTemplate1">
+                <h5 class="card-title">Policy Number:</h5>
+                <h5 class="card-title">{{plan.policyNumber}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{plan.insurancePlan.planName}}</h6>
+                <h6>Number of Pets:</h6>
+                <p class="card-text">{{plan.petList.length}}</p>
+                <h6>Monthly Payment: </h6>
+                <p>$ {{plan.petList[0].age*0.5 + plan.petList[0].size.sizeId*5 + plan.insurancePlan.monthlyFee}}</p>
+              </div>
+                <ng-template #elseTemplate1>
+                <div class="card-body" *ngIf="plan.petList.length == 2; else elseTemplate2">
+                    <h5 class="card-title">Policy Number:</h5>
+                    <h5 class="card-title">{{plan.policyNumber}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{plan.insurancePlan.planName}}</h6>
+                    <h6>Number of Pets:</h6>
+                    <p class="card-text">{{plan.petList.length}}</p>
+                    <h6>Monthly Payment: </h6>
+                    <p>$ {{plan.petList[0].age*0.5 + plan.petList[0].size.sizeId*5 + plan.insurancePlan.monthlyFee + plan.petList[1].age*0.5 + plan.petList[1].size.sizeId*5}}</p>
+                </div>
+                </ng-template>
+                <ng-template #elseTemplate2>
+                <div class="card-body">
+                    <h5 class="card-title">Policy Number:</h5>
+                    <h5 class="card-title">{{plan.policyNumber}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{plan.insurancePlan.planName}}</h6>
+                    <h6>Number of Pets:</h6>
+                    <p class="card-text">{{plan.petList.length}}</p>
+                    <h6>Monthly Payment: </h6>
+                    <p>$ {{plan.petList[0].age*0.5 + plan.petList[0].size.sizeId*5 + plan.insurancePlan.monthlyFee + plan.petList[1].age*0.5 + plan.petList[1].size.sizeId*5 + plan.insurancePlan.monthlyFee + plan.petList[2].age*0.5 + plan.petList[2].size.sizeId*5}}</p>
+                </div>
+                </ng-template>
+                </div>
+              </div>
 <br>
-
+<br>
 <div class="container" id = "reciept">
     <div class = "col-sm">
         <button class='btn btn-primary' (click) = 'toggleCredit()'>Pay with credit card</button>
@@ -130,6 +165,7 @@
 
     </form>
 </div>
+
 
 
 

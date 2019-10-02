@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.dao.VeterinarianDao;
 import com.model.Veterinarian;
 
+@Service()
 public class VeterinarianServiceImpl implements VeterinarianService {
 	
 	private VeterinarianDao vd;

@@ -13,6 +13,7 @@ export class PolicyService {
 
   age;
   age1;
+  size;
   remPol: RemovePol[];
   pol: NewPolicy[];
   petPol: PolicyPets[];
@@ -48,6 +49,38 @@ export class PolicyService {
       const curUser = JSON.parse(localStorage.getItem('owner'));
       const date = newPol.value.newbDate.split(['-']);
       this.age = 2019 - date[0];
+      if (newPol.value.polPetType == 1) {
+        if (newPol.value.newWeight <= 0.75) {
+          this.size = 1;
+        // tslint:disable-next-line: align
+        } else if (0.75 < newPol.value.newWeight && newPol.value.newWeight <= 4 ) {
+          this.size = 2;
+        // tslint:disable-next-line: align
+        } else {
+          this.size = 3;
+        }
+      } else if(newPol.value.polPetType == 2) {
+        if (newPol.value.newHeight <= 9) {
+          this.size = 1;
+        // tslint:disable-next-line: align
+        } else if (9 < newPol.value.newHeight && newPol.value.newHeight <= 16 ) {
+          this.size = 2;
+        // tslint:disable-next-line: align
+        } else {
+          this.size = 3;
+        }
+      } else {
+        if (newPol.value.newHeight <= 5) {
+          this.size = 1;
+        // tslint:disable-next-line: align
+        } else if (5 < newPol.value.newHeight && newPol.value.newHeight <= 24 ) {
+          this.size = 2;
+        // tslint:disable-next-line: align
+        } else {
+          this.size = 3;
+        }
+      }
+      console.log(this.size);
       this.pol = [
         {
         accNum: curUser.accountNumber,
@@ -68,7 +101,7 @@ export class PolicyService {
         newWeight: newPol.value.newWeight,
         newHeight: newPol.value.newHeight,
         newAge: this.age,
-        newPetSize: newPol.value.newPetSize,
+        newPetSize: this.size,
         newPetSex: newPol.value.newPetSex
         }
       ],
@@ -84,7 +117,7 @@ export class PolicyService {
       // return this.myHttpCli.post<string[]>('http://35.232.12.74/RevaturePetInsurance-0.0.1-SNAPSHOT/own/addPolicy.app', this.pol, httpPut);
   }
 
-  getPlans(): Observable<string[]> {
+      getPlans(): Observable<string[]> {
     const curUser = JSON.parse(localStorage.getItem('owner'));
 
     const httpPut = {
@@ -99,10 +132,45 @@ export class PolicyService {
     // return this.myHttpCli.post<string[]>('http://35.232.12.74/RevaturePetInsurance-0.0.1-SNAPSHOT/own/getPolicy.app', curUser, httpPut);
   }
 
-  addPetToPlans(newPetPol): Observable<string[]> {
+      addPetToPlans(newPetPol): Observable<string[]> {
     const curUser = JSON.parse(localStorage.getItem('owner'));
     const date = newPetPol.value.newbDate.split(['-']);
     this.age = 2019 - date[0];
+    console.log(newPetPol.value.polPetType);
+    console.log(newPetPol.value.newWeight);
+    console.log(newPetPol.value.newHeight);
+    // if (newPetPol.value.polPetType == 1) {
+    //   if (newPetPol.value.newWeight <= 0.75) {
+    //     console.log()
+    //     this.size = 1;
+    //   // tslint:disable-next-line: align
+    //   } else if (0.75 < newPetPol.value.newWeight && newPetPol.value.newWeight <= 4 ) {
+    //     this.size = 2;
+    //   // tslint:disable-next-line: align
+    //   } else {
+    //     this.size = 3;
+    //   }
+    // } else if(newPetPol.value.polPetType == 2) {
+    //   if (newPetPol.value.newHeight <= 9) {
+    //     this.size = 1;
+    //   // tslint:disable-next-line: align
+    //   } else if (9 < newPetPol.value.newHeight && newPetPol.value.newHeight <= 16 ) {
+    //     this.size = 2;
+    //   // tslint:disable-next-line: align
+    //   } else {
+    //     this.size = 3;
+    //   }
+    // } else {
+    //   if (newPetPol.value.newHeight <= 5) {
+    //     this.size = 1;
+    //   // tslint:disable-next-line: align
+    //   } else if (5 < newPetPol.value.newHeight && newPetPol.value.newHeight <= 24 ) {
+    //     this.size = 2;
+    //   // tslint:disable-next-line: align
+    //   } else {
+    //     this.size = 3;
+    //   }
+    // }
     this.petPol = [
       {
         accNum: curUser.accountNumber,
@@ -129,7 +197,7 @@ export class PolicyService {
     // return this.myHttpCli.post<string[]>('http://35.232.12.74/RevaturePetInsurance-0.0.1-SNAPSHOT/own/NewPet.app', this.petPol, httpPut);
   }
 
-  remove_Policy(policyRem): Observable<string[]> {
+      remove_Policy(policyRem): Observable<string[]> {
     const curUser = JSON.parse(localStorage.getItem('owner'));
     this.remPol = [
     {
