@@ -2,49 +2,62 @@
 
 
 <!--filter-->
+<br>
+<div class="container">
 
-<div>
-    <form class="search" id="zipSearch" [formGroup]="searchZip" (ngSubmit)=filter()>
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="search value">Search by Zipcode</label>
-                <input type="text" class="form-control" formControlName="searchZipcode"
-                    placeholder="insert valid zipcode">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-8">
+            <h2 style="text-align: center">In Network Veterinarians</h2>
+        </div>
+        <div class="col"></div>
+        <br>
+    </div>
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-8">
+            <form class="search" id="zipSearch" [formGroup]="searchZip" (ngSubmit)=filter()>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="search value">Search by Zipcode</label>
+
+                        <input type="text" class="form-control" formControlName="searchZipcode"
+                            placeholder="insert valid zipcode">
+                        <br>
+                        <button class="btn btn-outline-primary" id="submitbutton" type="submit">Submit</button>
+                    </div>
+                </div>
+            </form>
+
+            <!--Vet Table-->
+            <div class='vettable'>
+                <table class='table'>
+                    <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">License Number</th>
+                            <th scope="col">Zipcode</th>
+                            <th scope="col">City</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="!show">
+                        <tr *ngFor=' let temp of vets1'>
+                            <td>{{temp.firtName}} {{temp.lastName}}</td>
+                            <td>{{temp.licenseNumber}}</td>
+                            <td>{{temp.zipCode}}</td>
+                            <td>{{temp.city}}</td>
+                        </tr>
+                    </tbody>
+                    <tbody *ngIf="show">
+                        <tr *ngFor=' let temp of vetsFilteredbyZipcode'>
+                            <td>{{temp.firtName}} {{temp.lastName}}</td>
+                            <td>{{temp.licenseNumber}}</td>
+                            <td>{{temp.zipCode}}</td>
+                            <td>{{temp.city}}</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
-        <div class="form-row">
-                <div class="form-group col-md-6">
-                <button class="btn btn-outline-success" id="submitbutton" type="submit">Submit</button>
-              </div>
-              </div>
-    </form>
-</div>
-<!--Vet Table-->
-<div class='vet table'>
-    <table class='vet_table'>
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>License Number</th>
-                <th>Zipcode</th>
-                <th>City</th>
-            </tr>
-        </thead>
-        <tbody *ngIf ="!show">
-            <tr  *ngFor=' let temp of vets1'>
-                <td>{{temp.firtName}} {{temp.lastName}}</td>
-                <td>{{temp.licenseNumber}}</td>
-                <td>{{temp.zipCode}}</td>
-                <td>{{temp.city}}</td>
-            </tr>
-        </tbody>
-        <tbody *ngIf="show">
-                <tr  *ngFor=' let temp of vetsFilteredbyZipcode'>
-                        <td>{{temp.firtName}} {{temp.lastName}}</td>
-                        <td>{{temp.licenseNumber}}</td>
-                        <td>{{temp.zipCode}}</td>
-                        <td>{{temp.city}}</td>
-                    </tr>
-        </tbody>
-    </table>
-</div>
+
+        <div class="col"></div>
