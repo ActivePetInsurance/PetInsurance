@@ -7,7 +7,7 @@
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 	</welcome-file-list>
-
+	
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
@@ -24,16 +24,6 @@
 	</servlet-mapping>
 
 
-	<servlet>
-		<display-name>HibernateServlet</display-name>
-		<servlet-name>HibernateServlet</servlet-name>
-		<servlet-class>com.servlet.HibernateServlet</servlet-class>
-	</servlet>
 
-	<servlet-mapping>
-		<servlet-name>HibernateServlet</servlet-name>
-		<url-pattern>/Hibernate/*</url-pattern>
-		<url-pattern>*.maybe</url-pattern>
-	</servlet-mapping>
 
 </web-app>
