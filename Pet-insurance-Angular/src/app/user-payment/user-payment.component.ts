@@ -3,6 +3,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { UserBAPaymentService } from '../user-bapayment-service.service';
 import { UserCCpaymentServiceService } from '../user-ccpayment-service.service';
 import { PolicyService } from '../policy.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-payment',
@@ -34,7 +35,7 @@ export class UserPaymentComponent implements OnInit {
   showCreditform = false;
   showBankAccountform = false;
 
-  constructor(private BAService: UserBAPaymentService, private CCService: UserCCpaymentServiceService, private userPol: PolicyService) {
+  constructor(private router: Router, private BAService: UserBAPaymentService, private CCService: UserCCpaymentServiceService, private userPol: PolicyService) {
    }
 
   toggleCredit() {
@@ -86,6 +87,9 @@ export class UserPaymentComponent implements OnInit {
 
 
   ngOnInit() {
+    if(localStorage.getItem('owner') == null) {
+      this.router.navigate(['/welcome']);
+    }
     this.userPol.getPlans().subscribe(
       data => {
         console.log('pay: ');
