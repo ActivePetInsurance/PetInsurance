@@ -39,6 +39,9 @@ export class UserInfoComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     console.log(localStorage.getItem('owner'));
+    if(localStorage.getItem('owner') == null) {
+      this.router.navigate(['/welcome']);
+    }
   }
   ngOnDestroy(): void {
   }

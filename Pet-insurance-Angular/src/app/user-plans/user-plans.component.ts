@@ -48,6 +48,9 @@ export class UserPlansComponent implements OnInit {
    }
 
   ngOnInit() {
+    if(localStorage.getItem('owner') == null) {
+      this.router.navigate(['/welcome']);
+    }
     this.userPol.getPlans().subscribe(
       data => {
         console.log('get policy: ');
