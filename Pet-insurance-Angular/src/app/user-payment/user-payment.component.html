@@ -5,7 +5,7 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
               <div>
-                <button class='btn btn-primary' (click) = 'toggleCredit()' style="margin: 1%" style="padding-bottom: 1%">Pay with credit card</button>
+                <button class='btn btn-primary' (click) = 'toggleCredit()' style="margin: 1%" style="padding-bottom: 1%">Pay with Credit Card</button>
             </div>
             <div>
                 <button class='btn btn-primary' (click) = 'toggleBankAccount()' style="margin: 1%" style="padding-bottom: 1%">Pay with Bank Account</button>
@@ -48,6 +48,7 @@
                 </div>
                 </ng-template>
                 </div>
+</div>
 
 <br>
 <br>
@@ -70,7 +71,7 @@
         </div>
         <div class="form-row">
             <div class = "form-group col-md-6">
-                <label for="cityCC" style = "color:black" name = "cityCC" ngControlDefault required>city</label>
+                <label for="cityCC" style = "color:black" name = "cityCC" ngControlDefault required>City</label>
                 <input type = "text" class="form-control" id = "cityCC"  formControlName="cityCC"
                 placeholder="City">
             </div>
@@ -79,7 +80,7 @@
             <div class = "form-group col-md-6">
                 <label for="stateCC" style = "color:black" name = "stateCC" ngControlDefault required>State</label>
                 <input type = "text" class="form-control" id = "stateCC"  formControlName="stateCC"
-                placeholder="City">
+                placeholder="State">
             </div>
         </div>
         <div class="form-row">
@@ -171,7 +172,14 @@
         </div>
 
     </form>
-</div>
+<div class="row">
+    <div class = reciept  id = "reciept">
+            <h1>A+ Pet Insurance</h1>
+            <h2>reciept</h2>
+            <h3>Date:</h3>
+            <h4>Total Amount Paid:</h4>
+        </div>
+    </div>        
 
 
 
