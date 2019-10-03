@@ -11,13 +11,15 @@ import { Router } from '@angular/router';
 export class UserComponent implements OnInit {
   userInfo: UserInfo[] = [];
 
-  constructor(private sessionUser: UserServiceService) {
+  constructor(private sessionUser: UserServiceService, private router: Router) {
     this.userInfo = sessionUser.getUserInfo();
     console.log(this.userInfo);
   }
 
   ngOnInit() {
+    if(localStorage.getItem('owner') == null) {
+      this.router.navigate(['/elcome']);
     }
   }
 
-
+}

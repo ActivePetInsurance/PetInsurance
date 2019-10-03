@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Pet } from '../pet';
 import { UOwnedPetsService } from '../u-owned-pets.service';
 import { FormGroup, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-pets',
@@ -24,7 +25,7 @@ export class UserPetsComponent implements OnInit {
     newPetSex: new FormControl(''),
     newPetType: new FormControl('')
     });
-  constructor(private userPetServ: UOwnedPetsService) {
+  constructor(private router: Router, private userPetServ: UOwnedPetsService) {
     this.userPets = userPetServ.getUserPetInfo();
 }
 
@@ -34,6 +35,9 @@ toggle() {
 
 ngOnInit() {
   console.log('in init');
+  if(localStorage.getItem('owner') == null) {
+    this.router.navigate(['/welcome']);
+  }
   this.userPetServ.getOwnerPets().subscribe(
     data => {
       console.log(data);
