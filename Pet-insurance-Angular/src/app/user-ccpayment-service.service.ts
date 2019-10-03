@@ -11,7 +11,6 @@ export class UserCCpaymentServiceService {
   constructor(private myHttpCli: HttpClient) { }
 
   upayCC(newCC: CCinfo): Observable<string[]> {
-    console.log(newCC);
     const httpPut = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'

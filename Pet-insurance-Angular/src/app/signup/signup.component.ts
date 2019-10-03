@@ -28,14 +28,12 @@ export class SignupComponent implements OnInit {
   constructor(private router: Router, private usignup: UserSignupService) { }
 
   ngOnInit() {
-    console.log('cleared');
     // tslint:disable-next-line: no-unused-expression
     localStorage.removeItem('owner');
   }
 
   signup(SignInWhat): void {
     if (this.initSignUp.value.password === this.initSignUp.value.passwordC) {
-      console.log(this.initSignUp.value);
       this.usignup.usignup(this.initSignUp.value).subscribe(
         data => {
           this.routing();

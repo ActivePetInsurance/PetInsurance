@@ -20,19 +20,16 @@ export class SigninComponent implements OnInit {
   constructor(private router: Router, private usignin: UserSigninService) { }
 
   ngOnInit() {
-    console.log('cleared');
     // tslint:disable-next-line: no-unused-expression
     localStorage.removeItem('owner');
   }
 
 
   signin(SignInWhat): void {
-    console.log(this.SignIn.value);
     let loggerUser;
     this.usignin.signin(this.SignIn.value).subscribe(
       data => {
         const ourField = 'message';
-        console.log(data);
         loggerUser = data;
         if (loggerUser) {
           localStorage.setItem('owner', JSON.stringify(data));

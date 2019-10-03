@@ -46,7 +46,6 @@ export class UserPaymentComponent implements OnInit {
 
   }
   credit_info() {
-    console.log(this.creditform.value);
     this.CCService.upayCC(this.creditform.value).subscribe(
       data => {
         this.recieptCC();
@@ -56,7 +55,6 @@ export class UserPaymentComponent implements OnInit {
   }
 
   BA_info() {
-    console.log(this.BankAccountform.value);
     this.BAService.upayBA(this.BankAccountform.value).subscribe(
       data => {
         this.recieptBA();
@@ -92,8 +90,6 @@ export class UserPaymentComponent implements OnInit {
     }
     this.userPol.getPlans().subscribe(
       data => {
-        console.log('pay: ');
-        console.log(data);
         this.polPay = data;
         });
   }

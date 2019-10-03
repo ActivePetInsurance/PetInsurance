@@ -12,7 +12,6 @@ export class UserBAPaymentService {
     constructor(private myHttpcli: HttpClient) { }
 
     upayBA(newBA: BAInfo): Observable<string[]> {
-        console.log(newBA);
         const httpPut = {
             headers: new HttpHeaders({
                 'Content-Type': 'application/json'

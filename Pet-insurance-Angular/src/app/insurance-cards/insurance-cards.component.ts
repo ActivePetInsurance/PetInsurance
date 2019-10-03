@@ -15,7 +15,6 @@ export class InsuranceCardsComponent implements OnInit {
 
   constructor(private myAnimalsService: InsurancePackagesService, private fb: FormBuilder ) {
     this.petplans = myAnimalsService.getAnimals();
-    console.log(this.petplans);
   }
 
   ngOnInit() {
