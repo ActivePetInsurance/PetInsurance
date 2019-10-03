@@ -89,7 +89,7 @@ import { AboutusComponent } from './aboutus/aboutus.component';
       {
         path: 'signin', component: SigninComponent,
         children: [
-          { path: '', outlet: 'siNav', component: SigninNavbarComponent },
+          { path: '', outlet: 'hNav', component: HomeNavbarComponent },
         ]
       },
       {
@@ -114,7 +114,7 @@ import { AboutusComponent } from './aboutus/aboutus.component';
       {
         path: 'aboutUs', component: AboutusComponent,
         children: [
-          { path: '', outlet: 'invNav', component: InNetworkVetsNavbarComponent }
+          { path: '', outlet: 'hNav', component: HomeNavbarComponent }
         ]
       },
 

@@ -1,9 +1,9 @@
-<router-outlet name="siNav"></router-outlet>
-<div class="container">
+<router-outlet name="hNav"></router-outlet>
+<div class="container" style="margin-top: 13px">
   <div class="row">
     <div class="col-sm">
     </div>
-    <div class="col-sm">
+    <div class="col-sm" id = "signinCol">
 
           <form id = "myform1" [formGroup] = "SignIn" (ngSubmit)="signin()">
                   <div class="form-group">
@@ -20,7 +20,7 @@
                     <input type="checkbox" class="form-check-input" id="exampleCheck2">
                     <label class="form-check-label" for="exampleCheck2" style ="color: black">Remember login</label>
                   </div>
-                  <input id ="submitbutton1" type="submit" value = "Sign in"/>
+                  <input id ="submitbutton1" type="submit" value = "Sign in" style="margin-bottom: 10px"/>
               </form>
     </div>
     <div class="col-sm">
