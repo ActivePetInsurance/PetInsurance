@@ -24,6 +24,7 @@ export class UserInfoComponent implements OnInit, OnDestroy {
 
   constructor(private router: Router, private sessionUser: UserServiceService) {
     this.userInfo = sessionUser.getUserInfo();
+    console.log(this.userInfo);
   }
 
   toggle() {
@@ -36,7 +37,7 @@ export class UserInfoComponent implements OnInit, OnDestroy {
         const ourField = 'message';
         localStorage.removeItem('owner');
         localStorage.setItem('owner', JSON.stringify(data));
-        location.reload();
+        // location.reload();
       }
     );
   }
