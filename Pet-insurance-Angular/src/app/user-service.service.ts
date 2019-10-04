@@ -19,7 +19,7 @@ export class UserServiceService {
         mInit: this.curOwner.middleInitial,
         lName: this.curOwner.lastName,
         bDate: this.curOwner.dob,
-        add: this.curOwner.streetAddress,
+        add: '423 Bruce B Downs',
         city: this.curOwner.city,
         zip: this.curOwner.zipCode,
         phoneNum: this.curOwner.phoneNumber,
