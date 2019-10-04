@@ -1,0 +1,46 @@
+language: java
+sudo: true
+dist: trusty
+jdk: oraclejdk8
+cache:
+  directories:
+   - $HOME/google-cloud-sdk
+services:
+ - docker
+env:
+  global:
+  # Do not prompt for user input when using any SDK methods.
+  - CLOUDSDK_CORE_DISABLE_PROMPTS=1 
+addons:
+ apt:
+   packages:
+     - oracle-java8-installer
+before_install:
+# - chmod +x mvnw
+ - chmod +x ./build.sh
+ - chmod +x ./install.sh
+ - chmod +x ./configure.sh
+ - chmod +x ./deploy.sh
+ - openssl aes-256-cbc -K $encrypted_640783b76746_key -iv $encrypted_640783b76746_iv -in projectthreeie-42bb71ef7c2c.json.enc -out projectthreeie-42bb71ef7c2c.json -d
+script:  
+ - ./install.sh
+ - gcloud auth activate-service-account --key-file=projectthreeie-42bb71ef7c2c.json
+ - ./configure.sh
+ - ./build.sh
+after_success:
+ - if branch = staging
+ - ./deploy.sh
+ - gcloud logging write my-test-log "Successful build"
+
+language: node_js
+sudo: true
+node_js: 
+ - 12.10.0
+
+notifications:
+  email:
+    recipients:
+    #to show that it does work
+      - murphythebestcat@gmail.com
+    on_success: always # default: change
+    on_failure: always # default: always

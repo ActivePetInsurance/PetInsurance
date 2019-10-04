@@ -1,0 +1,481 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" href="#" data-toggle="modal" data-target="#aPlanModal">Add New Plan</a>
+      <a class="nav-item nav-link" href="#" data-toggle="modal" data-target="#petPlanModal">Add Pet To a Plan</a>
+      <!-- <a class="nav-item nav-link" href="#" data-toggle="modal" data-target="#dPlanModal">Remove Plan</a> -->
+    </div>
+  </div>
+</nav>
+
+<!-- new plan Modal -->
+<div class="modal fade" id="aPlanModal" tabindex="-1" role="dialog" aria-labelledby="aPlanModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="aPlanModalLabel">Add A New Plan</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form class="form-inline" id="myform" [formGroup]="newPol" >
+                <div class="form-group">
+                    <label for="polPetType">Choose Pet Type</label>
+                    <select class="form-control" id="polPetType" formControlName="polPetType" required>
+                      <option value = "1">Rodent</option>
+                      <option value = "2">Bird</option>
+                      <option value = "3">Reptile</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="polPlanType">Choose Plan</label>
+                    <select class="form-control" id="polPlanType" formControlName="polPlanType" required>
+                      <option value = "1">Plan A</option>
+                      <option value = "2">Plan B</option>
+                      <option value = "3">Plan C</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="newPetName" style="color: black" name="newPetName" ngControlDefault required>Pet Name</label>
+                        <input type="text" class="form-control" id="newPetName" aria-describedby="emailHelp"
+                            formControlName="newPetName" placeholder="Pet Name" required/>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="newbDate" style="color: black" name="bDate" required>Birthday</label>
+                      <input type="date" class="form-control" id="newbDate" formControlName="newbDate" required>
+                    </div>
+                  </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="newWeight">Weight</label>
+                        <input type="text" class="form-control" id="newWeight" formControlName="newWeight"
+                            placeholder="Weight in Pounds" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="newHeight">Height</label>
+                        <input type="text" class="form-control" id="newHeight" formControlName="newHeight"
+                             placeholder="Height in Inches" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="newPetSex" style="display: block">Sex</label>
+                        <select class="form-control" id="newPetSex" formControlName="newPetSex" required style="margin-top: 10px">
+                          <option value = "0">Male</option>
+                          <option value = "1">Female</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button class="btn btn-outline-success" id="submitbutton" type="submit" (click)="new_Policy(newPol)" data-dismiss="modal">Submit</button>
+                </div>
+              </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Remove Plan Modal -->
+<div class="modal fade" id="dPlanModal" tabindex="-1" role="dialog" aria-labelledby="dPlanModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="dPlanModalLabel">Remove Plan</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <h6>WARNNG: This will remove all pets on this plan as well</h6>
+        <form class="form-inline" id="myform" [formGroup]="remPlan" >
+            <div class="form-row">
+          <div class="form-group col-md-6">
+              <label for="polNum">Plan To Remove</label>
+              <input type="text" class="form-control" id="polNum" formControlName="polNum"
+                   placeholder="Plan Number" required>
+          </div>
+            </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button class="btn btn-outline-success" id="submitbutton" type="submit" (click)="remove_Policy(remPlan)" data-dismiss="modal">Submit</button>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- Add Pet To Plan -->
+<div class="modal fade" id="petPlanModal" tabindex="-1" role="dialog" aria-labelledby="petPlanModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="petPlanModalLabel">Add A New Pet To a Policy</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form class="form-inline" id="myform" [formGroup]="newPet">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="polNum">Policy Number</label>
+                        <input type="text" class="form-control" formControlName="polNum"
+                            id="polNum" placeholder="Policy #" required>
+                    </div>
+                      <div class="form-group col-md-6">
+                    <label for="newPetName" style="color: black" name="newPetName" ngControlDefault required>Name</label>
+                    <input type="text" class="form-control" id="newPetName" aria-describedby="emailHelp"
+                        formControlName="newPetName" placeholder="Pet Name" required />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="newbDate" style="color: black" name="bDate" required>Birthday</label>
+                  <input type="date" class="form-control" id="newbDate" formControlName="newbDate"required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="newWeight">Weight</label>
+                    <input type="text" class="form-control" id="newWeight" formControlName="newWeight"
+                        placeholder="Weight in Pounds" required>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="newHeight">Height</label>
+                    <input type="text" class="form-control" id="newHeight" formControlName="newHeight"
+                         placeholder="Height in Inches" required>
+                </div>
+                <div class="form-group col-md-6" style="padding-top: 50px" style="padding-left: 35px">
+                    <div><label for="newPetSex" >Sex</label></div>
+                    <select class="form-control" id="newPetSex" formControlName="newPetSex" required>
+                      <option value = "0">Male</option>
+                      <option value = "1">Female</option>
+                    </select>
+            </div>
+              </div>
+            <div class ="form-row">
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button class="btn btn-outline-success" id="submitbutton" type="submit" (click)="new_PetToPol(newPet)" data-dismiss="modal">Submit</button>
+          </div>
+        </div>
+          </form>
+        
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <!-- Modal -->
+<div class="modal fade" id="rodA" tabindex="-1" role="dialog" aria-labelledby="rodALabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="rodALabel">Rodant A Plan</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>
+            Parasite Prevention <br>
+            Nutrition Discounts<br>
+            Dental Work<br>
+            Accidental Injuries<br>
+            Poisonings<br>
+            Illnesses<br>
+            Training and Education <br>
+            </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+  </div>
+</div>
+</div>
+
+  <div class="modal fade" id="rodB" tabindex="-1" role="dialog" aria-labelledby="rodBLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="rodBLabel">Rodant B Plan</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+              <p>
+                  Physical Exams<br>
+                    Grooming (nails)<br>
+                    Lab Fees<br>
+                    X-Rays<br>
+                    Diagnostics Tests<br>
+                    Office Visits <br>
+                    Prescriptions<br>
+                    </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="rodC" tabindex="-1" role="dialog" aria-labelledby="rodCLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="rodCLabel">Rodant C Plan</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    Vacation Planning Aid<br>
+                    Flea & Heartworm Vaccinations <br>
+                    Emergency Care Options<br>
+                    
+                </p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="birdA" tabindex="-1" role="dialog" aria-labelledby="birdALabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="birdALabel">Bird A Plan</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p>
+                  Accidental Injuries<br>
+                  Poisonings<br>
+                  Illnesses<br>
+                  Nutrition Disc.<br>
+                  Training Education<br>
+                </p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+        </div>
+      </div>
+      
+        <div class="modal fade" id="birdB" tabindex="-1" role="dialog" aria-labelledby="birdBLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="birdBLabel">Bird B Plan</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p>
+                    Parasite Prevention<br>
+                    Physical Exams<br>
+                    X-Rays<br>
+                    Lab Fees<br>
+                    Diagnostics Tests<br>
+                    Office Visits <br>
+                    Prescriptions<br>
+                  </p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+      
+          <div class="modal fade" id="birdC" tabindex="-1" role="dialog" aria-labelledby="birdCLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="birdCLabel">Bird C Plan</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <p>
+                      Vacation Planning Aid<br>
+                      Flea & Heartworm <br>
+                      Vaccinations <br>
+                      Emergency Care Options<br></p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="modal fade" id="repA" tabindex="-1" role="dialog" aria-labelledby="repALabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="repALabel">Reptile A Plan</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <p>
+                        Nutrition Discounts<br>
+                        Accidental Injuries<br>
+                        Poisonings<br>
+                        Illnesses<br>
+                        Training and Education<br></p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+              </div>
+            </div>
+            
+              <div class="modal fade" id="repB" tabindex="-1" role="dialog" aria-labelledby="repBLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="repBLabel">Reptile B Plan</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <p>
+                            Parasite Prevention<br>
+                            Dental Work<br>
+                            Physical Exams<br>
+                            X-Rays<br>
+                            Lab Fees<br>
+                            Diagnostics Tests<br>
+                            Office Visits<br>
+                            Prescriptions<br></p>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            
+                <div class="modal fade" id="repC" tabindex="-1" role="dialog" aria-labelledby="repCLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="repCLabel">Reptile C Plan</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <p>
+                            Vacation Planning Aid<br>
+                            Flea & Heartworm <br>
+                            Vaccinations<br>
+                            Emergency Care Options<br>
+                          </p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+  <br>
+
+<!-- Card generation -->
+<div class="row" style="align-content: center">
+<div class="card" *ngFor="let plan of owerPol">
+    <div class="card-body" *ngIf="plan.petList.length == 1; else elseTemplate1">
+        <h5 class="card-title">Policy Number:</h5>
+        <h5 class="card-title">{{plan.policyNumber}}</h5>
+        <h6 class="card-text" style="color:  rgba(44,46,131,1)"><b>{{plan.insurancePlan.planName}}</b></h6>
+        <h6>Pets:</h6>
+        <p class="card-text">{{plan.petList[0].name}}</p>
+      </div>
+        <ng-template #elseTemplate1>
+        <div class="card-body" *ngIf="plan.petList.length == 2; else elseTemplate2">
+            <h5 class="card-title">Policy Number:</h5>
+            <h5 class="card-title">{{plan.policyNumber}}</h5>
+            <h6 class="card-text" style="color:  rgba(44,46,131,1)"><b>{{plan.insurancePlan.planName}}</b></h6>
+            <h6>Pets:</h6>
+            <p class="card-text">{{plan.petList[0].name}}</p> 
+            <p class="card-text">{{plan.petList[1].name}}</p>
+        </div>
+        </ng-template>
+        <ng-template #elseTemplate2>
+        <div class="card-body">
+            <h5 class="card-title">Policy Number:</h5>
+            <h5 class="card-title">{{plan.policyNumber}}</h5>
+            <h6 class="card-text" style="color:  rgba(44,46,131,1)"><b>{{plan.insurancePlan.planName}}</b></h6>
+            <h6>Pets:</h6>
+            <p class="card-text">{{plan.petList[0].name}}</p>
+            <p class="card-text">{{plan.petList[1].name}}</p>
+            <p class="card-text">{{plan.petList[2].name}}</p>
+        </div>
+        </ng-template>
+        <div *ngIf="plan.insurancePlan.planId == 1; else else1Template">
+          <a  class="card-link" data-toggle="modal" data-target="#rodA">Click For Plan Info</a>
+        </div>
+        <ng-template #else1Template>
+            <div *ngIf="plan.insurancePlan.planId == 2; else else2Template">
+                <a  class="card-link" data-toggle="modal" data-target="#rodB">Click For Plan Info</a>
+              </div>
+          </ng-template>
+          <ng-template #else2Template>
+              <div *ngIf="plan.insurancePlan.planId == 3; else else3Template">
+                  <a  class="card-link" data-toggle="modal" data-target="#rodC">Click For Plan Info</a>
+                </div>
+          </ng-template>
+          <ng-template #else3Template>
+              <div *ngIf="plan.insurancePlan.planId  == 4; else else4Template">
+                  <a  class="card-link" data-toggle="modal" data-target="#birdA">Click For Plan Info</a>
+                </div>
+            </ng-template>
+            <ng-template #else4Template>
+                <div *ngIf="plan.insurancePlan.planId  == 5; else else5Template">
+                    <a  class="card-link" data-toggle="modal" data-target="#birdB">Click For Plan Info</a>
+                  </div>
+            </ng-template>
+            <ng-template #else5Template>
+                <div *ngIf="plan.insurancePlan.planId  == 6; else else6Template">
+                    <a  class="card-link" data-toggle="modal" data-target="#birdC">Click For Plan Info</a>
+                  </div>
+            </ng-template>
+            <ng-template #else6Template>
+                <div *ngIf="plan.insurancePlan.planId  == 7; else else7Template">
+                    <a  class="card-link" data-toggle="modal" data-target="#repA">Click For Plan Info</a>
+                  </div>
+              </ng-template>
+              <ng-template #else7Template>
+                  <div *ngIf="plan.insurancePlan.planId  == 8; else else8Template">
+                      <a  class="card-link" data-toggle="modal" data-target="#repB">Click For Plan Info</a>
+                    </div>
+              </ng-template>
+              <ng-template #else8Template>
+                  <div>
+                      <a  class="card-link" data-toggle="modal" data-target="#repC">Click For Plan Info</a>
+                    </div>
+              </ng-template>
+        </div>
+  </div>

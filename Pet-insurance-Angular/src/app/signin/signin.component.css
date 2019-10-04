@@ -1,0 +1,19 @@
+
+#signinCol{
+    border-style: solid;
+    border-width: 1.5px;
+    border-color: rgba(44,46,131,1);
+    border-radius: 8px 8px 8px 8px;
+-moz-border-radius: 8px 8px 8px 8px;
+-webkit-border-radius: 8px 8px 8px 8px;
+background-color:lightgrey;
+}
+
+#submitbutton1{
+    width: 100%;
+    border-radius: 8px 8px 8px 8px;
+    -moz-border-radius: 8px 8px 8px 8px;
+    -webkit-border-radius: 8px 8px 8px 8px;
+    background-color: rgb(11, 196, 196);
+    color: black;
+}
