@@ -16,9 +16,7 @@ export class InNetworkVetsComponent implements OnInit {
 constructor(private dbvets: InNetworkVetsService) {
   this.dbvets.getVets().subscribe(
     data => {
-      console.log(data);
       this.vets1 = data;
-      console.log(this.vets1);
     }
   );
 
@@ -39,14 +37,12 @@ filterValue: number;
 show = false;
 
 filter(zipInput): string[] {
-  console.log(this.searchZip.value.searchZipcode);
   for (let i = 0; i < this.vets1.length; i++) {
 
     if (this.vets1[i].zipCode == this.searchZip.value.searchZipcode) {
       this.vetsFilteredbyZipcode.push(this.vets1[i]);
     }
   }
-  console.log(this.vetsFilteredbyZipcode);
   this.show=true;
   return this.vetsFilteredbyZipcode;
 }

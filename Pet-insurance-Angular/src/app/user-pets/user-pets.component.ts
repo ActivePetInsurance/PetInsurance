@@ -34,21 +34,17 @@ toggle() {
 }
 
 ngOnInit() {
-  console.log('in init');
   if(localStorage.getItem('owner') == null) {
     this.router.navigate(['/welcome']);
   }
   this.userPetServ.getOwnerPets().subscribe(
     data => {
-      console.log(data);
       this.ownerPets = data;
       this.ownerPetLen = data.length;
-      console.log(this.ownerPets);
       });
   }
 
   new_Pet() {
-    console.log(this.newPet.value);
     this.toggle();
   }
 

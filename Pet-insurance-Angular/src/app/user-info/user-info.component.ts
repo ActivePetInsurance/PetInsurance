@@ -24,7 +24,6 @@ export class UserInfoComponent implements OnInit, OnDestroy {
 
   constructor(private router: Router, private sessionUser: UserServiceService) {
     this.userInfo = sessionUser.getUserInfo();
-    console.log(this.userInfo);
   }
 
   toggle() {
@@ -32,13 +31,17 @@ export class UserInfoComponent implements OnInit, OnDestroy {
   }
 
   info_Change() {
-    console.log(this.infoChange.value);
-    this.updateUser();
-    this.toggle();
+    this.sessionUser.curUserUpdate(this.userInfo).subscribe(
+      data => {
+        const ourField = 'message';
+        localStorage.removeItem('owner');
+        localStorage.setItem('owner', JSON.stringify(data));
+        location.reload();
+      }
+    );
   }
 
   ngOnInit() {
-    console.log(localStorage.getItem('owner'));
     if(localStorage.getItem('owner') == null) {
       this.router.navigate(['/welcome']);
     }
@@ -47,16 +50,5 @@ export class UserInfoComponent implements OnInit, OnDestroy {
   }
 
   updateUser() {
-    console.log(this.infoChange.value);
-    this.sessionUser.curUserUpdate(this.userInfo).subscribe(
-      data => {
-        const ourField = 'message';
-        console.log(data);
-        localStorage.removeItem('owner');
-        localStorage.setItem('owner', JSON.stringify(data));
-        this.router.navigate(['/user']);
-        }
-    );
-  }
-
+}
 }

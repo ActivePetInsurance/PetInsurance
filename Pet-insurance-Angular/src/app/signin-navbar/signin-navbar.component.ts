@@ -16,7 +16,6 @@ export class SigninNavbarComponent implements OnInit {
 
   signOut() {
     // tslint:disable-next-line: no-unused-expression
-    console.log("cleared");
     // tslint:disable-next-line: no-unused-expression
     localStorage.removeItem('owner');
   }

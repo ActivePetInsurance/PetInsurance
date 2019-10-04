@@ -16,19 +16,15 @@ export class WelcomeComponent implements OnInit {
 
   constructor(private myAnimalsService: InsurancePackagesService, private fb: FormBuilder, private router: Router ) {
     this.petplans = myAnimalsService.getAnimals();
-    console.log(this.petplans);
   }
 
   ngOnInit(): void {
-    console.log('cleared');
     // tslint:disable-next-line: no-unused-expression
     localStorage.removeItem('owner');
   }
 
   onNavigate(petVal) {
-    console.log('In navigate');
     const selected = petVal;
-    console.log(selected);
     switch (selected) {
         case 'Birds':
           this.router.navigate(['/welcome/Birds']);
