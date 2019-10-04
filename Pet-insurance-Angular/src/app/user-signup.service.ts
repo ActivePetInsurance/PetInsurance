@@ -11,7 +11,6 @@ export class UserSignupService {
   constructor(private myHttpCli: HttpClient) { }
 
   usignup(newUser: UserInfo): Observable<string[]> {
-    console.log(newUser);
     const httpPut = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'

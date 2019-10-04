@@ -80,7 +80,6 @@ export class PolicyService {
           this.size = 3;
         }
       }
-      console.log(this.size);
       this.pol = [
         {
         accNum: curUser.accountNumber,
@@ -105,7 +104,7 @@ export class PolicyService {
         newPetSex: newPol.value.newPetSex
         }
       ],
-      console.log(this.pol);
+      console.log("here");
       const httpPut = {
         headers: new HttpHeaders({
           'Content-Type':  'application/json',
@@ -126,7 +125,6 @@ export class PolicyService {
           'withCredentials': 'true'
       })
     };
-    console.log('before Plans return');
 
     // return this.myHttpCli.post<string[]>('http://localhost:9005/RevaturePetInsurance/own/getPolicy.app', curUser, httpPut);
     return this.myHttpCli.post<string[]>('http://35.232.12.74/RevaturePetInsurance-0.0.1-SNAPSHOT/own/getPolicy.app', curUser, httpPut);
@@ -136,9 +134,6 @@ export class PolicyService {
     const curUser = JSON.parse(localStorage.getItem('owner'));
     const date = newPetPol.value.newbDate.split(['-']);
     this.age = 2019 - date[0];
-    console.log(newPetPol.value.polPetType);
-    console.log(newPetPol.value.newWeight);
-    console.log(newPetPol.value.newHeight);
     // if (newPetPol.value.polPetType == 1) {
     //   if (newPetPol.value.newWeight <= 0.75) {
     //     console.log()
@@ -184,14 +179,12 @@ export class PolicyService {
         newPetSex: newPetPol.value.newPetSex
       }
     ];
-    console.log(this.petPol);
     const httpPut = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json',
           'withCredentials': 'true'
       })
     };
-    console.log('before add pets');
 
     // return this.myHttpCli.post<string[]>('http://localhost:9005/RevaturePetInsurance/own/NewPet.app', this.petPol, httpPut);
     return this.myHttpCli.post<string[]>('http://35.232.12.74/RevaturePetInsurance-0.0.1-SNAPSHOT/own/NewPet.app', this.petPol, httpPut);
@@ -211,7 +204,6 @@ export class PolicyService {
           'withCredentials': 'true'
       })
     };
-    console.log('before Plans return');
 
     // return this.myHttpCli.post<string[]>('http://localhost:9005/RevaturePetInsurance/own/removePolicy.app', this.remPol, httpPut);
     return this.myHttpCli.post<string[]>('http://35.232.12.74/RevaturePetInsurance-0.0.1-SNAPSHOT/own/getPolicy.app', curUser, httpPut);

@@ -57,14 +57,12 @@ export class UOwnedPetsService {
 
   getOwnerPets(): Observable<string[]> {
     const curUser = JSON.parse(localStorage.getItem('owner'));
-    console.log(curUser);
     const httpPut = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json',
           'withCredentials': 'true'
       })
     };
-    console.log('before return');
 
     // return this.myHttpCli.post<string[]>('http://localhost:9005/RevaturePetInsurance/own/getPets.app', curUser, httpPut);
     return this.myHttpCli.post<string[]>('http://35.232.12.74/RevaturePetInsurance-0.0.1-SNAPSHOT/own/getPets.app', curUser, httpPut);

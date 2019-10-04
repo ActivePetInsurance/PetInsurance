@@ -4,12 +4,66 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-                <button class='btn btn-primary' (click)='toggle()'>
-                        Edit User Info
-                    </button>
+                <a class="nav-item nav-link" href="#" data-toggle="modal" data-target="#editU">Edit User Info</a>
           </div>
         </div>
       </nav>
+
+      <div class="modal fade" id="editU" tabindex="-1" *ngFor="let user of userInfo" role="dialog" aria-labelledby="editULabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editULabel">Edit User Information</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                            <form class="form" id="myform" [formGroup]="infoChange">
+                                    <div class="form-row">
+                                        <div class="form-group col-md-12">
+                                            <label for="exampleInputEmail1" style="color: black" name="emailC" ngControlDefault required>Change
+                                                Email</label>
+                                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                                formControlName="emailC" [(ngModel)]='user.email' placeholder="Enter Email" />
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-12">
+                                            <label for="phoneNumC" style="color: black" name="phoneNumC" required>Change Phone Number</label>
+                                            <input type="text" class="form-control" id="phoneNumC" [(ngModel)]='user.phoneNum'
+                                                formControlName="phoneNumC" placeholder="(XXX-XXX-XXXX)">
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-12">
+                                            <label for="inputAddress">Address</label>
+                                            <input type="text" class="form-control" id="inputAddress" formControlName="add1C"
+                                                [(ngModel)]='user.add' placeholder="1234 Main St">
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-12">
+                                            <label for="inputCity">City</label>
+                                            <input type="text" class="form-control" formControlName="cityC" [(ngModel)]='user.city'
+                                                id="inputCity">
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-12">
+                                            <label for="inputZip">Zip</label>
+                                            <input type="text" class="form-control" formControlName="zipC" [(ngModel)]='user.zip' id="inputZip">
+                                        </div>
+                                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button class="btn btn-outline-success" id="submitbutton" type="submit"(click)="info_Change(infoChange)" data-dismiss="modal">Submit</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        </div>
 <br>
 <div class="container" *ngFor="let user of userInfo">
     <!-- <form *ngIf = 'showForm' id="myform" [formGroup]="initSignUp" (ngSubmit)="infoChange()"> -->
@@ -38,62 +92,4 @@
                 <p><b>Zip Code:</b></p> {{user.zip}}
             </div>
         </div>
-        <div class="container" id = "toggleFormBtnCont">
-            <div class="row">
-                <div class="col-sm">
-
-                </div>
-                <div class="col-sm">
-
-                </div>
-                <div class="col-sm">
-
-                </div>
-            </div>
-        </div>
     </div>
-    <div>
-        <form class="form-inline" *ngIf='showForm' id="myform" [formGroup]="infoChange" (ngSubmit)="info_Change()">
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="exampleInputEmail1" style="color: black" name="emailC" ngControlDefault required>Change
-                        Email</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                        formControlName="emailC" [(ngModel)]='user.email' placeholder="Enter Email" />
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="phoneNumC" style="color: black" name="phoneNumC" required>Change Phone Number</label>
-                    <input type="text" class="form-control" id="phoneNumC" [(ngModel)]='user.phoneNum'
-                        formControlName="phoneNumC" placeholder="(XXX-XXX-XXXX)">
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="inputAddress">Address</label>
-                    <input type="text" class="form-control" id="inputAddress" formControlName="add1C"
-                        [(ngModel)]='user.add1' placeholder="1234 Main St">
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="inputCity">City</label>
-                    <input type="text" class="form-control" formControlName="cityC" [(ngModel)]='user.city'
-                        id="inputCity">
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="inputZip">Zip</label>
-                    <input type="text" class="form-control" formControlName="zipC" [(ngModel)]='user.zip' id="inputZip">
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <button class="btn btn-outline-success" id="submitbutton" type="submit">Submit</button>
-                </div>
-            </div>
-        </form>
-    </div>
-</div>

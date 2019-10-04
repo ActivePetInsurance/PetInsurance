@@ -46,7 +46,6 @@ export class UserPaymentComponent implements OnInit {
 
   }
   credit_info() {
-    console.log(this.creditform.value);
     this.CCService.upayCC(this.creditform.value).subscribe(
       data => {
         this.recieptCC();
@@ -56,7 +55,6 @@ export class UserPaymentComponent implements OnInit {
   }
 
   BA_info() {
-    console.log(this.BankAccountform.value);
     this.BAService.upayBA(this.BankAccountform.value).subscribe(
       data => {
         this.recieptBA();
@@ -71,7 +69,7 @@ export class UserPaymentComponent implements OnInit {
     const time = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
     const dateTime = date + ' ' + time;
     // tslint:disable-next-line: max-line-length
-    myReciept.innerHTML = ' <div class = reciept> <h1>A+ Pet Insurance</h1> <h2>receipt</h2> <h3>Date: ' + dateTime + '</h3><h4>Total Amount Paid: $' + this.BankAccountform.value.paidAmount + '</h4></div>';
+    myReciept.innerHTML = ' <div class = "reciept1" style =" border-style: solid" style = "border-width: 1px" style="border-color: rgb(11, 196, 196)"> <h2>A+ Pet Insurance</h2> <h3>Receipt</h3> <h4>Date: ' + dateTime + '</h4><h4>Total Amount Paid: $' + this.BankAccountform.value.paidAmount + '</h4></div>';
   }
 
   recieptCC(): void {
@@ -81,7 +79,7 @@ export class UserPaymentComponent implements OnInit {
     const time = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
     const dateTime = date + ' ' + time;
     // tslint:disable-next-line: max-line-length
-    myReciept.innerHTML = ' <div class = reciept> <h1>A+ Pet Insurance</h1> <h2>receipt</h2> <h3>Date: ' + dateTime + '</h3><h4>Total Amount Paid: $' + this.creditform.value.paidAmount + '</h4></div>';
+    myReciept.innerHTML = ' <div class = "reciept1" style =" border-style: solid" style = "border-width: 1px"> <h2>A+ Pet Insurance</h2> <h3>Receipt</h3> <h4>Date: ' + dateTime + '</h4><h4>Total Amount Paid: $' + this.creditform.value.paidAmount + '</h4></div>';
   }
 
 
@@ -92,8 +90,6 @@ export class UserPaymentComponent implements OnInit {
     }
     this.userPol.getPlans().subscribe(
       data => {
-        console.log('pay: ');
-        console.log(data);
         this.polPay = data;
         });
   }

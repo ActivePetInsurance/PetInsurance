@@ -44,7 +44,6 @@ export class UserPlansComponent implements OnInit {
   userPolicy: Policy[] = [];
   constructor(private router: Router, private userPol: PolicyService) {
     this.userPolicy = userPol.getPolInfo();
-    console.log(this.userPolicy);
    }
 
   ngOnInit() {
@@ -53,17 +52,13 @@ export class UserPlansComponent implements OnInit {
     }
     this.userPol.getPlans().subscribe(
       data => {
-        console.log('get policy: ');
-        console.log(data);
         this.owerPol = data;
         });
   }
 
   new_Policy() {
-    console.log(this.newPol.value);
     this.userPol.addNewPlan(this.newPol).subscribe(
       data => {
-        console.log(data);
         location.reload()
         });
   }
@@ -71,31 +66,22 @@ export class UserPlansComponent implements OnInit {
   new_PetToPol(): void {
     this.userPol.getPlans().subscribe(
       data => {
-        console.log('get policy: ');
-        console.log(data);
         this.polCheck = data;
         let iCount = 0;
         for (const plan of this.polCheck) {
-          console.log(plan);
-          console.log(this.newPet.value.polNum);
-          console.log(plan.policyNumber);
-          console.log(plan.petList.length);
           if (this.newPet.value.polNum == plan.policyNumber) {
             iCount++;
             if (plan.petList.length < 3) {
               this.userPol.addPetToPlans(this.newPet).subscribe(
                 data1 => {
-                  console.log(data1);
                 }
               );
              } else {
-              console.log('TOOO MUCH');
               alert('This Policy already has 3 Pets, please add a new Policy');
            }
           }
          }
         if (iCount == 0) {
-          console.log('NO PLAN');
           alert('Invalide policy number');
         }
         location.reload();
@@ -105,7 +91,6 @@ export class UserPlansComponent implements OnInit {
   remove_Policy() {
     this.userPol.remove_Policy(this.remPlan).subscribe(
       data => {
-        console.log(data);
       }
     );
   }

@@ -13,7 +13,6 @@ export class UserComponent implements OnInit {
 
   constructor(private sessionUser: UserServiceService, private router: Router) {
     this.userInfo = sessionUser.getUserInfo();
-    console.log(this.userInfo);
   }
 
   ngOnInit() {

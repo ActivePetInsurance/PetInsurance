@@ -12,7 +12,6 @@ export class UserSigninService {
   constructor(private myHttpCli: HttpClient) { }
 
   signin(user: userSignIn): Observable<string[]> {
-    console.log(user);
     const httpPut = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json',
