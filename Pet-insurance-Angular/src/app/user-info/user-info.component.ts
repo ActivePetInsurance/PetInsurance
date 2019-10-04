@@ -31,8 +31,14 @@ export class UserInfoComponent implements OnInit, OnDestroy {
   }
 
   info_Change() {
-    this.updateUser();
-    this.toggle();
+    this.sessionUser.curUserUpdate(this.userInfo).subscribe(
+      data => {
+        const ourField = 'message';
+        localStorage.removeItem('owner');
+        localStorage.setItem('owner', JSON.stringify(data));
+        location.reload();
+      }
+    );
   }
 
   ngOnInit() {
@@ -44,14 +50,5 @@ export class UserInfoComponent implements OnInit, OnDestroy {
   }
 
   updateUser() {
-    this.sessionUser.curUserUpdate(this.userInfo).subscribe(
-      data => {
-        const ourField = 'message';
-        localStorage.removeItem('owner');
-        localStorage.setItem('owner', JSON.stringify(data));
-        this.router.navigate(['/user']);
-        }
-    );
-  }
-
+}
 }
